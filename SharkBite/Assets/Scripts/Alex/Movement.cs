@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Movement : MonoBehaviour
     private CharacterController _characterController;
     private float _lastShotTime;
     private Vector3 _lastKnownDirection;
+    private PlayerInput _playerInput;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,20 +27,20 @@ public class Movement : MonoBehaviour
             Debug.LogError("Bullet doesn't have RigidBody");
         }
         _lastKnownDirection = transform.forward;
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-        Vector3 moveDirection = transform.forward * verticalInput + transform.right * horizontalInput;
-        if (moveDirection != Vector3.zero)
+        Vector2 _moveDirection = _playerInput.actions["Move"].ReadValue<Vector2>();
+        Vector3 _3dMoveDirection = new Vector3(_moveDirection.x, 0, _moveDirection.y);
+        if (_3dMoveDirection != Vector3.zero)
         {
-            _lastKnownDirection = moveDirection;
+            _lastKnownDirection = _3dMoveDirection;
         }
 
-        _characterController.Move(moveDirection * speed * Time.deltaTime);
+        _characterController.Move(_3dMoveDirection * speed * Time.deltaTime);
 
 
         if (Time.time >= _lastShotTime + cooldown)

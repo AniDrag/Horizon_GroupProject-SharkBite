@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
 
     public Vector3 _playerPos;
+    public Vector2Int _displayResolution;
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        _displayResolution = new Vector2Int(Display.main.systemWidth, Display.main.systemHeight);
     }
 
     // Update is called once per frame
