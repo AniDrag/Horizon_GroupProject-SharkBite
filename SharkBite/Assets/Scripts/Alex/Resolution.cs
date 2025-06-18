@@ -15,7 +15,6 @@ public class Resolution : MonoBehaviour
         _RawImage = GetComponent<RawImage>();
         int width = GameManager.instance._displayResolution.x;
         int height = GameManager.instance._displayResolution.y;
-        Debug.Log(width + " " +  height);   
         _resizedTexture = new CustomRenderTexture(width, height, texture.graphicsFormat);
 
         _resizedTexture.material = texture.material;
@@ -33,8 +32,8 @@ public class Resolution : MonoBehaviour
         if (_RawImage != null)
         {
             RectTransform rt = _RawImage.rectTransform;
-            rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
-            rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
+            rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, GameManager.instance._displaySystemResolution.x);
+            rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, GameManager.instance._displaySystemResolution.y);
         }
 
     }

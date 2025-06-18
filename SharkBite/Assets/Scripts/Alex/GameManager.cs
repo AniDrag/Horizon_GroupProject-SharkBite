@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public Vector3 _playerPos;
     public Vector2Int _displayResolution;
+    public Vector2Int _displaySystemResolution;
 
     private void Awake()
     {
@@ -24,7 +25,17 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _displayResolution = new Vector2Int(Display.main.systemWidth, Display.main.systemHeight);
+        Screen.autorotateToLandscapeLeft = false;
+        Screen.autorotateToLandscapeRight = false;
+        Screen.autorotateToPortrait = false;
+        Screen.autorotateToPortraitUpsideDown = false;
+
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+
+        _displaySystemResolution = new Vector2Int(Display.main.systemWidth, Display.main.systemHeight);
+        _displayResolution = new Vector2Int(Screen.currentResolution.width, Screen.currentResolution.height);
+        Debug.Log(_displayResolution.ToString());
+        Debug.Log(_displaySystemResolution.ToString());
     }
 
     // Update is called once per frame

@@ -32,11 +32,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1643894503459206592}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -287, y: 132.6}
-  m_SizeDelta: {x: 111.3774, y: 30.473}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 447.31134, y: -217.16348}
+  m_SizeDelta: {x: 111.37738, y: 30.472992}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &4457553770086372868
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -475,9 +475,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1643894503459206592}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 133.92856}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -231.07144}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &236401492787071020
@@ -671,7 +671,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5647825808745916980}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &8440812498708937172
 MonoBehaviour:
   m_ObjectHideFlags: 0
