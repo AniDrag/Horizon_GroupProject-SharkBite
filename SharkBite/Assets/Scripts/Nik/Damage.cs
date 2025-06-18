@@ -17,5 +17,6 @@ public class Damage : MonoBehaviour
             targetHelth.TakeDamage(_damage);
             Debug.Log($"Damage delt {_damage} to target");
         }
+        Destroy(this.gameObject);
     }
 }

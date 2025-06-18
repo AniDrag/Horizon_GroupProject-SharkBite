@@ -793,7 +793,7 @@ MonoBehaviour:
   timeBeforeBossSpawn_min: 1
   enemySpawnInterval: 0.1
   maxChaseEnemys: 10
-  SPAWN_enemyPlatonSpawnMinMax: {x: 5, y: 20}
+  SPAWN_enemyPlatonSpawnMinMax: {x: 13, y: 46}
   enemySpawnRadious: 10
   enemysPrefab:
   - {fileID: 7058778186568194291, guid: a90dc33548953134fb395e4955a98648, type: 3}
@@ -1146,6 +1146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_2
       objectReference: {fileID: 0}
+    - target: {fileID: 6047650160849099847, guid: ab29e8be89fa5de4998d86c02114144e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1162,6 +1166,10 @@ PrefabInstance:
     - target: {fileID: 2825771279036803513, guid: d5513ea5777dfe043896c492a4c4d58c, type: 3}
       propertyPath: m_Name
       value: Boss_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2825771279036803513, guid: d5513ea5777dfe043896c492a4c4d58c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4585077178293624609, guid: d5513ea5777dfe043896c492a4c4d58c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1273,9 +1281,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1721335160129355584, guid: a90dc33548953134fb395e4955a98648, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7058778186568194291, guid: a90dc33548953134fb395e4955a98648, type: 3}
       propertyPath: m_Name
       value: Enemy_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058778186568194291, guid: a90dc33548953134fb395e4955a98648, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9178591901496087581, guid: a90dc33548953134fb395e4955a98648, type: 3}
       propertyPath: m_LocalPosition.x

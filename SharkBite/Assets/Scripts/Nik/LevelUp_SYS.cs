@@ -33,4 +33,5 @@ public class LevelUp_SYS : MonoBehaviour
         levelUpText.text = level.ToString();
         Debug.Log($"player leveld up!! current level = {level}");
     }
+
 }

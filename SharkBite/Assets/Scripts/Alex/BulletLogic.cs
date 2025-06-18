@@ -5,11 +5,12 @@ public class BulletLogic : MonoBehaviour
 
     private void Awake()
     {
-        DestroyMe();
+        DestroyMe(10);
     }
 
-    private void DestroyMe()
+    public void DestroyMe(float time)
     {
-        Destroy(this.gameObject, 10f);
+        Destroy(this.gameObject, time);
     }
+
 }
