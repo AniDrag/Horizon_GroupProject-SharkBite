@@ -9,15 +9,15 @@ public class Spawner : MonoBehaviour
     #region Variables 
     [Header("========= Settings =========")]
     [Tooltip("This is in minutes")]
-    [SerializeField] private int timeBeforeBossSpawn_min = 4;
+    [SerializeField, Min(1)]  private int timeBeforeBossSpawn_min = 4;
     [Tooltip("This spawns normal enemysPrefab, and is a timer for that in seconds")]
-    [SerializeField] private float enemySpawnInterval = 0.1f;
+    [SerializeField, Min(0.01f)] private float enemySpawnInterval = 0.1f;
     [Tooltip("This are the enemysPrefab that always chase you")]
-    [SerializeField] private int maxChaseEnemys = 10;
+    [SerializeField, Min(1)] private int maxChaseEnemys = 10;
     [Tooltip("X = min amount, Y = Max amount")]
-    public Vector2Int SPAWN_enemyPlatonSpawnMinMax = new Vector2Int(5, 20);
+    [MinMaxSlider(1f, 100f)] public Vector2Int SPAWN_enemyPlatonSpawnMinMax = new Vector2Int(5, 20);
     [Tooltip("the distance from witch the enemysPrefab will spawn from the player")]
-    [SerializeField] private float enemySpawnRadious = 10;
+    [SerializeField, Min(10)] private float enemySpawnRadious = 10;
 
     [Header("========= Refrences =========")]
     [SerializeField] private List<GameObject> enemysPrefab;
@@ -132,13 +132,6 @@ public class Spawner : MonoBehaviour
 
     void SafetyCheck()
     {
-        if (enemysPrefab.Count <= 0) Debug.LogError("No enemy prefabs on Spawner") ;
-        if (timeBeforeBossSpawn_min <= 0) Debug.LogError("timeBeforeBossSpawn_min = 0 or less, This can't be negative !!");
-        if (enemySpawnInterval <= 0) Debug.LogError("enemySpawnInterval = 0 or less, This can't be negative !!");
-        if (maxChaseEnemys <= 0) Debug.LogError("maxChaseEnemys = 0 or less, NO enemies will spawn Fix");
-        if (SPAWN_enemyPlatonSpawnMinMax.x <= 0) Debug.LogError("SPAWN_enemyPlatonSpawnMinMax value X is 0 or less, This cant be negative or 0 !!");
-        if (SPAWN_enemyPlatonSpawnMinMax.y <= 0) Debug.LogError("SPAWN_enemyPlatonSpawnMinMax value X is 0 or less, This cant be negative or 0 !!");
-        if (SPAWN_enemyPlatonSpawnMinMax.x >= SPAWN_enemyPlatonSpawnMinMax.y) Debug.LogError("SPAWN_enemyPlatonSpawnMinMax error, X(min) cant be bigger than Y(max), causes no real issue but fix it for cleanlines");
         SPAWN_bossSpawned = false;
         Debug.Log("Spawner Clear check :: Passed");
     }
