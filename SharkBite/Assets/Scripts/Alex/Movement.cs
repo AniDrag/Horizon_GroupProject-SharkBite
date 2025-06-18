@@ -15,11 +15,12 @@ public class Movement : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
 
     private CharacterController _characterController;
+    public PlayerStats playerStats = new PlayerStats();
     private float _lastShotTime;
     private Vector3 _lastKnownDirection;
     private PlayerInput _playerInput;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public virtual void Start()
     {
         _characterController = GetComponent<CharacterController>();
         if (bulletPrefab.GetComponent<Rigidbody>() == null )
@@ -28,10 +29,11 @@ public class Movement : MonoBehaviour
         }
         _lastKnownDirection = transform.forward;
         _playerInput = GetComponent<PlayerInput>();
+        
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         Vector2 _moveDirection = _playerInput.actions["Move"].ReadValue<Vector2>();
         Vector3 _3dMoveDirection = new Vector3(_moveDirection.x, 0, _moveDirection.y);
@@ -43,7 +45,7 @@ public class Movement : MonoBehaviour
         _characterController.Move(_3dMoveDirection * speed * Time.deltaTime);
 
 
-        if (Time.time >= _lastShotTime + cooldown)
+        if (Time.time >= _lastShotTime + playerStats.GetRecoilSpeed())
         {
             Shoot(cooldown, _lastKnownDirection);
             _lastShotTime = Time.time;
@@ -56,6 +58,8 @@ public class Movement : MonoBehaviour
     {
 
         GameObject newBullet = Instantiate(bulletPrefab, transform.position + moveDirection, Quaternion.identity);
+        newBullet.GetComponent<Damage>().SetDamage(playerStats.GetBulletDamage());
+
         Rigidbody rb = newBullet.GetComponent<Rigidbody>();
         if (rb != null)
         {

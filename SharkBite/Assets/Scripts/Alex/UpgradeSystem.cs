@@ -6,19 +6,22 @@ using UnityEngine.Events;
 public class UpgradeSystem : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] 
-    private List<Button> button = new List<Button>();
-    private UnityAction[] upgradeMethods;
+    [SerializeField] private List<Button> button = new List<Button>();
+    private UnityAction[] _upgradeMethods;
 
 
 
     private List<Button> _existingButtons = new List<Button>();
+    private PlayerStats _playerStats;
     //public delegate void UpgradeButtonDelegate();
     //public UpgradeButtonDelegate Upgrade;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+
     void Start()
     {
-        upgradeMethods = new UnityAction[] {Upgrade0, Upgrade1 };
+        _playerStats = gameObject.GetComponentInParent<Movement>().playerStats;
+        _upgradeMethods = new UnityAction[] {Upgrade0, Upgrade1 };
         OnLevelUp();
     }
 
@@ -27,7 +30,7 @@ public class UpgradeSystem : MonoBehaviour
     /// Call this whenever we level Up
     /// </summary>
     public void OnLevelUp() 
-    {
+    {// Max 6 lvl's
         HashSet<int> usedIndexes = new HashSet<int>();
         if (button.Count < 2)
         {
@@ -50,7 +53,7 @@ public class UpgradeSystem : MonoBehaviour
     private void InstantiateButton(int index)
     {
         Button actionButton = Instantiate(button[index], transform, this.transform);
-        actionButton.onClick.AddListener(upgradeMethods[index]);
+        actionButton.onClick.AddListener(_upgradeMethods[index]);
         actionButton.onClick.AddListener(DestroyExistingButtons);
         _existingButtons.Add(actionButton);
     }
@@ -63,12 +66,16 @@ public class UpgradeSystem : MonoBehaviour
     }
 
     public void Upgrade0()
-    {
-        Debug.Log("I WORK");
+    {//Increase of firerate
+        float recoilSpeed = _playerStats.GetRecoilSpeed();
+        _playerStats.IncreaseRecoilSpeed(10);
+        Debug.Log($"Recoilspeed was {recoilSpeed}, now it is {_playerStats.GetRecoilSpeed()}");
     }
 
     public void Upgrade1()
-    {
-        Debug.Log("I WORK 2");
+    {//Increase the damage of the bullets
+        float damage = _playerStats.GetBulletDamage();
+        _playerStats.IncreaseDamage(10);
+        Debug.Log($"Damage was {damage}, now it is {_playerStats.GetBulletDamage()}");
     }
 }

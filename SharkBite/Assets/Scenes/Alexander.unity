@@ -953,6 +953,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PostProcessing
       objectReference: {fileID: 0}
+    - target: {fileID: 3415956938910400820, guid: 121615c0cc96ca9458bdc11da748aae4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8550194245411319198, guid: 121615c0cc96ca9458bdc11da748aae4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
