@@ -6,6 +6,7 @@ public class Health_SYS : MonoBehaviour
     public int maxHelath = 10;
 
     [SerializeField] private bool isEnemy;
+    [SerializeField] private GameObject xpOrb;
 
     private int _health = 10;
 
@@ -19,14 +20,12 @@ public class Health_SYS : MonoBehaviour
     public void TakeDamage(int damage)
     {
         int tempHelth = _health - DamageCalculationWithModifiers(damage);
+
         if (tempHelth <= 0)
         {
             _health = 0;
-            if (isEnemy) 
-            {
-                Spawner.instance.SPAWN_enemysInScene.Remove(gameObject);
-                Destroy(gameObject); 
-            }
+
+            if (isEnemy) IsEnemyLogic();
             else gameObject.SetActive(false);
 
         }
@@ -46,5 +45,12 @@ public class Health_SYS : MonoBehaviour
     int DamageCalculationWithModifiers(int damage)
     {
         return damage;
+    }
+
+    void IsEnemyLogic()
+    {
+        Instantiate(xpOrb, transform.position + Vector3.up * 1, Quaternion.identity);
+        Spawner.instance.SPAWN_enemysInScene.Remove(gameObject);
+        Destroy(gameObject);
     }
 }
