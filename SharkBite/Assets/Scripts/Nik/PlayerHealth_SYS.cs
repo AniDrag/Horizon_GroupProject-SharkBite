@@ -23,24 +23,23 @@ public class PlayerHealth_SYS : MonoBehaviour
 
     public void Update()
     {
-            float targetScale = (float)_currentHealth / (float)_playerStats.GetMaxHealth(); // Smooth HpBar change
-            float currentScale = hpSlider.localScale.y;
-            if (targetScale != currentScale)
+        float targetScale = (float)_currentHealth / (float)_playerStats.GetMaxHealth(); // Smooth HpBar change
+        float currentScale = hpSlider.localScale.y;
+        if (targetScale != currentScale)
+        {
+            float maxChangeThisFrame = maxScaleChangePerSecond * Time.deltaTime; // if 100 FPS and maxChangepSec=0.5, this is 0.005
+
+            if (Mathf.Abs(currentScale - targetScale) < maxChangeThisFrame)
             {
-                float maxChangeThisFrame = maxScaleChangePerSecond * Time.deltaTime; // if 100 FPS and maxChangepSec=0.5, this is 0.005
-
-                if (Mathf.Abs(currentScale - targetScale) < maxChangeThisFrame)
-                {
-                    currentScale = targetScale;
-                }
-                else
-                {
-                    currentScale += Mathf.Sign(targetScale - currentScale) * maxChangeThisFrame;
-                }
-
-                hpSlider.localScale = new Vector3(1, currentScale, 1); // End of smooth HpBar change
+                currentScale = targetScale;
             }
-        
+            else
+            {
+                currentScale += Mathf.Sign(targetScale - currentScale) * maxChangeThisFrame;
+            }
+
+            hpSlider.localScale = new Vector3(1, currentScale, 1); // End of smooth HpBar change
+        }
     }
 
     public void TakeDamage(int damage)

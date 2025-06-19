@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public class WaveFormat
-    {
-        public int durationOfWave = 0;
-        public List<GameObject> enemiesInWave = new List<GameObject>();
-        public bool isRestWave;
-    }
     public static Spawner instance;
 
     #region Variables 
+
+    [Header("========= Wave runner Logic =========")]
+    public List<WaveFormat> waveList = new List<WaveFormat>();
+
+
     [Header("========= Settings =========")]
     [Tooltip("This is in minutes")]
     [SerializeField, Min(1)]  private int timeBeforeBossSpawn_min = 4;
@@ -140,5 +139,11 @@ public class Spawner : MonoBehaviour
     {
         SPAWN_bossSpawned = false;
         Debug.Log("Spawner Clear check :: Passed");
+    }
+
+
+    void WaveRunner()
+    {
+
     }
 }

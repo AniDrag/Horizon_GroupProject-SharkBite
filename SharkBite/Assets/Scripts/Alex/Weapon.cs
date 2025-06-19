@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Transform orientation;
 
     private PlayerStats playerStats;
-    private float _lastShotTime;
+    private float _timeReset;
     void Start()
     {
         playerStats = PlayerManager.instance.playerStats;
@@ -20,24 +20,31 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _timeReset += Time.deltaTime;
 
-        if (Time.time >= _lastShotTime + playerStats.GetFireRate())
+        
+    }
+    private void FixedUpdate()
+    {
+        if (_timeReset >= playerStats.GetFireRate())
         {
+            // Debug.Log("I shot a bullet");
             Shoot(playerStats.GetFireRate(), orientation.position);
-            _lastShotTime = Time.time;
+            _timeReset = 0;
         }
     }
 
     private void Shoot(float cd, Vector3 moveDirection)
     {
 
-        GameObject newBullet = Instantiate(projectilePrefab, transform.position + moveDirection, Quaternion.identity);
+        GameObject newBullet = Instantiate(projectilePrefab, orientation.position + orientation.forward * 1.5f, Quaternion.identity);
         newBullet.GetComponent<Damage>().SetDamage(playerStats.GetBulletDamage());
 
         Rigidbody rb = newBullet.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.AddForce(moveDirection.normalized * playerStats.GetBulletSpeed());
+            rb.AddForce(orientation.forward * playerStats.GetBulletSpeed() * 200, ForceMode.Force);
         }
+        Debug.Log("I shot a bullet");
     }
 }
