@@ -4,9 +4,6 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-
-    [Header("========= Prefabs =========")]
-    [SerializeField] GameObject bulletPrefab;
     [Header(" =========Refrences =========")]
     [SerializeField] Transform orientation;
 
@@ -22,11 +19,7 @@ public class Movement : MonoBehaviour
     public virtual void Start()
     {
         playerStats = PlayerManager.instance.playerStats;
-        _characterController = GetComponent<CharacterController>();
-        if (bulletPrefab.GetComponent<Rigidbody>() == null )
-        {
-            Debug.LogError("Bullet doesn't have RigidBody");
-        }
+        _characterController = GetComponent<CharacterController>();        
         _lastKnownDirection = transform.forward;
         _playerInput = GetComponent<PlayerInput>();
         
@@ -46,9 +39,5 @@ public class Movement : MonoBehaviour
         _characterController.Move(_3dMoveDirection * playerStats.GetMovementSpeed() * Time.deltaTime);
 
         GameManager.instance._playerPos = transform.position;
-
-        
     }
-
-    
 }

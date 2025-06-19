@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class OrbOfXP : MonoBehaviour
 {
-    public int amountOfXP = 5;
+    private int amountOfXP = 5;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")

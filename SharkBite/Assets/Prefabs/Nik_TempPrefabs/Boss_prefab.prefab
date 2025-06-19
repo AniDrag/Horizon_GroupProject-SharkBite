@@ -95,7 +95,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4585077178293624609}
-  - component: {fileID: 7472670599164150622}
   - component: {fileID: 4558961311438514058}
   m_Layer: 0
   m_Name: Boss_prefab
@@ -120,22 +119,6 @@ Transform:
   - {fileID: 7627580764821233223}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7472670599164150622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2825771279036803513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fdea46e0736e5a4aa6f3481ec02cde3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHelath: 10
-  isEnemy: 1
-  xpOrb: {fileID: 7017670253318641998, guid: 682e149732ca6a34ab4bc893e760d0e3, type: 3}
-  healthText: {fileID: 0}
 --- !u!65 &4558961311438514058
 BoxCollider:
   m_ObjectHideFlags: 0

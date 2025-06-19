@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class EnemyHealth_SYS : MonoBehaviour
 {
-    private int currentEnemyHealth = 100;
 
     [SerializeField] GameObject xpOrbPrefab;
+    private int currentEnemyHealth = 100;
     private void Start()
     {
         currentEnemyHealth = GetComponent<EnemyMovement>().GetHealth(); // ALWAYS RETURNS 1, HAS TO BE MADE

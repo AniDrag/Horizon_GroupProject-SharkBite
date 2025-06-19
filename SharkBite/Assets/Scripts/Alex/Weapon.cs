@@ -1,8 +1,8 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [Header("===== Weapon Refrences =====")]
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform orientation;
 
@@ -11,6 +11,10 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         playerStats = PlayerManager.instance.playerStats;
+        if (projectilePrefab.GetComponent<Rigidbody>() == null)
+        {
+            Debug.LogError("Bullet doesn't have RigidBody");
+        }
     }
 
     // Update is called once per frame

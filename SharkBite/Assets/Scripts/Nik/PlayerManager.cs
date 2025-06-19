@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 [RequireComponent(typeof(Movement))]
 [RequireComponent(typeof(Weapon))]
+[RequireComponent(typeof(PlayerHealth_SYS))]
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
@@ -12,7 +13,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] TMP_Text levelUpText;
     //private List<> modifiers = new List<>();
 
-
+    // ========= Ints =========
     private int level = 0;
     private int xpToLevelUp;    
     private int _currentXP;
@@ -25,12 +26,10 @@ public class PlayerManager : MonoBehaviour
             Destroy(instance);
         }
             instance = this;
-    }
 
-    private void Start()
-    {
         xpToLevelUp = playerStats.GetMaxXP();
     }
+
     public void AddXP(int xp)
     {
         int tempXP = xp + _currentXP;

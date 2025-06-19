@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance { get; private set; }
 
+    [Header ("===== Details =====")]
     public Vector3 _playerPos;
     public Vector2Int _displayResolution;
     public Vector2Int _displaySystemResolution;

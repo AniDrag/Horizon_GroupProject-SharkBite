@@ -1,38 +1,28 @@
 using TMPro;
 using UnityEngine;
 [RequireComponent(typeof(Collider))]
-public class PlayerHealth_SYS : Movement
+public class PlayerHealth_SYS : MonoBehaviour
 {
-    [Header ("Hp")]
+    [Header ("===== Hp Refrences =====")]
     [SerializeField] private RectTransform hpSlider;
     [SerializeField] private TMP_Text healthText;
     [SerializeField] private float maxScaleChangePerSecond = 0.5f;
-    [Header("Other")]
-    [SerializeField] private bool isEnemy;
-    [SerializeField] private GameObject xpOrb;
 
 
     private int _currentHealth = 10;
-
     private PlayerStats _playerStats;
 
 
 
-    public override void Start()
+    public void Start()
     {
-        // TODO: ADD reference to _playerStats
+        _playerStats = PlayerManager.instance.playerStats;
         _currentHealth = _playerStats.GetMaxHealth();
         TakeDamage(0);
     }
 
-
-
-
-    // Update is called once per frame
-    public override void Update()
+    public void Update()
     {
-        if (!isEnemy)
-        {
             float targetScale = (float)_currentHealth / (float)_playerStats.GetMaxHealth(); // Smooth HpBar change
             float currentScale = hpSlider.localScale.y;
             if (targetScale != currentScale)
@@ -50,7 +40,7 @@ public class PlayerHealth_SYS : Movement
 
                 hpSlider.localScale = new Vector3(1, currentScale, 1); // End of smooth HpBar change
             }
-        }
+        
     }
 
     public void TakeDamage(int damage)
@@ -63,10 +53,7 @@ public class PlayerHealth_SYS : Movement
         if (tempHelth <= 0)
         {
             _currentHealth = 0;
-
-            if (isEnemy) IsEnemyLogic();
-            else gameObject.SetActive(false);
-
+             gameObject.SetActive(false);
         }
         else
         {
@@ -76,20 +63,8 @@ public class PlayerHealth_SYS : Movement
         if(healthText != null) healthText.text = _currentHealth.ToString();
 
     }
-    /// <summary>
-    /// All modifiers and stuff can be managed here
-    /// </summary>
-    /// <param name="damage"></param>
-    /// <returns></returns>
     int DamageCalculationWithModifiers(int damage)
     {
         return damage;
-    }
-
-    void IsEnemyLogic()
-    {
-        Instantiate(xpOrb, transform.position + Vector3.up * 1, Quaternion.identity);
-        Spawner.instance.SPAWN_enemysInScene.Remove(gameObject);
-        Destroy(gameObject);
     }
 }

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public class WaveFormat
+    {
+        public int durationOfWave = 0;
+        public List<GameObject> enemiesInWave = new List<GameObject>();
+        public bool isRestWave;
+    }
     public static Spawner instance;
 
     #region Variables 

@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 5479791801091642600}
   - component: {fileID: 550607659672644720}
   m_Layer: 5
-  m_Name: JoystickCanvas
+  m_Name: PlayerUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,6 +245,37 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &1475786262409787933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4134298224538032283}
+  m_Layer: 3
+  m_Name: playerOrientation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4134298224538032283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475786262409787933}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2755119708091113177}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1606243608770956689
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,10 +289,11 @@ GameObject:
   - component: {fileID: 8281813834109707615}
   - component: {fileID: 8362447967811631517}
   - component: {fileID: 6574203304782199223}
-  - component: {fileID: 7619924461591933399}
   - component: {fileID: 5035826586059530451}
-  - component: {fileID: 743931652400356053}
-  - component: {fileID: 2819067051005053407}
+  - component: {fileID: 2646418470994957399}
+  - component: {fileID: 1931784602516532871}
+  - component: {fileID: 6942476885652741932}
+  - component: {fileID: 2369525749914507634}
   m_Layer: 3
   m_Name: _player_
   m_TagString: Player
@@ -284,6 +316,7 @@ Transform:
   m_Children:
   - {fileID: 1794786491799874168}
   - {fileID: 1643894503459206592}
+  - {fileID: 4134298224538032283}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4056148374152537001
@@ -387,22 +420,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7619924461591933399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1606243608770956689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf6143881424614c9d5ac9da8307864, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  cooldown: 0.5
-  bulletForce: 1000
-  bulletPrefab: {fileID: 8342531266508567538, guid: 92027befcc9cf9040b6bda824499dc76, type: 3}
 --- !u!114 &5035826586059530451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,7 +450,21 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &743931652400356053
+--- !u!114 &2646418470994957399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606243608770956689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e0652af4aef15840b5764317f144ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeSystem: {fileID: 0}
+  levelUpText: {fileID: 8515961581825313080}
+--- !u!114 &1931784602516532871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -445,13 +476,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fdea46e0736e5a4aa6f3481ec02cde3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHelath: 10
   hpSlider: {fileID: 5444957516990473260}
   healthText: {fileID: 2508913248948372364}
   maxScaleChangePerSecond: 0.5
   isEnemy: 0
   xpOrb: {fileID: 7017670253318641998, guid: 682e149732ca6a34ab4bc893e760d0e3, type: 3}
---- !u!114 &2819067051005053407
+--- !u!114 &6942476885652741932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -460,13 +490,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1606243608770956689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f23fe04337e523458576b2a6ca85599, type: 3}
+  m_Script: {fileID: 11500000, guid: 4cf6143881424614c9d5ac9da8307864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
-  xpToLevelUp: 10
-  levelUpText: {fileID: 8515961581825313080}
-  upgradeSystem: {fileID: 6674809217737148800}
+  orientation: {fileID: 4134298224538032283}
+--- !u!114 &2369525749914507634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606243608770956689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c55f573674e8142994ae2e130bc525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 8342531266508567538, guid: 92027befcc9cf9040b6bda824499dc76, type: 3}
+  orientation: {fileID: 4134298224538032283}
 --- !u!1 &3674208633800626591
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +520,7 @@ GameObject:
   - component: {fileID: 3594152128399069467}
   - component: {fileID: 8515961581825313080}
   m_Layer: 5
-  m_Name: LevelUp
+  m_Name: LevelUp_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

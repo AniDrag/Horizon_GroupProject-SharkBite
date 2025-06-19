@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class UpgradeSystem : MonoBehaviour
 {
-    [Header("References")]
+    [Header("===== References =====")]
     [SerializeField] private List<Button> button = new List<Button>();
     private UnityAction[] _upgradeMethods;
 
