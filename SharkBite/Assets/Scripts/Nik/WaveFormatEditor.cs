@@ -32,6 +32,7 @@ public class WaveFormatEditor : Editor
                 EditorGUILayout.HelpBox("Total spawn chances exceed 100%. Adjust the values to make sure the sum is 100 or less.", MessageType.Warning);
             }
 
+
             // Display each enemy's name and spawn chance
             for (int i = 0; i < wave.possibleEnemiesToSpawn.Count; i++)
             {
@@ -48,8 +49,14 @@ public class WaveFormatEditor : Editor
                     enemy.SpawnChance = newChance;
                     isAdjusted = true;
                 }
+
+
+
                 EditorGUILayout.EndHorizontal();
             }
+
+
+
             EditorGUILayout.Space();
         }
 
@@ -135,7 +142,7 @@ public class EnemySpecifics
     public string EnemyName;
 
     [Tooltip("The enemy's image")]
-    public Image EnemyImage;
+    public Sprite EnemyImage;
 
     [Tooltip("The enemy's level")]
     public int EnemyLevel;
@@ -145,6 +152,6 @@ public class EnemySpecifics
     public int SpawnChance = 0;  // The chance this enemy will spawn (0-100%)
 
     public string GetEnemyName() => EnemyName = prefab.enemyName;
-    public Image SetSprite() => EnemyImage = prefab.previewImage;
+    public Sprite SetSprite() => EnemyImage = prefab.previewImage;
 
 }
