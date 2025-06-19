@@ -1,29 +1,63 @@
 using TMPro;
 using UnityEngine;
 [RequireComponent(typeof(Collider))]
-public class Health_SYS : MonoBehaviour
+public class Health_SYS : Movement
 {
-    public int maxHelath = 10;
-
+    [Header ("Hp")]
+    [SerializeField] private RectTransform hpSlider;
+    [SerializeField] private TMP_Text healthText;
+    [SerializeField] private float maxScaleChangePerSecond = 0.5f;
+    [Header("Other")]
     [SerializeField] private bool isEnemy;
     [SerializeField] private GameObject xpOrb;
 
-    private int _health = 10;
+
+    private int _currentHealth = 10;
 
 
-    [SerializeField] private TMP_Text healthText;
-    private void Start()
+
+    public override void Start()
     {
-        _health = maxHelath;
+        _currentHealth = playerStats.GetMaxHealth();
         TakeDamage(0);
     }
+
+
+
+
+    // Update is called once per frame
+    public override void Update()
+    {
+        if (!isEnemy)
+        {
+            float targetScale = (float)_currentHealth / (float)playerStats.GetMaxHealth(); // Smooth HpBar change
+            float currentScale = hpSlider.localScale.y;
+
+            float maxChangeThisFrame = maxScaleChangePerSecond * Time.deltaTime; // if 100 FPS and maxChangepSec=0.5, this is 0.005
+
+            if (Mathf.Abs(currentScale - targetScale) < maxChangeThisFrame)
+            {
+                currentScale = targetScale;
+            }
+            else
+            {
+                currentScale += Mathf.Sign(targetScale - currentScale) * maxChangeThisFrame;
+            }
+
+            hpSlider.localScale = new Vector3(1, currentScale, 1); // End of smooth HpBar change
+        }
+    }
+
     public void TakeDamage(int damage)
     {
-        int tempHelth = _health - DamageCalculationWithModifiers(damage);
+        if (damage < 0)
+            return;
+        
+        int tempHelth = _currentHealth - DamageCalculationWithModifiers(damage);
 
         if (tempHelth <= 0)
         {
-            _health = 0;
+            _currentHealth = 0;
 
             if (isEnemy) IsEnemyLogic();
             else gameObject.SetActive(false);
@@ -31,10 +65,10 @@ public class Health_SYS : MonoBehaviour
         }
         else
         {
-            _health = tempHelth;
+            _currentHealth = tempHelth;
         }
 
-        if(healthText != null) healthText.text = _health.ToString();
+        if(healthText != null) healthText.text = _currentHealth.ToString();
 
     }
     /// <summary>
