@@ -117,13 +117,13 @@
 
             fixed4 frag (v2f i) : SV_Target
             {
-
+                
                 //float z = abs(i.cameraZPos);     
-                float z = pow(saturate(-i.cameraZPos / _MaxDepth), _DepthExponent);
+                //float z = pow(saturate(-i.cameraZPos / _MaxDepth), _DepthExponent);
                 
                 //return fixed4(z, 0, 0, 1);        
 
-                float distortionStrength = _Distortion / 100 * z;
+                float distortionStrength = _Distortion / 100;
                 float2 distortionNoise = float2(
                     sin(_Time.y * 2 + i.uv.y * 30),
                     cos(_Time.y * 2 + i.uv.x * 30)

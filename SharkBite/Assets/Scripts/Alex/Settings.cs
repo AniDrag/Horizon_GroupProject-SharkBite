@@ -14,7 +14,8 @@ public class Settings : MonoBehaviour
 
     void Start()
     {
-        SetVSync(true); // Default VSync ON
+        SetVSync(false); // Default VSync ON
+        Application.targetFrameRate = 60;
     }
 
     void Update()
