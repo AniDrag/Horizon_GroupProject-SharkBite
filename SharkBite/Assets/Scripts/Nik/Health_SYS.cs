@@ -32,19 +32,21 @@ public class Health_SYS : Movement
         {
             float targetScale = (float)_currentHealth / (float)playerStats.GetMaxHealth(); // Smooth HpBar change
             float currentScale = hpSlider.localScale.y;
-
-            float maxChangeThisFrame = maxScaleChangePerSecond * Time.deltaTime; // if 100 FPS and maxChangepSec=0.5, this is 0.005
-
-            if (Mathf.Abs(currentScale - targetScale) < maxChangeThisFrame)
+            if (targetScale != currentScale)
             {
-                currentScale = targetScale;
-            }
-            else
-            {
-                currentScale += Mathf.Sign(targetScale - currentScale) * maxChangeThisFrame;
-            }
+                float maxChangeThisFrame = maxScaleChangePerSecond * Time.deltaTime; // if 100 FPS and maxChangepSec=0.5, this is 0.005
 
-            hpSlider.localScale = new Vector3(1, currentScale, 1); // End of smooth HpBar change
+                if (Mathf.Abs(currentScale - targetScale) < maxChangeThisFrame)
+                {
+                    currentScale = targetScale;
+                }
+                else
+                {
+                    currentScale += Mathf.Sign(targetScale - currentScale) * maxChangeThisFrame;
+                }
+
+                hpSlider.localScale = new Vector3(1, currentScale, 1); // End of smooth HpBar change
+            }
         }
     }
 
