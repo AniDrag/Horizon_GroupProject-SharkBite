@@ -11,11 +11,16 @@ public class Damage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Health_SYS targetHelth = other.gameObject.GetComponent<Health_SYS>();
-        if (targetHelth != null)
+        PlayerHealth_SYS playerHealth = other.gameObject.GetComponent<PlayerHealth_SYS>();
+        EnemyHealth_SYS enemyhealth = other.gameObject.GetComponent<EnemyHealth_SYS>();
+        if (playerHealth != null)
         {
-            targetHelth.TakeDamage(_damage);
+            playerHealth.TakeDamage(_damage);
             Debug.Log($"Damage delt {_damage} to target");
+        }
+        else if (enemyhealth !=null)
+        {
+
         }
         Destroy(this.gameObject);
     }

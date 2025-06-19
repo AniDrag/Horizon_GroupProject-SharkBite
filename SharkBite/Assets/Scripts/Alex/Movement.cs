@@ -4,24 +4,24 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    [Header("Movement")]
-    [SerializeField] private float speed = 5f;
 
-    [Header("Shooting")]
-    [SerializeField] private float cooldown = 1f;
-    [SerializeField] private float bulletForce;
-
-    [Header("Prefabs")]
+    [Header("========= Prefabs =========")]
     [SerializeField] GameObject bulletPrefab;
+    [Header(" =========Refrences =========")]
+    [SerializeField] Transform orientation;
 
+    // ========= Geting Types =========
     private CharacterController _characterController;
-    public PlayerStats playerStats = new PlayerStats();
-    private float _lastShotTime;
-    private Vector3 _lastKnownDirection;
+    private PlayerStats playerStats;
     private PlayerInput _playerInput;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    // ========= Vectors =========
+    private Vector3 _lastKnownDirection;
+
+
     public virtual void Start()
     {
+        playerStats = PlayerManager.instance.playerStats;
         _characterController = GetComponent<CharacterController>();
         if (bulletPrefab.GetComponent<Rigidbody>() == null )
         {
@@ -41,29 +41,14 @@ public class Movement : MonoBehaviour
         {
             _lastKnownDirection = _3dMoveDirection;
         }
+        orientation.rotation = Quaternion.LookRotation( _lastKnownDirection );
 
-        _characterController.Move(_3dMoveDirection * speed * Time.deltaTime);
-
-
-        if (Time.time >= _lastShotTime + playerStats.GetRecoilSpeed())
-        {
-            Shoot(cooldown, _lastKnownDirection);
-            _lastShotTime = Time.time;
-        }
+        _characterController.Move(_3dMoveDirection * playerStats.GetMovementSpeed() * Time.deltaTime);
 
         GameManager.instance._playerPos = transform.position;
+
+        
     }
 
-    private void Shoot(float cd, Vector3 moveDirection)
-    {
-
-        GameObject newBullet = Instantiate(bulletPrefab, transform.position + moveDirection, Quaternion.identity);
-        newBullet.GetComponent<Damage>().SetDamage(playerStats.GetBulletDamage());
-
-        Rigidbody rb = newBullet.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.AddForce(moveDirection.normalized * bulletForce);
-        }
-    }
+    
 }

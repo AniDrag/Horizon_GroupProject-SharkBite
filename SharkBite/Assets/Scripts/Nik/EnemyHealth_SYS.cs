@@ -1,11 +1,14 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class EnemyHealth_SYS : MonoBehaviour
 {
-    public int currentEnemyHealth = 100;
+    private int currentEnemyHealth = 100;
 
     [SerializeField] GameObject xpOrbPrefab;
+    private void Start()
+    {
+        currentEnemyHealth = GetComponent<EnemyMovement>().GetHealth();
+    }
 
     public void TakeDamage(int damage)
     {

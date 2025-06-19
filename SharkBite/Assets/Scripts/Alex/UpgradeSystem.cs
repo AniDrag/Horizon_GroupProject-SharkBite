@@ -20,7 +20,8 @@ public class UpgradeSystem : MonoBehaviour
 
     void Start()
     {
-        _playerStats = gameObject.GetComponentInParent<Movement>().playerStats;
+        _playerStats = PlayerManager.instance.playerStats;
+        PlayerManager.instance.SetUpgradeRef(this);
         _upgradeMethods = new UnityAction[] {Upgrade0, Upgrade1 };
         OnLevelUp();
     }
@@ -67,9 +68,9 @@ public class UpgradeSystem : MonoBehaviour
 
     public void Upgrade0()
     {//Increase of firerate
-        float recoilSpeed = _playerStats.GetRecoilSpeed();
+        float recoilSpeed = _playerStats.GetFireRate();
         _playerStats.IncreaseRecoilSpeed(10);
-        Debug.Log($"Recoilspeed was {recoilSpeed}, now it is {_playerStats.GetRecoilSpeed()}");
+        Debug.Log($"Recoilspeed was {recoilSpeed}, now it is {_playerStats.GetFireRate()}");
     }
 
     public void Upgrade1()
