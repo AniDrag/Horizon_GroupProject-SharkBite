@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 [RequireComponent(typeof(Collider))]
-public class Health_SYS : Movement
+public class PlayerHealth_SYS : Movement
 {
     [Header ("Hp")]
     [SerializeField] private RectTransform hpSlider;
@@ -14,11 +14,14 @@ public class Health_SYS : Movement
 
     private int _currentHealth = 10;
 
+    private PlayerStats _playerStats;
+
 
 
     public override void Start()
     {
-        _currentHealth = playerStats.GetMaxHealth();
+        // TODO: ADD reference to _playerStats
+        _currentHealth = _playerStats.GetMaxHealth();
         TakeDamage(0);
     }
 
@@ -30,7 +33,7 @@ public class Health_SYS : Movement
     {
         if (!isEnemy)
         {
-            float targetScale = (float)_currentHealth / (float)playerStats.GetMaxHealth(); // Smooth HpBar change
+            float targetScale = (float)_currentHealth / (float)_playerStats.GetMaxHealth(); // Smooth HpBar change
             float currentScale = hpSlider.localScale.y;
             if (targetScale != currentScale)
             {

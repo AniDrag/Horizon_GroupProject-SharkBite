@@ -1353,7 +1353,7 @@
     "m_SurfaceType": 1,
     "m_ZTestMode": 4,
     "m_ZWriteControl": 0,
-    "m_AlphaMode": 0,
+    "m_AlphaMode": 3,
     "m_RenderFace": 2,
     "m_AlphaClip": true,
     "m_CastShadows": false,
@@ -1983,8 +1983,8 @@
     "m_ObjectId": "6eef58f24ad9420fb357c69d828586aa",
     "m_Title": "Color",
     "m_Position": {
-        "x": 1693.9998779296875,
-        "y": -15.0
+        "x": 1694.000244140625,
+        "y": -15.000011444091797
     }
 }
 
@@ -2420,8 +2420,8 @@
     "m_ObjectId": "8e281ddb3a214918942dddcf40ef6cfe",
     "m_Title": "DotProduct",
     "m_Position": {
-        "x": 1294.0,
-        "y": 887.9998779296875
+        "x": 1294.000244140625,
+        "y": 888.0000610351563
     }
 }
 

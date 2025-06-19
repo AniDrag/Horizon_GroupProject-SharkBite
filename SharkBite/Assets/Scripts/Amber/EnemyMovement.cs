@@ -43,4 +43,9 @@ public class EnemyMovement : MonoBehaviour
         Instantiate(bulletPrefab, transform.position + new Vector3(0,0,1), transform.rotation);
         Debug.Log("shooting");
     }
+
+    public int GetHealth()
+    {
+        return 1;
+    }
 }

@@ -7,7 +7,7 @@ public class EnemyHealth_SYS : MonoBehaviour
     [SerializeField] GameObject xpOrbPrefab;
     private void Start()
     {
-        currentEnemyHealth = GetComponent<EnemyMovement>().GetHealth();
+        currentEnemyHealth = GetComponent<EnemyMovement>().GetHealth(); // ALWAYS RETURNS 1, HAS TO BE MADE
     }
 
     public void TakeDamage(int damage)

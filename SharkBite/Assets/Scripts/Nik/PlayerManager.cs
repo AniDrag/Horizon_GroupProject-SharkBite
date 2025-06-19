@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 [RequireComponent(typeof(Movement))]
-[RequireComponent(typeof(PlayerHealth_SYS))]
 [RequireComponent(typeof(Weapon))]
 public class PlayerManager : MonoBehaviour
 {
