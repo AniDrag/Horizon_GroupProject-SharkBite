@@ -797,7 +797,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426217202}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f2f7e70869c100448fc5592b6416609, type: 3}
   m_Name: 
@@ -833,24 +833,116 @@ MonoBehaviour:
   waveList:
   - durationOfWave: 30
     isRestWave: 0
+    chanceSum: 0
     possibleEnemiesToSpawn:
     - prefab: {fileID: 0}
       EnemyName: 
       EnemyImage: {fileID: 0}
       EnemyLevel: 0
-      SpawnChance: 0
+      SpawnChance: 33
     - prefab: {fileID: 0}
       EnemyName: 
       EnemyImage: {fileID: 0}
       EnemyLevel: 0
-      SpawnChance: 0
+      SpawnChance: 55
+  - durationOfWave: 30
+    isRestWave: 0
+    chanceSum: 0
+    possibleEnemiesToSpawn:
     - prefab: {fileID: 0}
       EnemyName: 
       EnemyImage: {fileID: 0}
       EnemyLevel: 0
-      SpawnChance: 0
+      SpawnChance: 76
+    - prefab: {fileID: 0}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      EnemyLevel: 0
+      SpawnChance: 27
+    - prefab: {fileID: 0}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      EnemyLevel: 0
+      SpawnChance: 8
+  - durationOfWave: 30
+    isRestWave: 0
+    chanceSum: 0
+    possibleEnemiesToSpawn:
+    - prefab: {fileID: 0}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      EnemyLevel: 0
+      SpawnChance: 76
+    - prefab: {fileID: 0}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      EnemyLevel: 0
+      SpawnChance: 27
+    - prefab: {fileID: 0}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      EnemyLevel: 0
+      SpawnChance: 8
+  - durationOfWave: 30
+    isRestWave: 0
+    chanceSum: 0
+    possibleEnemiesToSpawn:
+    - prefab: {fileID: 0}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      EnemyLevel: 0
+      SpawnChance: 76
+    - prefab: {fileID: 0}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      EnemyLevel: 0
+      SpawnChance: 27
+    - prefab: {fileID: 0}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      EnemyLevel: 0
+      SpawnChance: 8
+  - durationOfWave: 30
+    isRestWave: 0
+    chanceSum: 0
+    possibleEnemiesToSpawn:
+    - prefab: {fileID: 0}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      EnemyLevel: 0
+      SpawnChance: 76
+    - prefab: {fileID: 0}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      EnemyLevel: 0
+      SpawnChance: 27
+    - prefab: {fileID: 0}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      EnemyLevel: 0
+      SpawnChance: 8
+  - durationOfWave: 30
+    isRestWave: 0
+    chanceSum: 0
+    possibleEnemiesToSpawn:
+    - prefab: {fileID: 0}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      EnemyLevel: 0
+      SpawnChance: 76
+    - prefab: {fileID: 0}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      EnemyLevel: 0
+      SpawnChance: 27
+    - prefab: {fileID: 0}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      EnemyLevel: 0
+      SpawnChance: 8
   maxEnemiesToSpawn: 10
   spawnInterval: 1
+  enemySpawnRadious: 10
 --- !u!1001 &1429696872
 PrefabInstance:
   m_ObjectHideFlags: 0

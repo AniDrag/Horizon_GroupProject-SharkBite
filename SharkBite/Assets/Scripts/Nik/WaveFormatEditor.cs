@@ -15,11 +15,11 @@ public class WaveFormatEditor : Editor
         // Loop through each wave in the spawner
         foreach (var wave in spawner.waveList)
         {
+            int totalChance = 0;
             EditorGUILayout.LabelField("Wave Duration: " + wave.durationOfWave);
             EditorGUILayout.LabelField("Is Rest Wave: " + wave.isRestWave.ToString());
-
+            EditorGUILayout.LabelField("ChanceSum: " + wave.chanceSum);
             // Ensure the total chance doesn't exceed 100%
-            int totalChance = 0;
             foreach (var enemy in wave.possibleEnemiesToSpawn)
             {
                 totalChance += enemy.SpawnChance;
@@ -37,6 +37,7 @@ public class WaveFormatEditor : Editor
             for (int i = 0; i < wave.possibleEnemiesToSpawn.Count; i++)
             {
                 var enemy = wave.possibleEnemiesToSpawn[i];
+                wave.chanceSum = wave.possibleEnemiesToSpawn[i].SpawnChance;
                 EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.LabelField(enemy.GetEnemyName(), GUILayout.Width(150));
 
@@ -54,8 +55,6 @@ public class WaveFormatEditor : Editor
 
                 EditorGUILayout.EndHorizontal();
             }
-
-
 
             EditorGUILayout.Space();
         }
@@ -109,6 +108,8 @@ public class WaveFormat
 
     [Tooltip("Whether this is a rest wave (no enemies will spawn)")]
     public bool isRestWave;
+
+    public int chanceSum;
 
     [Tooltip("List of enemies that can be spawned during this wave")]
     public List<EnemySpecifics> possibleEnemiesToSpawn = new List<EnemySpecifics>();

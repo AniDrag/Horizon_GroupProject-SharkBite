@@ -35,9 +35,9 @@ public class Spawner_var2 : MonoBehaviour
     {
         float angle = Random.Range(0, 2 * Mathf.PI);
 
-        Vector3 rndPos = new Vector3(GameManager.instance._playerPos.x + enemySpawnRadious * Mathf.Cos(angle), 0, _playerPosition.z + enemySpawnRadious * Mathf.Sin(angle));
+        Vector3 rndPos = new Vector3(GameManager.instance._playerPos.x + enemySpawnRadious * Mathf.Cos(angle), 0, GameManager.instance._playerPos.z + enemySpawnRadious * Mathf.Sin(angle));
 
-        GameObject enemy = GetEnemyInGroup();
+        GameObject enemy = GetEnemyInGroup(currentWaveIndex);
         //Debug.Log(randomIndex);
         // if spawn boss is true it will spawn a boss else normal random enemy
         enemy = Instantiate(enemy, rndPos, Quaternion.identity);
@@ -45,8 +45,24 @@ public class Spawner_var2 : MonoBehaviour
         _enemiesOnScreen.Add(enemy);
 
     }
-    GameObject GetEnemyInGroup()
+    GameObject GetEnemyInGroup( int waveIndex)
     {
+        int totalWeight = 0;
+        for (int i = 0; i < waveList[waveIndex].possibleEnemiesToSpawn.Count; i++)
+        {
+            totalWeight += waveList[waveIndex].possibleEnemiesToSpawn[i].SpawnChance;
+        }
+
+        // geting random vaulue in range of wight hat we have chosen
+        int targetWeight = Random.Range(0, totalWeight);
+        // is increased and compared to target weight
+        int currentWeight = 0;
+
+        for (int i = 0; i < waveList[waveIndex].possibleEnemiesToSpawn.Count; i++) { 
+            currentWeight += waveList[waveIndex].possibleEnemiesToSpawn[i].SpawnChance;
+            if (targetWeight < currentWeight)
+                return waveList[waveIndex].possibleEnemiesToSpawn[i].prefab.prefab;
+        }
         return null;
     }
 }

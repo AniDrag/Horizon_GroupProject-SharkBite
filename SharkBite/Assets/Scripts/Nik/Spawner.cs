@@ -141,9 +141,4 @@ public class Spawner : MonoBehaviour
         Debug.Log("Spawner Clear check :: Passed");
     }
 
-
-    void WaveRunner()
-    {
-
-    }
 }
