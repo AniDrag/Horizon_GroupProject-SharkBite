@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 72350555360212275}
   - component: {fileID: 5534165615478967970}
   - component: {fileID: 6851607343622152175}
+  - component: {fileID: 636359530639674206}
   m_Layer: 0
   m_Name: Enemy_1_Mesh
   m_TagString: Untagged
@@ -86,6 +87,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &636359530639674206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955838642987493557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8504e6667bdf4ac428da026210bbb55d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 5
+  speed: 5
+  bulletPrefab: {fileID: 3492591757251017547, guid: 344dd8e89baa8f648a6d0d392ccd1ff4, type: 3}
+  bulletForce: 1000
 --- !u!1 &7058778186568194291
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9178591901496087581}
   - component: {fileID: 1721335160129355584}
+  - component: {fileID: 5948022563586267555}
   m_Layer: 0
   m_Name: Enemy_1
   m_TagString: Untagged
@@ -140,3 +158,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &5948022563586267555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7058778186568194291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8504e6667bdf4ac428da026210bbb55d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 5
+  speed: 1
+  bulletPrefab: {fileID: 3492591757251017547, guid: 344dd8e89baa8f648a6d0d392ccd1ff4, type: 3}
+  bulletForce: 1000
