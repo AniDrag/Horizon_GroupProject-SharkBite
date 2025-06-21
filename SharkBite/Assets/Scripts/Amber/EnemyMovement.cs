@@ -1,51 +1,52 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float cooldown = 5f;
-    [SerializeField] private float speed = 5;
-    [SerializeField] GameObject bulletPrefab;
-   //[SerializeField] public float bulletForce = 1000;
-
-    private float _lastShotTime;
-    private Transform _player;
+    
+    private float speed = 5;
     private GameManager _gm;
 
-
-    public float bulletForce = 1000;
+    private int curentRange;
+    private int meleRange = 1;
+    private int rangedUnitRange = 10;
+    private bool isRanged;
+    public float distance;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        speed = GetComponent<EnemyCore>().GetMovementSpeed();
+        isRanged = GetComponent<EnemyCore>().GetEnemyType();
+        curentRange = isRanged ? rangedUnitRange : meleRange;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(_gm._playerPos);
-        float distance = Vector2.Distance(transform.position, _gm._playerPos);
-        if(distance > 1)
+        transform.LookAt(new Vector3(_gm._playerPos.x, transform.position.y, _gm._playerPos.z));
+        distance = Vector3.Distance(transform.position, _gm._playerPos);
+        Mathf.Abs(distance);
+
+        if ((curentRange - 0.1f) < distance && distance < (curentRange + 0.1f))
         {
+            Debug.Log("in distance");
+
+            if (isRanged)
+            {
+                //float direction = Mathf.Sign(Time.time);
+                transform.position += transform.right * Time.deltaTime * speed;
+            }
+
+        }
+        else if (distance > curentRange)
+        {
+            Debug.Log("Too far awaz");
             transform.position += transform.forward * speed * Time.deltaTime;
         }
-
-
-        if (Time.time >= _lastShotTime + cooldown)
+        else if (distance < curentRange)
         {
-            _lastShotTime = Time.time;
-            Shoot();
+            Debug.Log("Too close awaz");
+            transform.position += transform.forward * (-speed) * Time.deltaTime;
         }
-    }
-    void Shoot()
-    {
-        Instantiate(bulletPrefab, transform.position + new Vector3(0,0,1), transform.rotation);
-        Debug.Log("shooting");
-    }
-
-    public int GetHealth()
-    {
-        return 1;
     }
 }

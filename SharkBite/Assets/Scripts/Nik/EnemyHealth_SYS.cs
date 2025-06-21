@@ -7,7 +7,7 @@ public class EnemyHealth_SYS : MonoBehaviour
     private int currentEnemyHealth = 100;
     private void Start()
     {
-        currentEnemyHealth = GetComponent<EnemyMovement>().GetHealth(); // ALWAYS RETURNS 1, HAS TO BE MADE
+        currentEnemyHealth = GetComponent<EnemyCore>().GetHealth(); 
     }
 
     public void TakeDamage(int damage)
