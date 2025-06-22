@@ -20,8 +20,10 @@ public class Damage : MonoBehaviour
         }
         else if (enemyhealth !=null)
         {
-
+            enemyhealth.TakeDamage(_damage);
+            Debug.Log($"Damage delt {_damage} to target");
         }
+
         Destroy(this.gameObject);
     }
 }

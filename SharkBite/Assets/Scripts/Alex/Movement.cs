@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     private PlayerStats playerStats;
     private PlayerInput _playerInput;
 
+
     // ========= Vectors =========
     private Vector3 _lastKnownDirection;
 
@@ -22,7 +23,8 @@ public class Movement : MonoBehaviour
         _characterController = GetComponent<CharacterController>();        
         _lastKnownDirection = transform.forward;
         _playerInput = GetComponent<PlayerInput>();
-        
+       
+
     }
 
     // Update is called once per frame
@@ -39,5 +41,9 @@ public class Movement : MonoBehaviour
         _characterController.Move(_3dMoveDirection * playerStats.GetMovementSpeed() * Time.deltaTime);
 
         GameManager.instance._playerPos = transform.position;
+    }
+    void UpdateSpeed()
+    {
+
     }
 }

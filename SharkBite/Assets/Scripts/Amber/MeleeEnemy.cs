@@ -12,10 +12,10 @@ public class MeleeEnemy : MonoBehaviour
         data = transform.parent.GetComponent<EnemyCore>();
         _damage = data.GetDamage();
         _fireRate = data.GetAttackRatePerSecond();
-        
+        Collider col = gameObject.GetComponent<Collider>();
+        col.isTrigger = true;
+       
     }
-
-
 
     private void OnTriggerStay(Collider other)
     { 

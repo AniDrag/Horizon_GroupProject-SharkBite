@@ -69,7 +69,7 @@ public class UpgradeSystem : MonoBehaviour
     public void Upgrade0()
     {//Increase of firerate
         float recoilSpeed = _playerStats.GetFireRate();
-        _playerStats.IncreaseRecoilSpeed(10);
+        _playerStats.IncreaseMaxHealth(20);
         Debug.Log($"Recoilspeed was {recoilSpeed}, now it is {_playerStats.GetFireRate()}");
     }
 

@@ -10,6 +10,8 @@ public class PlayerHealth_SYS : MonoBehaviour
 
 
     private int _currentHealth = 10;
+    private int _maxHealth = 10;
+    private int _defense = 4;
     private PlayerStats _playerStats;
 
 
@@ -19,12 +21,14 @@ public class PlayerHealth_SYS : MonoBehaviour
         _playerStats = PlayerManager.instance.playerStats;
         _currentHealth = _playerStats.GetMaxHealth();
         TakeDamage(0);
+        _playerStats.OnStatsChanged += UpdateMaxHealth;
     }
 
     public void Update()
     {
         float targetScale = (float)_currentHealth / (float)_playerStats.GetMaxHealth(); // Smooth HpBar change
         float currentScale = hpSlider.localScale.y;
+        healthText.text = _currentHealth.ToString();
         if (targetScale != currentScale)
         {
             float maxChangeThisFrame = maxScaleChangePerSecond * Time.deltaTime; // if 100 FPS and maxChangepSec=0.5, this is 0.005
@@ -64,6 +68,17 @@ public class PlayerHealth_SYS : MonoBehaviour
     }
     int DamageCalculationWithModifiers(int damage)
     {
+        damage -= _defense;
+        if (damage < 0)
+        {
+            damage = 0;
+        }
         return damage;
+    }
+
+    void UpdateMaxHealth()
+    {
+        _maxHealth = _playerStats.GetMaxHealth();
+        _currentHealth = _maxHealth;
     }
 }
