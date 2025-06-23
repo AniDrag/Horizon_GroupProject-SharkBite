@@ -6,12 +6,12 @@ public class MeleeEnemy : MonoBehaviour
     private int _damage;
     private float _lastAttackTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    EnemyCore data;
+    [SerializeField] private EnemyCore _data;
     void Start()
     {
-        data = transform.parent.GetComponent<EnemyCore>();
-        _damage = data.GetDamage();
-        _fireRate = data.GetAttackRatePerSecond();
+        _data = transform.parent.GetComponent<EnemyCore>();
+        _damage = _data.GetDamage();
+        _fireRate = _data.GetAttackRatePerSecond();
         Collider col = gameObject.GetComponent<Collider>();
         col.isTrigger = true;
        
@@ -21,8 +21,7 @@ public class MeleeEnemy : MonoBehaviour
     { 
         if(other.CompareTag("Player"))
         {
-            Attack(other.gameObject);
-            
+            Attack(other.gameObject);            
         }
 
     }

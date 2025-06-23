@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
-    public PlayerStats playerStats = new PlayerStats();
+    public PlayerStats playerStats;
     public UpgradeSystem upgradeSystem;
 
     [Header("========= Refrencec =========")]
@@ -26,7 +26,7 @@ public class PlayerManager : MonoBehaviour
             Destroy(instance);
         }
             instance = this;
-
+        playerStats = new PlayerStats();
         xpToLevelUp = playerStats.GetMaxXP();
     }
 

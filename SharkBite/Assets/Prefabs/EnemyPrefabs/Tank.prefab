@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9027195346145957702}
   - component: {fileID: 5536319839593221381}
   - component: {fileID: 8986499666828403170}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 1923607471119782315}
   - component: {fileID: 9024936115184479571}
   - component: {fileID: 2892669637259277203}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 3538063956147723069}
   - component: {fileID: 1209124812636567947}
   - component: {fileID: 2190479465252098101}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyMeleWeapon(Clone)
   m_TagString: Weapon
   m_Icon: {fileID: 0}

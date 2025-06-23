@@ -4,8 +4,6 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    [Header(" =========Refrences =========")]
-    [SerializeField] Transform orientation;
 
     // ========= Geting Types =========
     private CharacterController _characterController;
@@ -19,7 +17,7 @@ public class Movement : MonoBehaviour
 
     public virtual void Start()
     {
-        playerStats = PlayerManager.instance.playerStats;
+        playerStats = GetComponent<PlayerManager>().playerStats;
         _characterController = GetComponent<CharacterController>();        
         _lastKnownDirection = transform.forward;
         _playerInput = GetComponent<PlayerInput>();
@@ -36,14 +34,9 @@ public class Movement : MonoBehaviour
         {
             _lastKnownDirection = _3dMoveDirection;
         }
-        orientation.rotation = Quaternion.LookRotation( _lastKnownDirection );
 
         _characterController.Move(_3dMoveDirection * playerStats.GetMovementSpeed() * Time.deltaTime);
 
         GameManager.instance._playerPos = transform.position;
-    }
-    void UpdateSpeed()
-    {
-
     }
 }

@@ -80,20 +80,19 @@ public class EnemyScriptEditor : Editor
                 DestroyImmediate(child.gameObject); // Remove the weapon child if it's melee
             }
         }
-        CombatScript combatScript = enemyCore.GetComponent<CombatScript>();
-        if (combatScript != null)
-        {
-            DestroyImmediate(combatScript);
-        }
 
         // If the enemy is a CloseRange (Melee), instantiate the weapon
         if (enemyCore.enemyType == EnemyCore.EnemyType.CloseRange)
         {
+            CombatScript combatScript = enemyCore.GetComponent<CombatScript>();
+            if (combatScript != null)
+            {
+                DestroyImmediate(combatScript);
+            }
             GameObject weapon = Instantiate(enemyCore.weaponPrefab, enemyCore.transform);
             weapon.transform.position = weapon.transform.parent.transform.forward + Vector3.up * .5f; // Adjust weapon position
             weapon.tag = "Weapon"; // Tag the weapon to identify it in case we need to remove it later
         }
-        // If the enemy is Ranged, add the CombatScript component
         else if (enemyCore.enemyType == EnemyCore.EnemyType.Ranged)
         {
             if (enemyCore.GetComponent<CombatScript>() == null)
