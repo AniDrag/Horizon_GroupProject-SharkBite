@@ -8,9 +8,9 @@ public class PlayerStats
     private const int DEFAULT_DEFENSE = 3;
     private const int DEFAULT_LEVEL = 0;
     private const int DEFAULT_MAX_XP = 10;
-    private const int DEFAULT_BULLET_DAMAGE = 5;
+    private const int DEFAULT_BULLET_DAMAGE = 50;
     private const float DEFAULT_BULLET_SPEED = 5f;
-    private const float DEFAULT_RECOIL_SPEED = 3f;
+    private const float DEFAULT_FIRE_RATE = 1f;
     private const float DEFAULT_MOVEMENT_SPEED = 10f;
     #endregion
 
@@ -40,7 +40,7 @@ public class PlayerStats
 
         bulletDamage = DEFAULT_BULLET_DAMAGE;
         bulletSpeed = DEFAULT_BULLET_SPEED;
-        fireRate = DEFAULT_RECOIL_SPEED;
+        fireRate = DEFAULT_FIRE_RATE;
         movementSpeed = DEFAULT_MOVEMENT_SPEED;
     }
     #region === Events ===
