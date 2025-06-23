@@ -37,7 +37,7 @@ public class EnemyHealth_SYS : MonoBehaviour
     {
         Instantiate(xpOrbPrefab, transform.position + Vector3.up * 1, Quaternion.identity);
         Spawner.instance.SPAWN_enemysInScene.Remove(gameObject);
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 
     int DamageCalculationWithModifiers(int damage)

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 750800123053354817}
   - component: {fileID: 4397404225033595648}
   - component: {fileID: 8997873226025285648}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyMeleWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,10 +98,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 503
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -121,3 +121,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085d09fce0badaf4cadad1a67f413718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _data: {fileID: 0}
