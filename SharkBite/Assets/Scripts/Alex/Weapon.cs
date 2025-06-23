@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _timeReset += Time.deltaTime;
+        
 
         Vector2 _moveDirection = _playerInput.actions["Look"].ReadValue<Vector2>();
         Vector3 _3dMoveDirection = new Vector3(_moveDirection.x, 0, _moveDirection.y);
@@ -34,6 +34,7 @@ public class Weapon : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        _timeReset += Time.deltaTime;
         if (_timeReset >= playerStats.GetFireRate())
         {
             _timeReset = 0;
@@ -55,6 +56,6 @@ public class Weapon : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             rb.AddForce(orientation.forward * playerStats.GetBulletSpeed() * 200, ForceMode.Force);
         }
-        Debug.Log("I shot a bullet");
+        //Debug.Log("I shot a bullet");
     }
 }

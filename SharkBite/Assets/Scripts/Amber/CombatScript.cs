@@ -1,25 +1,26 @@
 using UnityEngine;
 
-public class CombatScript : MonoBehaviour
+public class CombatScript : MonoBehaviour,IPooledObject
 {
     [SerializeField] GameObject bulletPrefab;
-    Transform _firePoint;
-
+    [SerializeField] int bulletForce = 200;
     private float _fireRate;
     private int _damage;
     private float _lastAttackTime = 0;
-    private bool _isRanged;
     Pooler _pooler;
     private EnemyCore _core;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
+    {
+        RespawndObject();
+    }
+    public void RespawndObject()
     {
         _core = GetComponent<EnemyCore>();
         if (_core != null)
         {
             _damage = _core.GetDamage();
             _fireRate = Mathf.Max(_core.GetAttackRatePerSecond(), 0.2f); // Clamp to safe minimum
-            _isRanged = _core.GetEnemyType(); // if this method exists
         }
         _pooler = Pooler.instance;
         if (bulletPrefab == null)
@@ -27,52 +28,33 @@ public class CombatScript : MonoBehaviour
             Debug.LogError("CombatScript: bulletPrefab not assigned.");
             enabled = false;
         }
-
-        if (_firePoint == null)
-        {
-            // Default fallback if you forgot to assign it
-            GameObject firePointGO = new GameObject("FirePoint");
-            firePointGO.transform.parent = transform;
-            firePointGO.transform.localPosition = new Vector3(0f, 0.5f, 1f);
-            _firePoint = firePointGO.transform;
-        }
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!_isRanged) return;
-
-        if (Time.time >= _lastAttackTime + _fireRate)
+        _lastAttackTime += Time.deltaTime;
+        if (_lastAttackTime >= _fireRate)
         {
-            _lastAttackTime = Time.time;
+            _lastAttackTime = 0;
             Shoot();
         }
     }
     void Shoot()
     {
-        // Option 1: If using pooling
-        GameObject bullet = _pooler.SpawnFromPool("Bullet", _firePoint.position, Quaternion.identity);
+       
+        GameObject newBullet = _pooler.SpawnFromPool("EnemyBullet", transform.position + new Vector3(0,.5f,1.5f), Quaternion.identity);
+        newBullet.GetComponent<EnemyDamage>().SetDamage(_damage);
 
-        // Option 2: If NOT using pooling (fallback)
-        // GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Damage dmg = bullet.GetComponent<Damage>();
-        if (dmg == null) {
-            Debug.LogWarning("No damage script on bullet");
-            return;
-        }
-        dmg.SetDamage(_damage);
-        
 
-        if (bullet.TryGetComponent(out Rigidbody rb))
+        Rigidbody rb = newBullet.GetComponent<Rigidbody>();
+        if (rb != null)
         {
-            rb.linearVelocity = Vector3.zero; // Reset before applying new force
-            rb.AddForce(_firePoint.forward * 200f, ForceMode.Force);
+            //Debug.Log("RB set");
+            rb.linearVelocity = Vector3.zero;
+            rb.AddForce(transform.forward * bulletForce, ForceMode.Force);
         }
-
-        // Avoid spamming logs
-        // Debug.Log($"Spawned bullet with damage: {_damage}");
+        //Debug.Log("I shot a bullet");
     }
 
 }

@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2769501995787865844, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2769501995787865844, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
       propertyPath: waveList.Array.data[0].isRestWave
@@ -518,6 +518,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8047408318964850915, guid: e971c84b80776174dbdda68474c64d6e, type: 3}
+      propertyPath: poolDatas.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047408318964850915, guid: e971c84b80776174dbdda68474c64d6e, type: 3}
+      propertyPath: poolDatas.Array.data[5].ID
+      value: EnemyBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047408318964850915, guid: e971c84b80776174dbdda68474c64d6e, type: 3}
+      propertyPath: poolDatas.Array.data[5].size
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047408318964850915, guid: e971c84b80776174dbdda68474c64d6e, type: 3}
+      propertyPath: poolDatas.Array.data[5].prefab
+      value: 
+      objectReference: {fileID: 8342531266508567538, guid: 3a55126acedb1f942826c81eca3e64d6, type: 3}
     - target: {fileID: 9101944873554288121, guid: e971c84b80776174dbdda68474c64d6e, type: 3}
       propertyPath: m_Name
       value: Pooler
@@ -944,7 +960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1931784602516532871, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
       propertyPath: GODMODE
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1931784602516532871, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
       propertyPath: m_Enabled

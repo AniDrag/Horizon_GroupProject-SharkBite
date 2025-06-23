@@ -52,7 +52,7 @@ public class PlayerHealth_SYS : MonoBehaviour
     {
         if (damage < 0 || GODMODE)
             return;
-        
+        Debug.Log($"I took damage Player-{damage}");
         int tempHelth = _currentHealth - DamageCalculationWithModifiers(damage);
 
         if (tempHelth <= 0)

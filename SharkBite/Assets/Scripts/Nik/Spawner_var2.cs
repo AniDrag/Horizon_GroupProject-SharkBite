@@ -21,7 +21,7 @@ public class Spawner_var2 : MonoBehaviour
 
     [SerializeField] private float enemySpawnRadius = 10f;
 
-    private List<GameObject> _enemiesOnScreen = new List<GameObject>();
+    public List<GameObject> _enemiesOnScreen = new List<GameObject>();
     private Pooler _pooler;
     private GameManager _GM;
     private int _spawnCount;

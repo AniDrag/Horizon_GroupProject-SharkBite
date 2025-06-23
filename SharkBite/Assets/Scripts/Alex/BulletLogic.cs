@@ -10,7 +10,8 @@ public class BulletLogic : MonoBehaviour
 
     public void DestroyMe(float time)
     {
-        Destroy(this.gameObject, time);
+        //Destroy(this.gameObject, time);
+        this.gameObject.SetActive(false);
     }
 
 }
