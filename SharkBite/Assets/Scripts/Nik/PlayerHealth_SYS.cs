@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class PlayerHealth_SYS : MonoBehaviour
 {
+    public bool GODMODE;
+
     [Header ("===== Hp Refrences =====")]
     [SerializeField] private RectTransform hpSlider;
     [SerializeField] private TMP_Text healthText;
@@ -12,7 +14,7 @@ public class PlayerHealth_SYS : MonoBehaviour
     private int _currentHealth = 10;
     private int _maxHealth = 10;
     private int _defense = 4;
-    private PlayerStats _playerStats;
+    [SerializeField] private PlayerStats _playerStats;
 
 
 
@@ -48,7 +50,7 @@ public class PlayerHealth_SYS : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (damage < 0)
+        if (damage < 0 || GODMODE)
             return;
         
         int tempHelth = _currentHealth - DamageCalculationWithModifiers(damage);

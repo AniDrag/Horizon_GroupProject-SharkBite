@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1973673035458146857}
+  - component: {fileID: 2769501995787865844}
   m_Layer: 0
   m_Name: SpawningManager
   m_TagString: Untagged
@@ -31,3 +32,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2769501995787865844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392249333491377653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd1e9880a8c3db64d9edbba9c0a90321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveList:
+  - durationOfWave: 30
+    isRestWave: 0
+    isRusherWave: 0
+    chanceSum: 0
+    possibleEnemiesToSpawn:
+    - prefab: {fileID: 11400000, guid: ae79b4805f5cdf847abb17c2ffbf117f, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 18
+    - prefab: {fileID: 11400000, guid: 51ba60e2275db604685878d032c5d80b, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 5
+  - durationOfWave: 30
+    isRestWave: 1
+    isRusherWave: 0
+    chanceSum: 0
+    possibleEnemiesToSpawn: []
+  maxEnemiesToSpawn: 10
+  squadEnemiesToSpawn: 3
+  spawnInterval: 1
+  enemySpawnRadious: 20

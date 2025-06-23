@@ -7,8 +7,8 @@ public class EnemyMovement : MonoBehaviour
     private GameManager _gm;
 
     private int _curentRange;
-    private int _meleRange = 1;
-    private int _rangedUnitRange = 10;
+    [SerializeField] private int _meleRange = 2;
+    [SerializeField] private int _rangedUnitRange = 10;
     private bool _isRanged;
     private float distance;
     private EnemyCore _core;

@@ -5,18 +5,18 @@ public class Spawner_var2 : MonoBehaviour
 {
     public static Spawner_var2 instance;
 
+    [SerializeField] private int currentWaveIndex = 0;
     [Header("========= Wave runner Logic =========")]
     [Tooltip("List of waves for the game")]
     public List<WaveFormat> waveList = new List<WaveFormat>();
     [Tooltip("Maximum number of enemies that can spawn at a time")]
-    public int maxEnemiesToSpawn = 10;
-    public int squadEnemiesToSpawn = 3;
+    [SerializeField] private int maxEnemiesToSpawn = 10;
+    [SerializeField] private int squadEnemiesToSpawn = 3;
     [Tooltip("Spawn interval between enemies")]
-    public float spawnInterval = 1f;  // In seconds
-    public float enemySpawnRadious = 10;
+    [SerializeField]private float spawnInterval = 1f;  // In seconds
+    [SerializeField] private float enemySpawnRadious = 10;
 
     // ========= Ints ==========
-    private int currentWaveIndex = 0;
     private List<GameObject> _enemiesOnScreen = new List<GameObject>();
     private int _spawnCount;
     private float _waveTimer;
@@ -28,21 +28,23 @@ public class Spawner_var2 : MonoBehaviour
     {
         BaseChech();
     }
-
-    private void FixedUpdate()
+    private void Update()
     {
-        if (Time.time >= _waveTimer && !_updatingWave)
+        if (Time.time >= _waveTimer + spawnInterval && !_updatingWave)
         {
             _updatingWave = true;
-            currentWaveIndex++;
+            currentWaveIndex += 1;
+            Debug.Log("Updating Wave");
             BaseChech();
-            _updatingWave = false;
-
         }
+    }
+    private void FixedUpdate()
+    {
+        
 
         if (!_isRestWave && !_updatingWave)
         {
-            if (Time.time >= _lastSpawnTime + spawnInterval && _enemiesOnScreen.Count < _spawnCount && currentWaveIndex < waveList.Count)
+            if (Time.time >= _lastSpawnTime + spawnInterval && _enemiesOnScreen.Count < _spawnCount && currentWaveIndex < waveList.Count-1)
             {
                 _lastSpawnTime = Time.time;
                 SpawnEnemy();
@@ -90,10 +92,12 @@ public class Spawner_var2 : MonoBehaviour
 
     void BaseChech()
     {
-        _waveTimer = waveList[currentWaveIndex].durationOfWave;
+        _lastSpawnTime = Time.time;
+        spawnInterval = waveList[currentWaveIndex].durationOfWave;
         _isRestWave = waveList[currentWaveIndex].isRestWave;
         _isRestWave = waveList[currentWaveIndex].isRusherWave;
         _spawnCount = _isRusherWave ? squadEnemiesToSpawn : maxEnemiesToSpawn;
+        _updatingWave = false;
     }
 }
 
