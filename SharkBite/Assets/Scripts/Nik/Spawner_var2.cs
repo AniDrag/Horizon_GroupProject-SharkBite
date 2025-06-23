@@ -22,6 +22,8 @@ public class Spawner_var2 : MonoBehaviour
     [SerializeField] private float enemySpawnRadius = 10f;
 
     private List<GameObject> _enemiesOnScreen = new List<GameObject>();
+    private Pooler _pooler;
+    private GameManager _GM;
     private int _spawnCount;
     private float _waveInterval;
     private float _lastSpawnTime;
@@ -41,11 +43,13 @@ public class Spawner_var2 : MonoBehaviour
     }
     private void Start()
     {
-        if (GameManager.instance == null)
+        _GM = GameManager.instance;
+        if (_GM == null)
         {
             Debug.LogWarning("GameManager instance missing.");
             return;
         }
+        _pooler = Pooler.instance;
         BaseCheck();
     }
     private void Update()
@@ -72,7 +76,7 @@ public class Spawner_var2 : MonoBehaviour
 
     void SpawnEnemy() {
 
-        Vector3 playerPos = GameManager.instance._playerPos;
+        Vector3 playerPos = _GM._playerPos;
 
         float angle = Random.Range(0, Mathf.PI * 2);
 
@@ -82,46 +86,51 @@ public class Spawner_var2 : MonoBehaviour
             playerPos.z + enemySpawnRadius * Mathf.Sin(angle)
         );
 
-        GameObject enemyPrefab = GetEnemyInGroup(currentWaveIndex);
+        GameObject enemyPrefab = GetEnemyInGroup(currentWaveIndex,rndPos);
         if (enemyPrefab == null)
         {
             Debug.LogWarning("No enemy prefab found for this wave.");
             return;
         }
 
-        // Recommended: Replace with pooled version
-        GameObject enemy = Instantiate(enemyPrefab, rndPos, Quaternion.identity);
-
         if (_isRusherWave)
         {
             Vector3 direction = (playerPos - rndPos).normalized;
             if (direction != Vector3.zero)
-                enemy.transform.rotation = Quaternion.LookRotation(direction);
+                enemyPrefab.transform.rotation = Quaternion.LookRotation(direction);
         }
 
-        _enemiesOnScreen.Add(enemy);
+        _enemiesOnScreen.Add(enemyPrefab);
 
     }
-    GameObject GetEnemyInGroup( int waveIndex)
+    GameObject GetEnemyInGroup( int waveIndex, Vector3 position)
     {
-        if (waveIndex < 0 || waveIndex >= waveList.Count)
-            return null;
+        if (waveIndex < 0 || waveIndex >= waveList.Count) return null;
 
         int totalWeight = 0;
         for (int i = 0; i < waveList[waveIndex].possibleEnemiesToSpawn.Count; i++)
         {
             totalWeight += waveList[waveIndex].possibleEnemiesToSpawn[i].SpawnChance;
-        }
+        } //Total weight calculation
 
-        // geting random vaulue in range of wight hat we have chosen
         int targetWeight = Random.Range(0, totalWeight);
-        // is increased and compared to target weight
         int currentWeight = 0;
 
-        for (int i = 0; i < waveList[waveIndex].possibleEnemiesToSpawn.Count; i++) { 
+        int count = waveList[waveIndex].possibleEnemiesToSpawn.Count;
+
+        for (int i = 0; i < count; i++) { 
+
             currentWeight += waveList[waveIndex].possibleEnemiesToSpawn[i].SpawnChance;
+           
+
             if (targetWeight < currentWeight)
-                return waveList[waveIndex].possibleEnemiesToSpawn[i].prefab.prefab;
+            {
+                GameObject obj = _pooler.SpawnFromPool(waveList[waveIndex].possibleEnemiesToSpawn[i].prefab.enemyName, position, Quaternion.identity);
+                if (obj == null)Debug.LogWarning("There is no fucking object found");
+                if (!obj.GetComponent<EnemyCore>() || !obj.GetComponent<EnemyHealth_SYS>() || !obj.GetComponent<EnemyMovement>()) Debug.LogWarning("No flipn scrits found.. god damn it");
+
+                return obj;
+            }
         }
         return null;
     }

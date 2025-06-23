@@ -16,14 +16,14 @@ public class Damage : MonoBehaviour
         if (playerHealth != null)
         {
             playerHealth.TakeDamage(_damage);
-            Debug.Log($"Damage delt {_damage} to target");
+           // Debug.Log($"Damage delt {_damage} to target");
         }
         else if (enemyhealth !=null)
         {
             enemyhealth.TakeDamage(_damage);
-            Debug.Log($"Damage delt {_damage} to target");
+            //Debug.Log($"Damage delt {_damage} to target");
         }
 
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
     }
 }

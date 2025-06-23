@@ -20,7 +20,6 @@ public class EnemyMovement : MonoBehaviour
         _speed = _core.GetMovementSpeed();
         _isRanged = _core.GetEnemyType();
         _curentRange = _isRanged ? _rangedUnitRange : _meleRange;
-        
     }
 
     // Update is called once per frame

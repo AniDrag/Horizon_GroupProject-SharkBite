@@ -4,21 +4,18 @@ using UnityEngine.InputSystem;
 public class Weapon : MonoBehaviour
 {
     [Header("===== Weapon Refrences =====")]
-    [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform orientation;
 
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private Pooler itemPooler;
     private float _timeReset;
     Vector3 _saveShoodDirection;
     void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
         playerStats = PlayerManager.instance.playerStats;
-        if (projectilePrefab.GetComponent<Rigidbody>() == null)
-        {
-            Debug.LogError("Bullet doesn't have RigidBody");
-        }
+
     }
 
     // Update is called once per frame
@@ -48,12 +45,14 @@ public class Weapon : MonoBehaviour
     private void Shoot(float cd, Vector3 moveDirection)
     {
 
-        GameObject newBullet = Instantiate(projectilePrefab, orientation.position + orientation.forward * 1.5f, Quaternion.identity);
+        GameObject newBullet = itemPooler.SpawnFromPool("Bullet", orientation.position + orientation.forward * 1.5f, Quaternion.identity);
         newBullet.GetComponent<Damage>().SetDamage(playerStats.GetBulletDamage());
+
 
         Rigidbody rb = newBullet.GetComponent<Rigidbody>();
         if (rb != null)
         {
+            rb.linearVelocity = Vector3.zero;
             rb.AddForce(orientation.forward * playerStats.GetBulletSpeed() * 200, ForceMode.Force);
         }
         Debug.Log("I shot a bullet");
