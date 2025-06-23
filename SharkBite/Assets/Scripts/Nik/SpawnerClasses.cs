@@ -14,6 +14,9 @@ public class WaveFormat
     [Tooltip("Whether this is a rest wave (no enemies will spawn)")]
     public bool isRestWave;
 
+    [Tooltip("Whether this is a wave where groups of enemies spawn and rush the player")]
+    public bool isRusherWave;
+
     public int chanceSum;
 
     [Tooltip("List of enemies that can be spawned during this wave")]

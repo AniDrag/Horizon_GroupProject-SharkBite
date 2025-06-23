@@ -23,6 +23,8 @@ public class EnemyScriptEditor : Editor
         defense = serializedObject.FindProperty("defense");
         damage = serializedObject.FindProperty("damage");
         enemyType = serializedObject.FindProperty("enemyType");
+
+        HandleEnemyTypeChange(enemyCore);
     }
 
     public override void OnInspectorGUI()

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46163ed6a9cb01f4687e39ea8d0a7965, type: 3}
   m_Name: Tank
   m_EditorClassIdentifier: 
-  enemyName: Crock smasher
-  prefab: {fileID: 5835845769745244597, guid: a62286f3e3ee92c42917fd5d522ff45d, type: 3}
-  previewImage: {fileID: 0}
+  enemyName: Tank
+  prefab: {fileID: 1374787047932222435, guid: 8830b266651253b49860de2d4f731e88, type: 3}
+  previewImage: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}

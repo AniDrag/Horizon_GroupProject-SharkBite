@@ -7,7 +7,8 @@ public class EnemyCore : MonoBehaviour
     {
         None,
         Ranged,
-        CloseRange
+        CloseRange,
+        Rusher
     }
     [SerializeField] public EnemyType enemyType;
     // Header here with all the basic stuff

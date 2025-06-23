@@ -67,24 +67,24 @@ public class EnemyPrefabCreatorEditor : EditorWindow
             CreatePrefabAndScriptableObject();
         }
     }
-    void Validations()
+    bool Validations()
     {
         if (string.IsNullOrEmpty(enemyName))
         {
             EditorUtility.DisplayDialog("Error", "Please provide an enemy name.", "OK");
-            return;
+            return false;
         }
 
         if (previewImage == null)
         {
             EditorUtility.DisplayDialog("Error", "Please provide a preview image.", "OK");
-            return;
+            return false;
         }
 
         if (templateEnemyPrefab == null)
         {
             EditorUtility.DisplayDialog("Error", "Template Enemy Prefab is missing. Please assign it in the Prefab Creator Tool.", "OK");
-            return;
+            return false;
         }
 
         // Ensure the prefab path exists, if not create it
@@ -97,12 +97,13 @@ public class EnemyPrefabCreatorEditor : EditorWindow
             AssetDatabase.CreateFolder(parentFolder, folderName);
             Debug.Log("Created folder: " + prefabPath);
         }
+        return true;
     }
 
     private void CreatePrefabAndScriptableObject()
     {
         // Validate inputs
-        Validations();
+        if(!Validations()) return;
 
         // Step 1: Instantiate the template prefab
         GameObject newGameObject = Instantiate(templateEnemyPrefab);
@@ -128,8 +129,9 @@ public class EnemyPrefabCreatorEditor : EditorWindow
         // Step 4: Create the ScriptableObject for this new enemy
         newEnemySO = ScriptableObject.CreateInstance<EnemyPrefab>();
         newEnemySO.enemyName = enemyName;
-        newEnemySO.prefab = newGameObject; // Store the newly created GameObject prefab reference in the ScriptableObject
+        newEnemySO.prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabSavePath);  // Store the newly created GameObject prefab reference in the ScriptableObject
         newEnemySO.previewImage = previewImage;
+
 
         // Step 6: Save the ScriptableObject as an asset in the project
         string assetPath = $"{prefabPath}/{enemyName}.asset";

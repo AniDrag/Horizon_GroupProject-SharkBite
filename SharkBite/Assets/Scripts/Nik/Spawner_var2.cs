@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static WaveFormatEditor;
 
 public class Spawner_var2 : MonoBehaviour
 {
@@ -11,6 +10,7 @@ public class Spawner_var2 : MonoBehaviour
     public List<WaveFormat> waveList = new List<WaveFormat>();
     [Tooltip("Maximum number of enemies that can spawn at a time")]
     public int maxEnemiesToSpawn = 10;
+    public int squadEnemiesToSpawn = 3;
     [Tooltip("Spawn interval between enemies")]
     public float spawnInterval = 1f;  // In seconds
     public float enemySpawnRadious = 10;
@@ -18,29 +18,51 @@ public class Spawner_var2 : MonoBehaviour
     // ========= Ints ==========
     private int currentWaveIndex = 0;
     private List<GameObject> _enemiesOnScreen = new List<GameObject>();
+    private int _spawnCount;
+    private float _waveTimer;
+    private float _lastSpawnTime;
+    private bool _isRestWave;
+    private bool _isRusherWave;
+    private bool _updatingWave;
+    private void Start()
+    {
+        BaseChech();
+    }
 
     private void FixedUpdate()
     {
-        if (_enemiesOnScreen.Count < maxEnemiesToSpawn && currentWaveIndex < waveList.Count)
+        if (Time.time >= _waveTimer && !_updatingWave)
         {
-            spawnInterval -= Time.deltaTime;
-            if (spawnInterval < 0)
+            _updatingWave = true;
+            currentWaveIndex++;
+            BaseChech();
+            _updatingWave = false;
+
+        }
+
+        if (!_isRestWave && !_updatingWave)
+        {
+            if (Time.time >= _lastSpawnTime + spawnInterval && _enemiesOnScreen.Count < _spawnCount && currentWaveIndex < waveList.Count)
             {
+                _lastSpawnTime = Time.time;
                 SpawnEnemy();
             }
         }
     }
 
-    void SpawnEnemy(bool spawnBoss = false)
-    {
+    void SpawnEnemy() { 
         float angle = Random.Range(0, 2 * Mathf.PI);
 
         Vector3 rndPos = new Vector3(GameManager.instance._playerPos.x + enemySpawnRadious * Mathf.Cos(angle), 0, GameManager.instance._playerPos.z + enemySpawnRadious * Mathf.Sin(angle));
 
         GameObject enemy = GetEnemyInGroup(currentWaveIndex);
         //Debug.Log(randomIndex);
-        // if spawn boss is true it will spawn a boss else normal random enemy
         enemy = Instantiate(enemy, rndPos, Quaternion.identity);
+        if (_isRusherWave)
+        {
+            enemy.transform.rotation = Quaternion.LookRotation(enemy.transform.position, GameManager.instance._playerPos);
+        }
+        
 
         _enemiesOnScreen.Add(enemy);
 
@@ -64,6 +86,14 @@ public class Spawner_var2 : MonoBehaviour
                 return waveList[waveIndex].possibleEnemiesToSpawn[i].prefab.prefab;
         }
         return null;
+    }
+
+    void BaseChech()
+    {
+        _waveTimer = waveList[currentWaveIndex].durationOfWave;
+        _isRestWave = waveList[currentWaveIndex].isRestWave;
+        _isRestWave = waveList[currentWaveIndex].isRusherWave;
+        _spawnCount = _isRusherWave ? squadEnemiesToSpawn : maxEnemiesToSpawn;
     }
 }
 
