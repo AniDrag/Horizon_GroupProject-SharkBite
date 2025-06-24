@@ -100,10 +100,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 502
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ef12887e55418640b949e596ac12d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _triggered: 0
 --- !u!114 &-5465762884738138024
 MonoBehaviour:
   m_ObjectHideFlags: 0

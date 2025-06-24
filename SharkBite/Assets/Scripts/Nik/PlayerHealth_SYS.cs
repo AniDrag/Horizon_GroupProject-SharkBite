@@ -22,7 +22,7 @@ public class PlayerHealth_SYS : MonoBehaviour
     {
         _playerStats = PlayerManager.instance.playerStats;
         _currentHealth = _playerStats.GetMaxHealth();
-        TakeDamage(0);
+        //TakeDamage(0);
         _playerStats.OnStatsChanged += UpdateMaxHealth;
     }
 
