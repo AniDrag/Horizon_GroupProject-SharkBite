@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 4582120545869071710}
   - component: {fileID: 6362213441889413066}
   - component: {fileID: 620782450598773606}
+  - component: {fileID: 286740089695692757}
   m_Layer: 0
   m_Name: eel_tail
   m_TagString: Untagged
@@ -169,7 +170,7 @@ Transform:
   m_GameObject: {fileID: 5836334192963351996}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.23036987, w: 0.97310317}
-  m_LocalPosition: {x: 0.25, y: -1.9, z: 0}
+  m_LocalPosition: {x: 0.25, y: -1.845, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -199,7 +200,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8a09a13fbf68b58438bd13ad13fa8cb6, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -253,3 +254,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &286740089695692757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836334192963351996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2c139b08cc9b445b344c9c7706d905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedMat: {fileID: 2100000, guid: 4c9e3b73657f0124292053b1a64c0825, type: 2}
+  currentValue: 0.3
+  currentBloom: 2
