@@ -222,8 +222,9 @@ GameObject:
   - component: {fileID: 5608911480511117686}
   - component: {fileID: 9036793193174645786}
   - component: {fileID: 4656806459024863142}
+  - component: {fileID: 1161374394574680333}
   m_Layer: 0
-  m_Name: Eel
+  m_Name: Eel_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,7 +290,7 @@ MonoBehaviour:
   defense: 3
   damage: 6
   attackRatePerSecond: 5
-  movemantSpeed: 4
+  movemantSpeed: 5
   enemyImage: {fileID: 2375700236485726378}
   orientation: {fileID: 0}
   weaponPrefab: {fileID: 1692419529572377785, guid: 91a52ddb77661ba49aa1dcd624dae417, type: 3}
@@ -314,6 +315,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 2, z: 3}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1161374394574680333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4108862267423491883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c9354d79e5ba1458b3e8d4a3564cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8342531266508567538, guid: 92027befcc9cf9040b6bda824499dc76, type: 3}
+  bulletForce: 200
+  orientation: {fileID: 0}
 --- !u!1 &8515425364645040445
 GameObject:
   m_ObjectHideFlags: 0
