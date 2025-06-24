@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnerClasses : MonoBehaviour
 {
@@ -51,13 +52,13 @@ public class EnemySpecifics
     public string EnemyName;
 
     [Tooltip("The enemy's image")]
-    public Sprite EnemyImage;
+    public Image EnemyImage;
 
     [Tooltip("The chance (percentage) that this enemy will spawn in this wave (0-100%)")]
     [Range(1, 100)]
     public int SpawnChance = 0;  // The chance this enemy will spawn (0-100%)
 
     public string GetEnemyName() => EnemyName = prefab.enemyName != null? prefab.enemyName: "No name";
-    public Sprite SetSprite() => EnemyImage = prefab.previewImage != null? prefab.previewImage:null;
+    //public Sprite SetSprite() => EnemyImage = prefab.previewImage != null? prefab.previewImage:null;
 }
 

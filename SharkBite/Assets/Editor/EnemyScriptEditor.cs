@@ -10,6 +10,7 @@ public class EnemyScriptEditor : Editor
     private SerializedProperty damage;
     private SerializedProperty attackRatePerSecond;
     private SerializedProperty movemantSpeed;
+    private SerializedProperty enemyImage;
     private void OnEnable()
     {
         // Cache the previous EnemyType on editor initialization
@@ -17,6 +18,7 @@ public class EnemyScriptEditor : Editor
         previousEnemyType = enemyCore.enemyType;
 
         // Get the serialized version of attackRatePerSecond
+        enemyImage = serializedObject.FindProperty("enemyImage");
         attackRatePerSecond = serializedObject.FindProperty("attackRatePerSecond");
         movemantSpeed = serializedObject.FindProperty("movemantSpeed");
         maxHealth = serializedObject.FindProperty("maxHealth");
@@ -47,6 +49,7 @@ public class EnemyScriptEditor : Editor
 
 
         // ======================================================== PROPERTIES ARANGMENT ========================= 
+        EditorGUILayout.PropertyField(enemyImage);
         EditorGUILayout.PropertyField(enemyType);
         EditorGUILayout.PropertyField(maxHealth);
         EditorGUILayout.PropertyField(defense);
@@ -75,7 +78,7 @@ public class EnemyScriptEditor : Editor
         // If the enemy is a CloseRange (Melee), instantiate the weapon
         if (enemyCore.enemyType == EnemyCore.EnemyType.CloseRange)
         {
-            foreach (Transform child in enemyCore.transform)
+            foreach (Transform child in enemyCore.transform.GetChild(0))
             {
                 if (child.CompareTag("Weapon"))
                 {
@@ -87,13 +90,13 @@ public class EnemyScriptEditor : Editor
             {
                 DestroyImmediate(combatScript);
             }
-            GameObject weapon = Instantiate(enemyCore.weaponPrefab, enemyCore.transform);
-            weapon.transform.localPosition = new Vector3(0f, 0.5f, 1f); // Adjust weapon position
+            GameObject weapon = Instantiate(enemyCore.weaponPrefab, enemyCore.transform.GetChild(0));
+            weapon.transform.localPosition = new Vector3(0f, 0.5f, 2f); // Adjust weapon position
             weapon.tag = "Weapon"; // Tag the weapon to identify it in case we need to remove it later
         }
         else if (enemyCore.enemyType == EnemyCore.EnemyType.Ranged)
         {
-            foreach (Transform child in enemyCore.transform)
+            foreach (Transform child in enemyCore.transform.GetChild(0))
             {
                 if (child.CompareTag("Weapon"))
                 {

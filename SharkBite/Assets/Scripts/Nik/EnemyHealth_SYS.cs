@@ -3,7 +3,6 @@ using UnityEngine;
 public class EnemyHealth_SYS : MonoBehaviour, IPooledObject
 {
 
-    [SerializeField] GameObject xpOrbPrefab;
     private int _currentEnemyHealth = 100;
     private int _defese;
     private EnemyCore _enemyCore;

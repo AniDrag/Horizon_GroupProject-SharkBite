@@ -4,6 +4,7 @@ public class CombatScript : MonoBehaviour,IPooledObject
 {
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] int bulletForce = 200;
+    [SerializeField] Transform orientation;
     private float _fireRate;
     private int _damage;
     private float _lastAttackTime = 0;
@@ -17,6 +18,7 @@ public class CombatScript : MonoBehaviour,IPooledObject
     public void RespawndObject()
     {
         _core = GetComponent<EnemyCore>();
+        orientation = _core.GetOrientation();
         if (_core != null)
         {
             _damage = _core.GetDamage();
@@ -43,7 +45,7 @@ public class CombatScript : MonoBehaviour,IPooledObject
     void Shoot()
     {
        
-        GameObject newBullet = _pooler.SpawnFromPool("EnemyBullet", transform.position + new Vector3(0,.5f,1.5f), Quaternion.identity);
+        GameObject newBullet = _pooler.SpawnFromPool("EnemyBullet", orientation.position + new Vector3(0,.5f,1.5f), Quaternion.identity);
         newBullet.GetComponent<EnemyDamage>().SetDamage(_damage);
 
 
@@ -52,7 +54,7 @@ public class CombatScript : MonoBehaviour,IPooledObject
         {
             //Debug.Log("RB set");
             rb.linearVelocity = Vector3.zero;
-            rb.AddForce(transform.forward * bulletForce, ForceMode.Force);
+            rb.AddForce(orientation.forward * bulletForce, ForceMode.Force);
         }
         //Debug.Log("I shot a bullet");
     }

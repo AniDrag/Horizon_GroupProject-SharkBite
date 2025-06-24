@@ -9,7 +9,7 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] private EnemyCore _data;
     void Start()
     {
-        _data = transform.parent.GetComponent<EnemyCore>();
+        _data = transform.parent.parent.GetComponent<EnemyCore>();
         _damage = _data.GetDamage();
         _fireRate = _data.GetAttackRatePerSecond();
         Collider col = gameObject.GetComponent<Collider>();

@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyPrefabCreatorEditor : EditorWindow
 {
@@ -13,9 +14,10 @@ public class EnemyPrefabCreatorEditor : EditorWindow
     // Fields to fill in the data
     private string enemyName = "New Enemy";
     private Sprite previewImage;
+    private float imageScale;
     private string prefabPath = "Assets/Prefabs/EnemyPrefabs";
     private GameObject templateEnemyPrefab; // The template prefab to use for the enemy (always same template)
-    private GameObject newPrefab; // The new prefab created
+    //private GameObject newPrefab; // The new prefab created
     private EnemyPrefab newEnemySO; // The ScriptableObject to be created
     private EnemyCore.EnemyType enemyType; // To store the selected enemy type from the enum
     private int maxHealth = 0;
@@ -28,7 +30,7 @@ public class EnemyPrefabCreatorEditor : EditorWindow
     private void OnEnable()
     {
         // Automatically assign the template prefab in your project (can be set manually or hardcoded)
-        templateEnemyPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Templates/TemplateEney_CoppyThis.prefab");
+        templateEnemyPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Templates/MainTemplate.prefab");
 
         // Debugging: Check if prefab is correctly loaded
         if (templateEnemyPrefab == null)
@@ -49,6 +51,7 @@ public class EnemyPrefabCreatorEditor : EditorWindow
 
         // Get enemy preview sprite input
         previewImage = (Sprite)EditorGUILayout.ObjectField("Preview Image", previewImage, typeof(Sprite), false);
+        imageScale = EditorGUILayout.FloatField("Image scale", imageScale = 1);
 
         enemyType = (EnemyCore.EnemyType)EditorGUILayout.EnumPopup("Enemy Type", enemyType);
         maxHealth = EditorGUILayout.IntField("Unit Health", maxHealth);
@@ -113,6 +116,8 @@ public class EnemyPrefabCreatorEditor : EditorWindow
         EnemyCore enemyCore = newGameObject.GetComponent<EnemyCore>();
         if (enemyCore != null)
         {
+            enemyCore.SetImage(previewImage);
+            enemyCore.SetImageScale(imageScale);
             enemyCore.enemyType = enemyType;
             enemyCore.SetAttackRatePerSecond(attackRatePerSecond); // Example stats
             enemyCore.SetDamage(damage);
@@ -130,7 +135,7 @@ public class EnemyPrefabCreatorEditor : EditorWindow
         newEnemySO = ScriptableObject.CreateInstance<EnemyPrefab>();
         newEnemySO.enemyName = enemyName;
         newEnemySO.prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabSavePath);  // Store the newly created GameObject prefab reference in the ScriptableObject
-        newEnemySO.previewImage = previewImage;
+        //newEnemySO.previewImage = previewImage;
 
 
         // Step 6: Save the ScriptableObject as an asset in the project
