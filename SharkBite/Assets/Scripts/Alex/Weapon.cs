@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
     {
         _playerInput = GetComponent<PlayerInput>();
         playerStats = PlayerManager.instance.playerStats;
+        itemPooler = Pooler.instance;
 
     }
 

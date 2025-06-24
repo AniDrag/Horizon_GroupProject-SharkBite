@@ -30,6 +30,7 @@ public class MeleeEnemy : MonoBehaviour
 
         if (Time.time >= _lastAttackTime + _fireRate)
         {
+            Debug.Log("Playr attacked by mele");
             _lastAttackTime = Time.time;
             other.GetComponent<PlayerHealth_SYS>().TakeDamage(_damage);
         }
