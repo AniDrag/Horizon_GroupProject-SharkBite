@@ -37,7 +37,7 @@ public class EellShader : MonoBehaviour
         sr.SetPropertyBlock(block);
     }
 
-    public float currentValue = 1f, currentBloom = 50f;
+    float currentValue = 1f, currentBloom = 50f;
     public void SetValue(float v)
     {
         currentValue = v;

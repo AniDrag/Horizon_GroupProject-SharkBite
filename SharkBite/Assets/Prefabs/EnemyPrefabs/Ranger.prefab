@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 6637961838869667006}
   - component: {fileID: 7574917186240069874}
   - component: {fileID: 5657216862078642881}
-  - component: {fileID: 7100727436829412436}
+  - component: {fileID: 8531349145447062056}
   m_Layer: 7
   m_Name: Ranger
   m_TagString: Untagged
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _meleRange: 2
   _rangedUnitRange: 10
---- !u!114 &7100727436829412436
+--- !u!114 &8531349145447062056
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,3 +203,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8342531266508567538, guid: 92027befcc9cf9040b6bda824499dc76, type: 3}
+  bulletForce: 200
