@@ -19,8 +19,8 @@ public class Movement : MonoBehaviour
     {
         playerStats = GetComponent<PlayerManager>().playerStats;
         _characterController = GetComponent<CharacterController>();        
-        _lastKnownDirection = transform.forward;
         _playerInput = GetComponent<PlayerInput>();
+        _lastKnownDirection = transform.forward;
        
 
     }

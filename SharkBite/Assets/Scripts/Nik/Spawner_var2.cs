@@ -6,42 +6,64 @@ public class Spawner_var2 : MonoBehaviour
     public static Spawner_var2 instance;
 
     [SerializeField] private int currentWaveIndex = 0;
+
     [Header("========= Wave runner Logic =========")]
     [Tooltip("List of waves for the game")]
-    public List<WaveFormat> waveList = new List<WaveFormat>();
+    public List<WaveFormat> waveList;
+
     [Tooltip("Maximum number of enemies that can spawn at a time")]
     [SerializeField] private int maxEnemiesToSpawn = 10;
-    [SerializeField] private int squadEnemiesToSpawn = 3;
-    [Tooltip("Spawn interval between enemies")]
-    [SerializeField]private float spawnInterval = 1f;  // In seconds
-    [SerializeField] private float enemySpawnRadious = 10;
 
-    // ========= Ints ==========
-    private List<GameObject> _enemiesOnScreen = new List<GameObject>();
+    [SerializeField] private int squadEnemiesToSpawn = 3;
+
+    [Tooltip("Spawn interval between enemies")]
+    [SerializeField] private float spawnInterval = 1f;
+
+    [SerializeField] private float enemySpawnRadius = 10f;
+
+    public List<GameObject> _enemiesOnScreen = new List<GameObject>();
+    private Pooler _pooler;
+    private GameManager _GM;
     private int _spawnCount;
-    private float _waveTimer;
+    private float _waveInterval;
     private float _lastSpawnTime;
+    private float _lastWaveTime;
+
     private bool _isRestWave;
     private bool _isRusherWave;
     private bool _updatingWave;
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Destroy(instance);
+
+        }
+        instance = this;    
+    }
     private void Start()
     {
-        BaseChech();
+        _GM = GameManager.instance;
+        if (_GM == null)
+        {
+            Debug.LogWarning("GameManager instance missing.");
+            return;
+        }
+        _pooler = Pooler.instance;
+        BaseCheck();
     }
     private void Update()
     {
-        if (Time.time >= _waveTimer + spawnInterval && !_updatingWave)
+        if (Time.time >= _lastWaveTime + _waveInterval && !_updatingWave && currentWaveIndex < waveList.Count - 1)
         {
             _updatingWave = true;
             currentWaveIndex += 1;
             Debug.Log("Updating Wave");
-            BaseChech();
+            BaseCheck();
         }
     }
     private void FixedUpdate()
     {
-        
-
         if (!_isRestWave && !_updatingWave)
         {
             if (Time.time >= _lastSpawnTime + spawnInterval && _enemiesOnScreen.Count < _spawnCount && currentWaveIndex < waveList.Count-1)
@@ -52,50 +74,82 @@ public class Spawner_var2 : MonoBehaviour
         }
     }
 
-    void SpawnEnemy() { 
-        float angle = Random.Range(0, 2 * Mathf.PI);
+    void SpawnEnemy() {
 
-        Vector3 rndPos = new Vector3(GameManager.instance._playerPos.x + enemySpawnRadious * Mathf.Cos(angle), 0, GameManager.instance._playerPos.z + enemySpawnRadious * Mathf.Sin(angle));
+        Vector3 playerPos = _GM._playerPos;
 
-        GameObject enemy = GetEnemyInGroup(currentWaveIndex);
-        //Debug.Log(randomIndex);
-        enemy = Instantiate(enemy, rndPos, Quaternion.identity);
+        float angle = Random.Range(0, Mathf.PI * 2);
+
+        Vector3 rndPos = new Vector3(
+            playerPos.x + enemySpawnRadius * Mathf.Cos(angle),
+            0,
+            playerPos.z + enemySpawnRadius * Mathf.Sin(angle)
+        );
+
+        GameObject enemyPrefab = GetEnemyInGroup(currentWaveIndex,rndPos);
+        if (enemyPrefab == null)
+        {
+            Debug.LogWarning("No enemy prefab found for this wave.");
+            return;
+        }
+
         if (_isRusherWave)
         {
-            enemy.transform.rotation = Quaternion.LookRotation(enemy.transform.position, GameManager.instance._playerPos);
+            Vector3 direction = (playerPos - rndPos).normalized;
+            if (direction != Vector3.zero)
+                enemyPrefab.transform.rotation = Quaternion.LookRotation(direction);
         }
-        
 
-        _enemiesOnScreen.Add(enemy);
+        _enemiesOnScreen.Add(enemyPrefab);
 
     }
-    GameObject GetEnemyInGroup( int waveIndex)
+    GameObject GetEnemyInGroup( int waveIndex, Vector3 position)
     {
+        if (waveIndex < 0 || waveIndex >= waveList.Count) return null;
+
         int totalWeight = 0;
         for (int i = 0; i < waveList[waveIndex].possibleEnemiesToSpawn.Count; i++)
         {
             totalWeight += waveList[waveIndex].possibleEnemiesToSpawn[i].SpawnChance;
-        }
+        } //Total weight calculation
 
-        // geting random vaulue in range of wight hat we have chosen
         int targetWeight = Random.Range(0, totalWeight);
-        // is increased and compared to target weight
         int currentWeight = 0;
 
-        for (int i = 0; i < waveList[waveIndex].possibleEnemiesToSpawn.Count; i++) { 
+        int count = waveList[waveIndex].possibleEnemiesToSpawn.Count;
+
+        for (int i = 0; i < count; i++) { 
+
             currentWeight += waveList[waveIndex].possibleEnemiesToSpawn[i].SpawnChance;
+           
+
             if (targetWeight < currentWeight)
-                return waveList[waveIndex].possibleEnemiesToSpawn[i].prefab.prefab;
+            {
+                GameObject obj = _pooler.SpawnFromPool(waveList[waveIndex].possibleEnemiesToSpawn[i].prefab.enemyName, position, Quaternion.identity);
+                if (obj == null)Debug.LogWarning("There is no fucking object found");
+                if (!obj.GetComponent<EnemyCore>() || !obj.GetComponent<EnemyHealth_SYS>() || !obj.GetComponent<EnemyMovement>()) Debug.LogWarning("No flipn scrits found.. god damn it");
+
+                return obj;
+            }
         }
         return null;
     }
 
-    void BaseChech()
+    void BaseCheck()
     {
-        _lastSpawnTime = Time.time;
-        spawnInterval = waveList[currentWaveIndex].durationOfWave;
-        _isRestWave = waveList[currentWaveIndex].isRestWave;
-        _isRestWave = waveList[currentWaveIndex].isRusherWave;
+        if (currentWaveIndex < 0 || currentWaveIndex >= waveList.Count)
+        {
+            Debug.LogWarning("Invalid wave index.");
+            return;
+        }
+
+        var wave = waveList[currentWaveIndex];
+
+        //_lastSpawnTime = Time.time;
+        _lastWaveTime = Time.time;
+        _waveInterval = wave.durationOfWave;
+        _isRestWave = wave.isRestWave;
+        _isRusherWave = wave.isRusherWave;
         _spawnCount = _isRusherWave ? squadEnemiesToSpawn : maxEnemiesToSpawn;
         _updatingWave = false;
     }
