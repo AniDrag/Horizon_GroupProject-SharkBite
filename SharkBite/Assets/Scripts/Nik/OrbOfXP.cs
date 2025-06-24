@@ -8,7 +8,7 @@ public class OrbOfXP : MonoBehaviour
         if (other.tag == "Player")
         {
             other.transform.GetComponent<PlayerManager>().AddXP(amountOfXP);
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 

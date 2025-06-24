@@ -22,7 +22,7 @@ public class PlayerHealth_SYS : MonoBehaviour
     {
         _playerStats = PlayerManager.instance.playerStats;
         _currentHealth = _playerStats.GetMaxHealth();
-        TakeDamage(0);
+        //TakeDamage(0);
         _playerStats.OnStatsChanged += UpdateMaxHealth;
     }
 
@@ -52,7 +52,7 @@ public class PlayerHealth_SYS : MonoBehaviour
     {
         if (damage < 0 || GODMODE)
             return;
-        
+        Debug.Log($"I took damage Player-{damage}");
         int tempHelth = _currentHealth - DamageCalculationWithModifiers(damage);
 
         if (tempHelth <= 0)

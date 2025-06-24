@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class Damage : MonoBehaviour
+public class EnemyDamage : MonoBehaviour
 {
+    
     private int _damage = 5;
-    bool _triggered;
+   public bool _triggered;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void SetDamage(int setDamageTo)
     {
@@ -12,14 +13,15 @@ public class Damage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        PlayerHealth_SYS playerHealth = other.gameObject.GetComponent<PlayerHealth_SYS>();
         
-        EnemyHealth_SYS enemyhealth = other.gameObject.GetComponent<EnemyHealth_SYS>();
-        if (enemyhealth !=null&& !_triggered)
+        if (playerHealth != null && !_triggered)
         {
             _triggered = true;
-            enemyhealth.TakeDamage(_damage);
-            //Debug.Log($"Damage delt {_damage} to target");
+            playerHealth.TakeDamage(_damage);
+            Debug.Log($"Damage delt {_damage} to target");
         }
+
         _triggered = false;
         this.gameObject.SetActive(false);
     }

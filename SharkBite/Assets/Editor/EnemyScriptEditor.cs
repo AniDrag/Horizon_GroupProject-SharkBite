@@ -72,29 +72,34 @@ public class EnemyScriptEditor : Editor
 
     private void HandleEnemyTypeChange(EnemyCore enemyCore)
     {
-        // Remove existing child weapon and CombatScript based on the enemy type
-        foreach (Transform child in enemyCore.transform)
-        {
-            if (child.CompareTag("Weapon"))
-            {
-                DestroyImmediate(child.gameObject); // Remove the weapon child if it's melee
-            }
-        }
-
         // If the enemy is a CloseRange (Melee), instantiate the weapon
         if (enemyCore.enemyType == EnemyCore.EnemyType.CloseRange)
         {
+            foreach (Transform child in enemyCore.transform)
+            {
+                if (child.CompareTag("Weapon"))
+                {
+                    return; // Remove the weapon child if it's melee
+                }
+            }
             CombatScript combatScript = enemyCore.GetComponent<CombatScript>();
             if (combatScript != null)
             {
                 DestroyImmediate(combatScript);
             }
             GameObject weapon = Instantiate(enemyCore.weaponPrefab, enemyCore.transform);
-            weapon.transform.position = weapon.transform.parent.transform.forward + Vector3.up * .5f; // Adjust weapon position
+            weapon.transform.localPosition = new Vector3(0f, 0.5f, 1f); // Adjust weapon position
             weapon.tag = "Weapon"; // Tag the weapon to identify it in case we need to remove it later
         }
         else if (enemyCore.enemyType == EnemyCore.EnemyType.Ranged)
         {
+            foreach (Transform child in enemyCore.transform)
+            {
+                if (child.CompareTag("Weapon"))
+                {
+                    DestroyImmediate(child.gameObject); // Remove the weapon child if it's melee
+                }
+            }
             if (enemyCore.GetComponent<CombatScript>() == null)
             {
                 enemyCore.gameObject.AddComponent<CombatScript>();

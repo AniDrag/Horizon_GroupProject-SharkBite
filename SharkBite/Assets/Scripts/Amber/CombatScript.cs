@@ -1,39 +1,60 @@
 using UnityEngine;
 
-public class CombatScript : MonoBehaviour
+public class CombatScript : MonoBehaviour,IPooledObject
 {
     [SerializeField] GameObject bulletPrefab;
-
+    [SerializeField] int bulletForce = 200;
     private float _fireRate;
     private int _damage;
     private float _lastAttackTime = 0;
-    private bool _isRanged;
+    Pooler _pooler;
+    private EnemyCore _core;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _damage = GetComponent<EnemyCore>().GetDamage();
-        _fireRate = GetComponent<EnemyCore>().GetAttackRatePerSecond();
+        RespawndObject();
+    }
+    public void RespawndObject()
+    {
+        _core = GetComponent<EnemyCore>();
+        if (_core != null)
+        {
+            _damage = _core.GetDamage();
+            _fireRate = Mathf.Max(_core.GetAttackRatePerSecond(), 0.2f); // Clamp to safe minimum
+        }
+        _pooler = Pooler.instance;
+        if (bulletPrefab == null)
+        {
+            Debug.LogError("CombatScript: bulletPrefab not assigned.");
+            enabled = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_isRanged)
+        _lastAttackTime += Time.deltaTime;
+        if (_lastAttackTime >= _fireRate)
         {
-            if (Time.time >= _lastAttackTime + _fireRate)
-            {
-                _lastAttackTime = Time.time;
-                Shoot();
-            }
+            _lastAttackTime = 0;
+            Shoot();
         }
     }
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, transform.position + new Vector3(0, 0, 1), transform.rotation);
-        bullet.GetComponent<Damage>().SetDamage(_damage);
-        bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 200, ForceMode.Force);
+       
+        GameObject newBullet = _pooler.SpawnFromPool("EnemyBullet", transform.position + new Vector3(0,.5f,1.5f), Quaternion.identity);
+        newBullet.GetComponent<EnemyDamage>().SetDamage(_damage);
 
-        Debug.Log($"Spawned bullet with damage: {_damage}");
+
+        Rigidbody rb = newBullet.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            //Debug.Log("RB set");
+            rb.linearVelocity = Vector3.zero;
+            rb.AddForce(transform.forward * bulletForce, ForceMode.Force);
+        }
+        //Debug.Log("I shot a bullet");
     }
 
 }

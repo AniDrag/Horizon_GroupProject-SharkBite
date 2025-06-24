@@ -6,9 +6,9 @@ public class EnemyMovement : MonoBehaviour
     private float _speed = 5;
     private GameManager _gm;
 
-    private int _curentRange;
-    [SerializeField] private int _meleRange = 2;
-    [SerializeField] private int _rangedUnitRange = 10;
+    private float _curentRange;
+    [SerializeField] private float _meleRange = 2;
+    [SerializeField] private float _rangedUnitRange = 10;
     private bool _isRanged;
     private float distance;
     private EnemyCore _core;
@@ -20,7 +20,6 @@ public class EnemyMovement : MonoBehaviour
         _speed = _core.GetMovementSpeed();
         _isRanged = _core.GetEnemyType();
         _curentRange = _isRanged ? _rangedUnitRange : _meleRange;
-        
     }
 
     // Update is called once per frame
