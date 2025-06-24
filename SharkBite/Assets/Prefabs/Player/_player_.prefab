@@ -168,14 +168,14 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7070998980594191174}
-  - {fileID: 4000230163972718735}
-  - {fileID: 3436342512460023989}
-  - {fileID: 47365415307087727}
   - {fileID: 883113542021965096}
   - {fileID: 8658497087276860425}
   - {fileID: 7091679092887561006}
   - {fileID: 5064053000423835603}
+  - {fileID: 4000230163972718735}
+  - {fileID: 3436342512460023989}
   - {fileID: 2573234787354976436}
+  - {fileID: 47365415307087727}
   m_Father: {fileID: 2755119708091113177}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -204,7 +204,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &5479791801091642600
 MonoBehaviour:
@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0652af4aef15840b5764317f144ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeSystem: {fileID: 0}
+  upgradeSystem: {fileID: 6674809217737148800}
   levelUpText: {fileID: 8515961581825313080}
 --- !u!114 &1931784602516532871
 MonoBehaviour:
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 4134298224538032283}
-  _playerInput: {fileID: 0}
+  _playerInput: {fileID: 5035826586059530451}
   itemPooler: {fileID: 0}
 --- !u!1 &3674208633800626591
 GameObject:
@@ -699,7 +699,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4489119772997028626}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -729,7 +729,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4489119772997028626}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -1118,7 +1118,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 735
+    m_Bits: 991
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: a76c78ac809d8304b8e01511e4b3fcd1, type: 2}
   m_TargetDisplay: 0
@@ -1439,7 +1439,7 @@ GameObject:
   - component: {fileID: 5514801769939889849}
   - component: {fileID: 7446758816935749329}
   m_Layer: 9
-  m_Name: ShootYoistick (1)
+  m_Name: 'ShootYoistick '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1459,11 +1459,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1643894503459206592}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 989.35, y: 125}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -100, y: 75}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0}
 --- !u!222 &8490592904164651953
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1551,7 +1551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9172991917536756161
 RectTransform:
   m_ObjectHideFlags: 0
