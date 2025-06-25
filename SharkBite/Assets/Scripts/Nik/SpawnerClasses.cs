@@ -12,16 +12,21 @@ public class WaveFormat
     [Tooltip("Duration of the wave in seconds")]
     public float durationOfWave;
 
+    [Tooltip("the rate of enemy spawns in seconds")]
+    public float spawnRate;
+
     [Tooltip("Whether this is a rest wave (no enemies will spawn)")]
     public bool isRestWave;
 
     [Tooltip("Whether this is a wave where groups of enemies spawn and rush the player")]
     public bool isRusherWave;
 
-    public int chanceSum;
+    [Tooltip("tags this as a boss wave")]
+    public bool isBossWave;
 
     [Tooltip("List of enemies that can be spawned during this wave")]
     public List<EnemySpecifics> possibleEnemiesToSpawn = new List<EnemySpecifics>();
+    public int chanceSum;
 
     // Helper method to normalize spawn chances (to make sure total is 100%)
     public void NormalizeSpawnChances()

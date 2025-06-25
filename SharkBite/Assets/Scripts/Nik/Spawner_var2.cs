@@ -29,6 +29,7 @@ public class Spawner_var2 : MonoBehaviour
     private float _lastSpawnTime;
     private float _lastWaveTime;
 
+    private bool _isBossWave;
     private bool _isRestWave;
     private bool _isRusherWave;
     private bool _updatingWave;
@@ -144,13 +145,17 @@ public class Spawner_var2 : MonoBehaviour
         }
 
         var wave = waveList[currentWaveIndex];
+        _enemiesOnScreen.Clear();// remove list of enemies so new enemies can spawn
 
         //_lastSpawnTime = Time.time;
         _lastWaveTime = Time.time;
         _waveInterval = wave.durationOfWave;
         _isRestWave = wave.isRestWave;
         _isRusherWave = wave.isRusherWave;
+        _isBossWave = wave.isBossWave;
+        spawnInterval = wave.spawnRate;
         _spawnCount = _isRusherWave ? squadEnemiesToSpawn : maxEnemiesToSpawn;
+        _spawnCount = _isBossWave ? 1 : maxEnemiesToSpawn; // mybe set to 2 if needed
         _updatingWave = false;
     }
 }

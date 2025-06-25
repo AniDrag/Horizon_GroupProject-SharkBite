@@ -37,9 +37,14 @@ public class EnemyHealth_SYS : MonoBehaviour, IPooledObject
     }
 
     void OnDeath()
-    {
+    {        
         Pooler.instance.SpawnFromPool("XP", transform.position + Vector3.up * 1, Quaternion.identity);
-        Spawner_var2.instance._enemiesOnScreen.Remove(gameObject);
+        
+        if (Spawner_var2.instance._enemiesOnScreen.Contains(gameObject))
+        {
+            Spawner_var2.instance._enemiesOnScreen.Remove(gameObject);
+        } // Delete game object
+
         gameObject.SetActive(false);
     }
 

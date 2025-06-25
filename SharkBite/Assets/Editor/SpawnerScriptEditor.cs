@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(Spawner_var2))]
+//[CustomEditor(typeof(Spawner_var2))]
 public class SpawnerScriptEditor : Editor
 {
 

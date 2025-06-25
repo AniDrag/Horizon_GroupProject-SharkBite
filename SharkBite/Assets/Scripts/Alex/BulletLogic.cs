@@ -1,9 +1,13 @@
 using UnityEngine;
 
-public class BulletLogic : MonoBehaviour
+public class BulletLogic : MonoBehaviour,IPooledObject
 {
 
     private void Awake()
+    {
+        RespawndObject();
+    }
+    public void RespawndObject()
     {
         DestroyMe(10);
     }
