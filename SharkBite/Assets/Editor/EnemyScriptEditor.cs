@@ -18,7 +18,7 @@ public class EnemyScriptEditor : Editor
         previousEnemyType = enemyCore.enemyType;
 
         // Get the serialized version of attackRatePerSecond
-        enemyImage = serializedObject.FindProperty("enemyImage");
+        //enemyImage = serializedObject.FindProperty("enemyImage");
         attackRatePerSecond = serializedObject.FindProperty("attackRatePerSecond");
         movemantSpeed = serializedObject.FindProperty("movemantSpeed");
         maxHealth = serializedObject.FindProperty("maxHealth");
@@ -49,7 +49,7 @@ public class EnemyScriptEditor : Editor
 
 
         // ======================================================== PROPERTIES ARANGMENT ========================= 
-        EditorGUILayout.PropertyField(enemyImage);
+        //EditorGUILayout.PropertyField(enemyImage);
         EditorGUILayout.PropertyField(enemyType);
         EditorGUILayout.PropertyField(maxHealth);
         EditorGUILayout.PropertyField(defense);
@@ -90,7 +90,8 @@ public class EnemyScriptEditor : Editor
             {
                 DestroyImmediate(combatScript);
             }
-            GameObject weapon = Instantiate(enemyCore.weaponPrefab, enemyCore.transform.GetChild(0));
+            GameObject weaponPrf = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Templates/MainTemplate.prefab");
+            GameObject weapon = Instantiate(weaponPrf, enemyCore.transform.GetChild(0));
             weapon.transform.localPosition = new Vector3(0f, 0.5f, 2f); // Adjust weapon position
             weapon.tag = "Weapon"; // Tag the weapon to identify it in case we need to remove it later
         }
