@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CombatScript : MonoBehaviour,IPooledObject
 {
-    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] Transform orientation;
     [SerializeField] int bulletForce = 200;
     private float _fireRate;
     private int _damage;
@@ -17,17 +17,25 @@ public class CombatScript : MonoBehaviour,IPooledObject
     public void RespawndObject()
     {
         _core = GetComponent<EnemyCore>();
-        if (_core != null)
+        if (_core == null)
         {
-            _damage = _core.GetDamage();
-            _fireRate = Mathf.Max(_core.GetAttackRatePerSecond(), 0.2f); // Clamp to safe minimum
+            Debug.LogError("no enemy core founf");
         }
+
+        _damage = _core.GetDamage();
+        _fireRate = Mathf.Max(_core.GetAttackRatePerSecond(), 0.2f); // Clamp to safe minimum
+
         _pooler = Pooler.instance;
-        if (bulletPrefab == null)
+        if (_pooler == null)
         {
-            Debug.LogError("CombatScript: bulletPrefab not assigned.");
-            enabled = false;
+            Debug.LogError("no Pooler founf");
         }
+        orientation = _core.GetMyOrientation();
+        if (orientation == null)
+        {
+            Debug.LogError("no Orientation founf");
+        }
+
     }
 
     // Update is called once per frame
@@ -43,7 +51,7 @@ public class CombatScript : MonoBehaviour,IPooledObject
     void Shoot()
     {
        
-        GameObject newBullet = _pooler.SpawnFromPool("EnemyBullet", transform.position + new Vector3(0,.5f,1.5f), Quaternion.identity);
+        GameObject newBullet = _pooler.SpawnFromPool("EnemyBullet", orientation.position + new Vector3(0,.5f,1.5f), Quaternion.identity);
         newBullet.GetComponent<EnemyDamage>().SetDamage(_damage);
 
 
@@ -52,7 +60,7 @@ public class CombatScript : MonoBehaviour,IPooledObject
         {
             //Debug.Log("RB set");
             rb.linearVelocity = Vector3.zero;
-            rb.AddForce(transform.forward * bulletForce, ForceMode.Force);
+            rb.AddForce(orientation.forward * bulletForce, ForceMode.Force);
         }
         //Debug.Log("I shot a bullet");
     }

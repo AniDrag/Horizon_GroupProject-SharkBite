@@ -18,8 +18,7 @@ public class EnemyCore : MonoBehaviour
     [SerializeField] private float attackRatePerSecond;
     [SerializeField] private float movemantSpeed;
 
-    public GameObject weaponPrefab;
-
+    //public GameObject weaponPrefab;
 
     public int GetHealth() => maxHealth;
     public int GetDefense() => defense;
@@ -27,6 +26,8 @@ public class EnemyCore : MonoBehaviour
     public float GetAttackRatePerSecond() => attackRatePerSecond;
     public float GetMovementSpeed() => movemantSpeed;
     public bool GetEnemyType() => enemyType == EnemyType.Ranged;
+    public Transform GetMyOrientation() => transform.GetChild(0);
+
 
     public int SetHealth(int newValue) => maxHealth = newValue;
     public int SetDefense(int newValue) => defense = newValue;
