@@ -17,7 +17,7 @@ public class EnemyPrefabCreatorEditor : EditorWindow
     private float imageScale;
     private string prefabPath = "Assets/Prefabs/EnemyPrefabs";
     private GameObject templateEnemyPrefab; // The template prefab to use for the enemy (always same template)
-    //private GameObject newPrefab; // The new prefab created
+    private GameObject character; // The new prefab created
     private EnemyPrefab newEnemySO; // The ScriptableObject to be created
     private EnemyCore.EnemyType enemyType; // To store the selected enemy type from the enum
     private int maxHealth = 0;
@@ -51,7 +51,8 @@ public class EnemyPrefabCreatorEditor : EditorWindow
 
         // Get enemy preview sprite input
         previewImage = (Sprite)EditorGUILayout.ObjectField("Preview Image", previewImage, typeof(Sprite), false);
-        imageScale = EditorGUILayout.FloatField("Image scale", imageScale = 1);
+        character = (GameObject)EditorGUILayout.ObjectField("Character animated prf", character, typeof(GameObject), false);
+        imageScale = EditorGUILayout.FloatField("character scale", imageScale = 1);
 
         enemyType = (EnemyCore.EnemyType)EditorGUILayout.EnumPopup("Enemy Type", enemyType);
         maxHealth = EditorGUILayout.IntField("Unit Health", maxHealth);
@@ -111,20 +112,19 @@ public class EnemyPrefabCreatorEditor : EditorWindow
         // Step 1: Instantiate the template prefab
         GameObject newGameObject = Instantiate(templateEnemyPrefab);
         newGameObject.name = enemyName; // Set the name of the new prefab
+        GameObject characterObject = Instantiate(character, new Vector3(0, 2, 0), Quaternion.identity);
+        characterObject.transform.SetParent(newGameObject.transform);
 
         // Step 2: Apply the settings to the new prefab (set stats, name, etc.)
         EnemyCore enemyCore = newGameObject.GetComponent<EnemyCore>();
         if (enemyCore != null)
-        {
-            enemyCore.SetImage(previewImage);
-            enemyCore.SetImageScale(imageScale);
+        {            
             enemyCore.enemyType = enemyType;
             enemyCore.SetAttackRatePerSecond(attackRatePerSecond); // Example stats
             enemyCore.SetDamage(damage);
             enemyCore.SetHealth(maxHealth);
             enemyCore.SetDefense(defense);
             enemyCore.SetMovementSpeed(movemantSpeed);
-
         }
 
         // Step 3: Save the instantiated GameObject as a new prefab
