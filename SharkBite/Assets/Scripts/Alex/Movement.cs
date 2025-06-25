@@ -35,7 +35,7 @@ public class Movement : MonoBehaviour
             _lastKnownDirection = _3dMoveDirection;
         }
 
-        _characterController.Move(_3dMoveDirection * playerStats.GetMovementSpeed() * Time.deltaTime);
+        _characterController.Move(_3dMoveDirection * playerStats.GetMovementSpeed()*2 * Time.deltaTime);
 
         GameManager.instance._playerPos = transform.position;
     }
