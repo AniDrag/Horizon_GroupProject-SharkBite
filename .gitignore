@@ -84,3 +84,5 @@ crashlytics-build.properties
 /[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
 /[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
 SharkBite/Assets/Scripts/Alex/HLSL/New Render Texture.renderTexture
+SharkBite/Assets/InputSystem_Actions.cs
+SharkBite/Assets/InputSystem_Actions.cs.meta
