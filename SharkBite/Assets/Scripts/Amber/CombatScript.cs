@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class CombatScript : MonoBehaviour,IPooledObject
 {
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] int bulletForce = 200;
     [SerializeField] Transform orientation;
+    [SerializeField] int bulletForce = 200;
     private float _fireRate;
     private int _damage;
     private float _lastAttackTime = 0;
@@ -18,18 +17,25 @@ public class CombatScript : MonoBehaviour,IPooledObject
     public void RespawndObject()
     {
         _core = GetComponent<EnemyCore>();
-        orientation = _core.GetOrientation();
-        if (_core != null)
+        if (_core == null)
         {
-            _damage = _core.GetDamage();
-            _fireRate = Mathf.Max(_core.GetAttackRatePerSecond(), 0.2f); // Clamp to safe minimum
+            Debug.LogError("no enemy core founf");
         }
+
+        _damage = _core.GetDamage();
+        _fireRate = Mathf.Max(_core.GetAttackRatePerSecond(), 0.2f); // Clamp to safe minimum
+
         _pooler = Pooler.instance;
-        if (bulletPrefab == null)
+        if (_pooler == null)
         {
-            Debug.LogError("CombatScript: bulletPrefab not assigned.");
-            enabled = false;
+            Debug.LogError("no Pooler founf");
         }
+        orientation = _core.GetMyOrientation();
+        if (orientation == null)
+        {
+            Debug.LogError("no Orientation founf");
+        }
+
     }
 
     // Update is called once per frame
