@@ -480,32 +480,68 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
+      propertyPath: waveList.Array.data[0].spawnRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[1].chanceSum
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
+      propertyPath: waveList.Array.data[1].spawnRate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[2].chanceSum
       value: 77
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
+      propertyPath: waveList.Array.data[2].spawnRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[3].chanceSum
-      value: 50
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
+      propertyPath: waveList.Array.data[3].spawnRate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[4].chanceSum
-      value: 50
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
+      propertyPath: waveList.Array.data[4].spawnRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
+      propertyPath: waveList.Array.data[5].spawnRate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[6].chanceSum
-      value: 50
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
+      propertyPath: waveList.Array.data[6].spawnRate
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[7].chanceSum
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
+      propertyPath: waveList.Array.data[7].spawnRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[8].chanceSum
-      value: 100
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
+      propertyPath: waveList.Array.data[8].spawnRate
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[4].durationOfWave
@@ -609,39 +645,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[1].possibleEnemiesToSpawn.Array.data[0].EnemyName
-      value: Warrior
+      value: Pirhana
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[1].possibleEnemiesToSpawn.Array.data[1].EnemyName
-      value: Ranger
+      value: Eel
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[2].possibleEnemiesToSpawn.Array.data[0].EnemyName
-      value: Ranger
+      value: Eel
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[2].possibleEnemiesToSpawn.Array.data[1].EnemyName
-      value: Warrior
+      value: Pirhana
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[3].possibleEnemiesToSpawn.Array.data[0].EnemyName
-      value: Ranger
+      value: Eel_10
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[3].possibleEnemiesToSpawn.Array.data[1].EnemyName
-      value: Warrior
+      value: Pirhana_10
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[4].possibleEnemiesToSpawn.Array.data[0].EnemyName
-      value: Ranger
+      value: Eel
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[4].possibleEnemiesToSpawn.Array.data[1].EnemyName
-      value: Tank
+      value: Crab_Tank
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[4].possibleEnemiesToSpawn.Array.data[2].EnemyName
-      value: Warrior
+      value: Pirhana
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[6].possibleEnemiesToSpawn.Array.data[0].EnemyName
@@ -657,15 +693,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[7].possibleEnemiesToSpawn.Array.data[0].EnemyName
-      value: Warrior
+      value: Pirhana_10
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[7].possibleEnemiesToSpawn.Array.data[1].EnemyName
-      value: Ranger
+      value: Eel_10
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[7].possibleEnemiesToSpawn.Array.data[2].EnemyName
-      value: Tank
+      value: Crab_Tank_10
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[8].possibleEnemiesToSpawn.Array.data[0].EnemyName
