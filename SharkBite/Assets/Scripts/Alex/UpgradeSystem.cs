@@ -32,6 +32,7 @@ public class UpgradeSystem : MonoBehaviour
     /// </summary>
     public void OnLevelUp() 
     {// Max 6 lvl's
+        Time.timeScale = 0f;
         HashSet<int> usedIndexes = new HashSet<int>();
         if (button.Count < 2)
         {
@@ -49,6 +50,11 @@ public class UpgradeSystem : MonoBehaviour
                 i++;
             }
         }
+    }
+
+    private void ZaWarudo()
+    {
+        Time.timeScale = 1f;
     }
 
     private void InstantiateButton(int index)
@@ -71,6 +77,7 @@ public class UpgradeSystem : MonoBehaviour
         float recoilSpeed = _playerStats.GetFireRate();
         _playerStats.IncreaseMaxHealth(20);
         Debug.Log($"Recoilspeed was {recoilSpeed}, now it is {_playerStats.GetFireRate()}");
+        ZaWarudo();
     }
 
     public void Upgrade1()
@@ -78,5 +85,6 @@ public class UpgradeSystem : MonoBehaviour
         float damage = _playerStats.GetBulletDamage();
         _playerStats.IncreaseDamage(10);
         Debug.Log($"Damage was {damage}, now it is {_playerStats.GetBulletDamage()}");
+        ZaWarudo();
     }
 }

@@ -21,9 +21,21 @@ public class ObstacleDetails
     [Min(1)] public int spawnChance;
 
     [Tooltip("What is my chance of being a group?")]
-    [Min(0)] public int groupChance;
+    [Range(0,100)] public float groupChance;
 
-    [Tooltip("What other prefabs should I ignore?")]
-    public List<GameObject> ignoreObstacles = new List<GameObject>();
+    [Tooltip("How many of me should be spawned in a group?")]
+    [MinMaxSlider(1, 100)] public Vector2Int groupAmount;
+
+    [Tooltip("How many of me should be spawned")]
+    [MinMaxSlider(1, 100)] public Vector2Int amountChance;
+
+    [Tooltip("How high should I spawn, if my scale is 1?")]
+    public int yOffset;
+
+    [Tooltip("How strong should I go up, when I'm bigger?")]
+    [Min(0)] public float yToScale;
+
+    //[Tooltip("What other prefabs should I ignore?")]
+    //public List<GameObject> ignoreObstacles = new List<GameObject>();
 
 }
