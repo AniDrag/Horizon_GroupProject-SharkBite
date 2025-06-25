@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Collider))]
 public class PlayerHealth_SYS : MonoBehaviour
 {
@@ -11,11 +12,12 @@ public class PlayerHealth_SYS : MonoBehaviour
     [SerializeField] private float maxScaleChangePerSecond = 0.5f;
 
 
-    private int _currentHealth = 10;
+    public int _currentHealth = 10;
     private int _maxHealth = 10;
     private int _defense = 4;
     [SerializeField] private PlayerStats _playerStats;
 
+    public SceneManagement scenemanagement;
 
 
     public void Start()
@@ -59,6 +61,12 @@ public class PlayerHealth_SYS : MonoBehaviour
         {
             _currentHealth = 0;
              gameObject.SetActive(false);
+            if (scenemanagement != null)
+            {
+                scenemanagement.LoadScene(3); // <== LOADS END SCENE HERE
+                //SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+            }
+
         }
         else
         {

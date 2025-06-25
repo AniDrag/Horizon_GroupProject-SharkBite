@@ -31,7 +31,10 @@ public class UI_Manager : MonoBehaviour
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(sceneIndex);
     }
-
+    public void LoadEndScene()
+    {
+                SceneManager.LoadSceneAsync(3);
+    }
     public void QuitGame()
     {
 

@@ -7,7 +7,9 @@ public class EnemyHealth_SYS : MonoBehaviour, IPooledObject
     private int _defese;
     private EnemyCore _enemyCore;
     public int GetEnemyCurrentHealth() => _currentEnemyHealth;
+    public bool isBoss;
 
+    public SceneManagement scenemanagement;
     // list of modifiers and make a class for what specific action it should do.
     private void Start()
     {
@@ -29,6 +31,10 @@ public class EnemyHealth_SYS : MonoBehaviour, IPooledObject
         {
             _currentEnemyHealth = 0;
             OnDeath();
+            if (scenemanagement != null && isBoss)
+            {
+                scenemanagement.LoadScene(3); // <== LOADS END SCENE HERE
+            }
         }
         else
         {
