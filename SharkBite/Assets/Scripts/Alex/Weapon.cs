@@ -9,6 +9,11 @@ public class Weapon : MonoBehaviour
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private Pooler itemPooler;
+
+    int _upgradelevel = 0;
+    int bulletcount = 1;
+    float angleStep = 10f; // degrees between bullets
+
     private float _timeReset;
     Vector3 _saveShoodDirection;
     void Start()
@@ -40,23 +45,43 @@ public class Weapon : MonoBehaviour
         {
             _timeReset = 0;
             // Debug.Log("I shot a bullet");
+            UpgradeShootLevel();
             Shoot(playerStats.GetFireRate(), orientation.position);
         }
     }
 
     private void Shoot(float cd, Vector3 moveDirection)
     {
-
-        GameObject newBullet = itemPooler.SpawnFromPool("Bullet", orientation.position + orientation.forward * 1.5f, Quaternion.identity);
-        newBullet.GetComponent<Damage>().SetDamage(playerStats.GetBulletDamage());
-
-
-        Rigidbody rb = newBullet.GetComponent<Rigidbody>();
-        if (rb != null)
+        for (int i = 0; i < bulletcount; i++)
         {
-            rb.linearVelocity = Vector3.zero;
-            rb.AddForce(orientation.forward * playerStats.GetBulletSpeed() * 200, ForceMode.Force);
+            float startAngle = -(bulletcount - 1) * angleStep / 2f;
+            float currentAngle = startAngle + i * angleStep;
+            Quaternion bulletRotation = Quaternion.Euler(0, currentAngle, 0) * orientation.rotation;
+
+            GameObject newBullet = itemPooler.SpawnFromPool("Bullet", orientation.position + orientation.forward * 1.5f, Quaternion.identity);
+            newBullet.GetComponent<Damage>().SetDamage(playerStats.GetBulletDamage());
+
+
+            Rigidbody rb = newBullet.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector3.zero;
+                rb.AddForce(orientation.forward * playerStats.GetBulletSpeed() * 200, ForceMode.Force);
+            }
+            //Debug.Log("I shot a bullet");
         }
-        //Debug.Log("I shot a bullet");
+    }
+
+    public void UpgradeShootLevel()
+    {
+        _upgradelevel = playerStats.GetCurrentLevel();
+        if(_upgradelevel >=3)
+        {
+            bulletcount = 3;
+        }
+        else if (_upgradelevel >=5)
+        {
+            bulletcount = 5;
+        }
     }
 }
