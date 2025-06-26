@@ -13,6 +13,7 @@ public class EnemyMovement : MonoBehaviour, IPooledObject
     private bool _isRanged;
     private float distance;
     private EnemyCore _core;
+    private int direction = Random.value< 0.5f ? -1 : 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -54,7 +55,9 @@ public class EnemyMovement : MonoBehaviour, IPooledObject
             if (_isRanged)
             {
                 //float direction = Mathf.Sign(Time.time);
-                transform.position += orientation.right * Time.deltaTime * _speed;
+                //transform.position += -orientation.right * Time.deltaTime * _speed;
+                Vector3 strafe = transform.right * Time.deltaTime * _speed * direction;
+                transform.position += strafe;
             }
 
         }
