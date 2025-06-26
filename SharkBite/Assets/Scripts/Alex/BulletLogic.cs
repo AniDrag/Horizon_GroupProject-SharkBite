@@ -14,7 +14,6 @@ public class BulletLogic : MonoBehaviour,IPooledObject
     public void DestroyMe()
     {
         //Destroy(this.gameObject, time);
-        Debug.Log("I'm in DAAANGER");
         this.gameObject.SetActive(false);
     }
 

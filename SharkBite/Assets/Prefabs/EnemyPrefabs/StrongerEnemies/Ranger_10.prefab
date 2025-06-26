@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8270219040885769897}
   - component: {fileID: 275262453783651177}
   - component: {fileID: 1630132362642437771}
+  - component: {fileID: -2276747778755794879}
   m_Layer: 0
   m_Name: Ranger_10
   m_TagString: Untagged
@@ -111,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80bb6589266240041b569be970c3af9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 2
+  enemyType: 1
   maxHealth: 30
   defense: 0
   damage: 20
@@ -138,6 +139,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4, y: 2, z: 4}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &-2276747778755794879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4080172859643653030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c9354d79e5ba1458b3e8d4a3564cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 0}
+  bulletForce: 200
 --- !u!1001 &5933449074741935548
 PrefabInstance:
   m_ObjectHideFlags: 0

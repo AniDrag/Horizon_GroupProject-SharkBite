@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.25511748, g: 0.4089184, b: 0.8584906, a: 1}
-  m_FogMode: 1
-  m_FogDensity: 0.034
+  m_FogMode: 2
+  m_FogDensity: 0.005
   m_LinearFogStart: 0
   m_LinearFogEnd: 65
   m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
@@ -26977,7 +26977,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1653025577}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2103032714}
+        m_TargetAssemblyTypeName: UI_Manager, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1653025577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28153,7 +28165,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899231234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000046282585}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28162,10 +28174,10 @@ RectTransform:
   m_Father: {fileID: 164412628}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -470.65933, y: -197.03516}
-  m_SizeDelta: {x: -1087.8025, y: -539.4689}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 73.24158, y: 72.69919}
+  m_SizeDelta: {x: 832.1975, y: 347.53113}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1899231236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28686,7 +28698,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2050133071}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2103032714}
+        m_TargetAssemblyTypeName: UI_Manager, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2050133071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29033,6 +29057,7 @@ GameObject:
   - component: {fileID: 2103032712}
   - component: {fileID: 2103032711}
   - component: {fileID: 2103032710}
+  - component: {fileID: 2103032714}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -29163,6 +29188,19 @@ Transform:
   - {fileID: 1147906526}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 3.93, y: -46.55, z: 0}
+--- !u!114 &2103032714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103032709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13303edb140a3c143838bd973d982386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EndPanel: {fileID: 0}
 --- !u!1001 &2136941926
 PrefabInstance:
   m_ObjectHideFlags: 0

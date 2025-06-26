@@ -6,9 +6,9 @@ public class LevelGen : MonoBehaviour
     [Header("========= Obstacle settings =========")]
 
     [Tooltip("Min and Max coordinates from my position to spawn obstacle")]
-    [SerializeField][MinMaxSlider(-100, 100)] private Vector2Int xBoundaries = new Vector2Int();
+    [SerializeField][MinMaxSlider(-200, 200)] private Vector2Int xBoundaries = new Vector2Int();
     [Tooltip("Min and Max coordinates from my position to spawn obstacle")]
-    [SerializeField][MinMaxSlider(-100, 100)] private Vector2Int zBoundaries = new Vector2Int();
+    [SerializeField][MinMaxSlider(-200, 200)] private Vector2Int zBoundaries = new Vector2Int();
 
     [Tooltip("List of obstacles for the level")]
     [SerializeField] private List<ObstacleDetails> obstacleList = new List<ObstacleDetails>();
