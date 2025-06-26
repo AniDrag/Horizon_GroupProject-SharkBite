@@ -14,7 +14,7 @@ public class Bomb : MonoBehaviour
     [SerializeField] private float timeToExplode = 2;
     [SerializeField] private float minFreq = 1f;   // hits per second at start
     [SerializeField] private float maxFreq = 20f;   // hits per second at the end
-    public Material sharedMat;
+    [SerializeField] private Material sharedMat;
 
 
     bool _triggered;

@@ -137,8 +137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfd289b894ec1b44eae53f2dc89becd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBoss: 0
-  scenemanagement: {fileID: 0}
+  sharedMat: {fileID: 2100000, guid: bee4e744708cfff41b2802f4b6157b1a, type: 2}
+  redAmount: 0.4
+  speedMultiplier: 1
+  timeForRed: 1
 --- !u!114 &5836729861215294536
 MonoBehaviour:
   m_ObjectHideFlags: 0
