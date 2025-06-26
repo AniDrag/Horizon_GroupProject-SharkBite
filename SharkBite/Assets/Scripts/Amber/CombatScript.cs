@@ -60,7 +60,7 @@ public class CombatScript : MonoBehaviour,IPooledObject
         {
             //Debug.Log("RB set");
             rb.linearVelocity = Vector3.zero;
-            rb.AddForce(orientation.forward * bulletForce, ForceMode.Force);
+            rb.AddForce(orientation.forward * bulletForce * 10, ForceMode.Force);
         }
         //Debug.Log("I shot a bullet");
     }
