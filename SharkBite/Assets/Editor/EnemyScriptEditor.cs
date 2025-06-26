@@ -93,7 +93,7 @@ public class EnemyScriptEditor : Editor
 
             GameObject weaponPrf = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Templates/EnemyMeleWeapon.prefab");
             GameObject weapon = Instantiate(weaponPrf, enemyCore.transform.GetChild(0));
-            weapon.transform.localPosition = new Vector3(0f, 1, 1f); // Adjust weapon position
+            weapon.transform.localPosition = new Vector3(0f, 1, 2f); // Adjust weapon position
             weapon.tag = "Weapon"; // Tag the weapon to identify it in case we need to remove it later
 
         }
