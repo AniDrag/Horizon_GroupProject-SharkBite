@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46163ed6a9cb01f4687e39ea8d0a7965, type: 3}
-  m_Name: Eel
+  m_Name: Boss
   m_EditorClassIdentifier: 
-  enemyName: Eel
-  prefab: {fileID: 4108862267423491883, guid: 871ba4451b9f58e4a81fe12cb5d74209, type: 3}
+  enemyName: Boss
+  prefab: {fileID: 1806421713121344310, guid: 6513f8bfecb4f1a4aa6fdaba77a27cd5, type: 3}
   previewImage: {fileID: 0}

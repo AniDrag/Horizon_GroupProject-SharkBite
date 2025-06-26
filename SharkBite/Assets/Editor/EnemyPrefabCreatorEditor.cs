@@ -114,6 +114,7 @@ public class EnemyPrefabCreatorEditor : EditorWindow
         newGameObject.name = enemyName; // Set the name of the new prefab
         GameObject characterObject = Instantiate(character, new Vector3(0, 2, 0), Quaternion.identity);
         characterObject.transform.SetParent(newGameObject.transform);
+        characterObject.transform.localScale = Vector3.one* imageScale;
 
         // Step 2: Apply the settings to the new prefab (set stats, name, etc.)
         EnemyCore enemyCore = newGameObject.GetComponent<EnemyCore>();

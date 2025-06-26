@@ -78,6 +78,11 @@ public class EnemyScriptEditor : Editor
         // If the enemy is a CloseRange (Melee), instantiate the weapon
         if (enemyCore.enemyType == EnemyCore.EnemyType.CloseRange)
         {
+            CombatScript combatScript = enemyCore.GetComponent<CombatScript>();
+            if (combatScript != null)
+            {
+                DestroyImmediate(combatScript);
+            }
             foreach (Transform child in enemyCore.transform.GetChild(0))
             {
                 if (child.CompareTag("Weapon"))
@@ -85,15 +90,12 @@ public class EnemyScriptEditor : Editor
                     return; // Remove the weapon child if it's melee
                 }
             }
-            CombatScript combatScript = enemyCore.GetComponent<CombatScript>();
-            if (combatScript != null)
-            {
-                DestroyImmediate(combatScript);
-            }
-            GameObject weaponPrf = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Templates/MainTemplate.prefab");
+
+            GameObject weaponPrf = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Templates/EnemyMeleWeapon.prefab");
             GameObject weapon = Instantiate(weaponPrf, enemyCore.transform.GetChild(0));
-            weapon.transform.localPosition = new Vector3(0f, 0.5f, 2f); // Adjust weapon position
+            weapon.transform.localPosition = new Vector3(0f, 1, 1f); // Adjust weapon position
             weapon.tag = "Weapon"; // Tag the weapon to identify it in case we need to remove it later
+
         }
         else if (enemyCore.enemyType == EnemyCore.EnemyType.Ranged)
         {

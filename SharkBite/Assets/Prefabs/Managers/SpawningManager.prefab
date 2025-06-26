@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1392249333491377653
+--- !u!1 &4530970657323359920
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1973673035458146857}
-  - component: {fileID: 2769501995787865844}
+  - component: {fileID: 8740302135202539654}
+  - component: {fileID: 7632952447089487324}
   m_Layer: 0
   m_Name: SpawningManager
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1973673035458146857
+--- !u!4 &8740302135202539654
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1392249333491377653}
+  m_GameObject: {fileID: 4530970657323359920}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2769501995787865844
+--- !u!114 &7632952447089487324
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1392249333491377653}
+  m_GameObject: {fileID: 4530970657323359920}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd1e9880a8c3db64d9edbba9c0a90321, type: 3}
@@ -46,30 +46,121 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWaveIndex: 0
   waveList:
-  - durationOfWave: 5
-    isRestWave: 1
+  - durationOfWave: 30
+    isRestWave: 0
     isRusherWave: 0
     chanceSum: 0
     possibleEnemiesToSpawn:
     - prefab: {fileID: 11400000, guid: ae79b4805f5cdf847abb17c2ffbf117f, type: 2}
       EnemyName: 
       EnemyImage: {fileID: 0}
-      SpawnChance: 1
+      SpawnChance: 100
+  - durationOfWave: 30
+    isRestWave: 0
+    isRusherWave: 0
+    chanceSum: 0
+    possibleEnemiesToSpawn:
+    - prefab: {fileID: 11400000, guid: ae79b4805f5cdf847abb17c2ffbf117f, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 75
     - prefab: {fileID: 11400000, guid: 51ba60e2275db604685878d032c5d80b, type: 2}
       EnemyName: 
       EnemyImage: {fileID: 0}
-      SpawnChance: 1
-  - durationOfWave: 5
+      SpawnChance: 25
+  - durationOfWave: 30
+    isRestWave: 0
+    isRusherWave: 0
+    chanceSum: 0
+    possibleEnemiesToSpawn:
+    - prefab: {fileID: 11400000, guid: 51ba60e2275db604685878d032c5d80b, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 33
+    - prefab: {fileID: 11400000, guid: ae79b4805f5cdf847abb17c2ffbf117f, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 77
+  - durationOfWave: 20
+    isRestWave: 0
+    isRusherWave: 0
+    chanceSum: 0
+    possibleEnemiesToSpawn:
+    - prefab: {fileID: 11400000, guid: 51ba60e2275db604685878d032c5d80b, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 50
+    - prefab: {fileID: 11400000, guid: ae79b4805f5cdf847abb17c2ffbf117f, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 50
+  - durationOfWave: 30
+    isRestWave: 0
+    isRusherWave: 0
+    chanceSum: 0
+    possibleEnemiesToSpawn:
+    - prefab: {fileID: 11400000, guid: 51ba60e2275db604685878d032c5d80b, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 30
+    - prefab: {fileID: 11400000, guid: 1cc65a4e948f56744b07b6d228a530be, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 20
+    - prefab: {fileID: 11400000, guid: ae79b4805f5cdf847abb17c2ffbf117f, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 50
+  - durationOfWave: 10
     isRestWave: 1
     isRusherWave: 0
     chanceSum: 0
     possibleEnemiesToSpawn: []
-  - durationOfWave: 5
-    isRestWave: 1
+  - durationOfWave: 30
+    isRestWave: 0
+    isRusherWave: 1
+    chanceSum: 0
+    possibleEnemiesToSpawn:
+    - prefab: {fileID: 11400000, guid: 51ba60e2275db604685878d032c5d80b, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 30
+    - prefab: {fileID: 11400000, guid: 1cc65a4e948f56744b07b6d228a530be, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 20
+    - prefab: {fileID: 11400000, guid: ae79b4805f5cdf847abb17c2ffbf117f, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 50
+  - durationOfWave: 30
+    isRestWave: 0
     isRusherWave: 0
     chanceSum: 0
-    possibleEnemiesToSpawn: []
+    possibleEnemiesToSpawn:
+    - prefab: {fileID: 11400000, guid: ae79b4805f5cdf847abb17c2ffbf117f, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 50
+    - prefab: {fileID: 11400000, guid: 51ba60e2275db604685878d032c5d80b, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 30
+    - prefab: {fileID: 11400000, guid: 1cc65a4e948f56744b07b6d228a530be, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 20
+  - durationOfWave: 140
+    isRestWave: 0
+    isRusherWave: 0
+    chanceSum: 0
+    possibleEnemiesToSpawn:
+    - prefab: {fileID: 11400000, guid: 6d403dfe2d9a5ab48882acb7470babb6, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 100
   maxEnemiesToSpawn: 10
   squadEnemiesToSpawn: 3
   spawnInterval: 1
   enemySpawnRadius: 10
+  _enemiesOnScreen: []

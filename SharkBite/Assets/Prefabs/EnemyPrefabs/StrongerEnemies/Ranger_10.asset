@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46163ed6a9cb01f4687e39ea8d0a7965, type: 3}
-  m_Name: Crab_Tank_10
+  m_Name: Ranger_10
   m_EditorClassIdentifier: 
-  enemyName: Crab_Tank_10
-  prefab: {fileID: 6799381739045729275, guid: 1703697020e18774296bd80fd59c5270, type: 3}
+  enemyName: Ranger_10
+  prefab: {fileID: 4080172859643653030, guid: 670205bd1b4968946a3b7600e94b78b8, type: 3}
   previewImage: {fileID: 0}
