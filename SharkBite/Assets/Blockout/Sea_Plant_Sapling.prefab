@@ -439,6 +439,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5274074018607570552}
+  - component: {fileID: 6637782913271910109}
+  - component: {fileID: 6741640179569600260}
   m_Layer: 0
   m_Name: Sea_Plant_Sapling
   m_TagString: Untagged
@@ -468,6 +470,48 @@ Transform:
   - {fileID: 7967992281397294781}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6637782913271910109
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5914509197763397915}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.7550392, y: 6.6681437, z: 2.6476746}
+  m_Center: {x: -0.070466995, y: 0.7540457, z: -0.2313385}
+--- !u!65 &6741640179569600260
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5914509197763397915}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.216053, y: 2.1412148, z: 1}
+  m_Center: {x: 4.1080265, y: 3.8065498, z: 0}
 --- !u!1 &6327784091544931539
 GameObject:
   m_ObjectHideFlags: 0
