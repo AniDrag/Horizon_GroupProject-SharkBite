@@ -48,5 +48,6 @@ public class DamageShader : MonoBehaviour
 
             yield return null;
         }
+        block.SetFloat("_Factor", 0);
     }
 }

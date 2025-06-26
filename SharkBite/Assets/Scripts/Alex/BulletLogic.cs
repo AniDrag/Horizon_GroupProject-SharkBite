@@ -5,16 +5,16 @@ public class BulletLogic : MonoBehaviour,IPooledObject
 
     private void Awake()
     {
-        RespawndObject();
     }
     public void RespawndObject()
     {
-        DestroyMe(10);
+        Invoke(nameof(DestroyMe),10);
     }
 
-    public void DestroyMe(float time)
+    public void DestroyMe()
     {
         //Destroy(this.gameObject, time);
+        Debug.Log("I'm in DAAANGER");
         this.gameObject.SetActive(false);
     }
 
