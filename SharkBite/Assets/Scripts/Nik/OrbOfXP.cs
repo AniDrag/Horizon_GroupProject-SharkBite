@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class OrbOfXP : MonoBehaviour
 {
-    private int amountOfXP = 5;
+    [SerializeField] int amountOfXP = 5;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
