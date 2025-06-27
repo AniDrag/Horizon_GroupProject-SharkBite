@@ -13,14 +13,17 @@ public class EnemyMovement : MonoBehaviour, IPooledObject
     private bool _isRanged;
     private float distance;
     private EnemyCore _core;
-    private int direction = Random.value< 0.5f ? -1 : 1;
+    private int _direction;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         RespawndObject();
+
     }
     public void RespawndObject()
     {
+        _direction = Random.value < 0.5f ? -1 : 1;
         _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         _core = GetComponent<EnemyCore>();
         orientation = _core.GetMyOrientation();
@@ -45,6 +48,7 @@ public class EnemyMovement : MonoBehaviour, IPooledObject
     }
     void NormalEnemyBehaviour()
     {
+
         orientation.LookAt(new Vector3(_gm._playerPos.x, orientation.position.y, _gm._playerPos.z));
         distance = Vector3.Distance(transform.position, _gm._playerPos);
         Mathf.Abs(distance);
@@ -52,12 +56,12 @@ public class EnemyMovement : MonoBehaviour, IPooledObject
         {
             //Debug.Log("in distance");
 
+          //  Debug.Log("direction value" + direction);
             if (_isRanged)
             {
                 //float direction = Mathf.Sign(Time.time);
-                //transform.position += -orientation.right * Time.deltaTime * _speed;
-                Vector3 strafe = transform.right * Time.deltaTime * _speed * direction;
-                transform.position += strafe;
+                
+                transform.position += orientation.right * _direction *Time.deltaTime * _speed;
             }
 
         }
