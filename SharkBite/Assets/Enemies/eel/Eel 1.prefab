@@ -26,12 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3662964001358765812}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.15059718, w: 0.98859525}
-  m_LocalPosition: {x: -0.66, y: 0.47, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.08119595, w: 0.9966982}
+  m_LocalPosition: {x: -0.5506706, y: -1.7207953, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4582120545869071710}
+  m_Children:
+  - {fileID: 4582120545869071710}
+  m_Father: {fileID: 1282815575586158820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.323}
 --- !u!212 &8069707993393811551
 SpriteRenderer:
@@ -120,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1282815575586158820}
   m_Layer: 0
-  m_Name: Eel
+  m_Name: Eel 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,7 +140,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4582120545869071710}
+  - {fileID: 7273566788221371286}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5836334192963351996
@@ -169,13 +170,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5836334192963351996}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.23036987, w: 0.97310317}
-  m_LocalPosition: {x: 0.25, y: -1.845, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.1505972, w: 0.98859525}
+  m_LocalPosition: {x: 0.87, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7273566788221371286}
-  m_Father: {fileID: 1282815575586158820}
+  m_Children: []
+  m_Father: {fileID: 7273566788221371286}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 26.638}
 --- !u!212 &6362213441889413066
 SpriteRenderer:
@@ -267,5 +267,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedMat: {fileID: 2100000, guid: 4c9e3b73657f0124292053b1a64c0825, type: 2}
-  currentValue: 0.3
-  currentBloom: 2

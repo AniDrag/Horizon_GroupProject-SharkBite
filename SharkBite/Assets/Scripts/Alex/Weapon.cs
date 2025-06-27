@@ -20,7 +20,7 @@ public class Weapon : MonoBehaviour
     {
         _playerInput = GetComponent<PlayerInput>();
         playerStats = PlayerManager.instance.playerStats;
-        itemPooler = Pooler.instance;
+        //itemPooler = Pooler.instance;
 
     }
 
@@ -44,7 +44,7 @@ public class Weapon : MonoBehaviour
         if (_timeReset >= playerStats.GetFireRate())
         {
             _timeReset = 0;
-            // Debug.Log("I shot a bullet");
+
             UpgradeShootLevel();
             Shoot(playerStats.GetFireRate(), orientation.position);
         }
@@ -60,7 +60,6 @@ public class Weapon : MonoBehaviour
 
             GameObject newBullet = itemPooler.SpawnFromPool("Bullet", orientation.position + orientation.forward * 1.5f, Quaternion.identity);
             newBullet.GetComponent<Damage>().SetDamage(playerStats.GetBulletDamage());
-
 
             Rigidbody rb = newBullet.GetComponent<Rigidbody>();
             if (rb != null)

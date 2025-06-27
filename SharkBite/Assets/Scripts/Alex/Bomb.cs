@@ -14,18 +14,33 @@ public class Bomb : MonoBehaviour
     [SerializeField] private float timeToExplode = 2;
     [SerializeField] private float minFreq = 1f;   // hits per second at start
     [SerializeField] private float maxFreq = 20f;   // hits per second at the end
-    public Material sharedMat;
+    [SerializeField] private Material sharedMat;
 
 
     bool _triggered;
+    Material currentMat;
     MeshRenderer mr;
     MaterialPropertyBlock block;
 
-    private void Start()
+    private void Awake()
     {
-        mr = GetComponent<MeshRenderer>();
-        block = new MaterialPropertyBlock();
-        mr.sharedMaterial = sharedMat;
+        if (sharedMat != null)
+        {
+            mr = GetComponent<MeshRenderer>();
+            if (mr == null)
+            {
+                Debug.LogWarning("I don't have a MeshRenderer");
+                return;
+            }
+            block = new MaterialPropertyBlock();
+            Texture baseTex = mr.sharedMaterial.GetTexture("_BaseMap");
+            block.SetTexture("_MyTexture", baseTex);
+
+            mr.sharedMaterial = sharedMat;
+            mr.SetPropertyBlock(block);
+        }
+        else
+            Debug.LogWarning("I don't have reference to the shader material");
     }
     private void OnDrawGizmos()
     {
@@ -71,17 +86,13 @@ public class Bomb : MonoBehaviour
             float t = flash * envelope;
 
             // 6) apply to shader
-            mr.GetPropertyBlock(block);
-            block.SetFloat("_Factor", t);
-            mr.SetPropertyBlock(block);
+            ApplyFactor(t);
 
             yield return null;
         }
 
         // final state: fully blown (solid red)
-        mr.GetPropertyBlock(block);
-        block.SetFloat("_Factor", 1f);
-        mr.SetPropertyBlock(block);
+        ApplyFactor(1);
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, bombRadius, mask);
         foreach (Collider col in hitColliders)
@@ -100,6 +111,13 @@ public class Bomb : MonoBehaviour
             }
         }
         yield return null;
-        Destroy(this.gameObject);
+        Destroy(this.transform.parent.gameObject);
+    }
+
+    private void ApplyFactor(float factor)
+    {
+        mr.GetPropertyBlock(block);
+        block.SetFloat("_Factor", factor);
+        mr.SetPropertyBlock(block);
     }
 }

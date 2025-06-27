@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2421188657509924405}
   - component: {fileID: 568506643482138153}
   - component: {fileID: 6203647517307039917}
+  - component: {fileID: 505715190617895056}
   m_Layer: 0
   m_Name: Cube.085
   m_TagString: Untagged
@@ -119,6 +120,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &505715190617895056
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6173162380986858775}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02686676, y: 0.02877571, z: 0.0555424}
+  m_Center: {x: -0.0007500793, y: -0.000052563846, z: 0.018835528}
 --- !u!1 &7982197635675285274
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +152,7 @@ GameObject:
   - component: {fileID: 2438863104280841500}
   - component: {fileID: 531404936187347391}
   - component: {fileID: 3477761887817222843}
+  - component: {fileID: 2525734800590539467}
   m_Layer: 0
   m_Name: Cube.086
   m_TagString: Untagged
@@ -205,3 +228,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2525734800590539467
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7982197635675285274}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.026866762, y: 0.028775712, z: 0.0555424}
+  m_Center: {x: -0.00075012335, y: -0.00005256321, z: 0.018835528}
