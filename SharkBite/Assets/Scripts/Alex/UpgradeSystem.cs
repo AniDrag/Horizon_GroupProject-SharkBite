@@ -1,90 +1,117 @@
-using UnityEngine;
-using UnityEngine.UI;
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using TMPro;
+
+[Serializable]
+public enum UpgradeType
+{
+    BulletSpeed,
+    RecoilSpeed,
+    Damage,
+    MaxHealth,
+    Defense
+}
+
+[Serializable]
+public class UpgradeOption
+{
+    [Tooltip("Name shown on the button")]
+    public string displayName;
+
+    [Tooltip("Which stat this upgrades")]
+    public UpgradeType type;
+
+    [Tooltip("How much to increase in percentage")]
+    public float increasePercentage;
+}
 
 public class UpgradeSystem : MonoBehaviour
 {
-    [Header("===== References =====")]
-    [SerializeField] private List<Button> button = new List<Button>();
-    private UnityAction[] _upgradeMethods;
+    [Header("Configurable Upgrades")]
+    [Tooltip("Define all the upgrades you can ever pick")]
+    [SerializeField] private List<UpgradeOption> allUpgrades = new List<UpgradeOption>();
 
+    [Header("UI")]
+    [SerializeField] private Button buttonPrefab;
+    [SerializeField] private Transform buttonContainer;
+    [Tooltip("How many choices to show on each level up")]
+    [SerializeField] private int choicesPerLevel = 2;
 
-
-    private List<Button> _existingButtons = new List<Button>();
     private PlayerStats _playerStats;
-    //public delegate void UpgradeButtonDelegate();
-    //public UpgradeButtonDelegate Upgrade;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private List<Button> _spawnedButtons = new List<Button>();
 
-
-    void Start()
+    private void Start()
     {
+        if (choicesPerLevel < allUpgrades.Count)
+            Debug.LogWarning("Choices per level are more than the upgrades list");
+
         _playerStats = PlayerManager.instance.playerStats;
         PlayerManager.instance.SetUpgradeRef(this);
-        _upgradeMethods = new UnityAction[] {Upgrade0, Upgrade1 };
         OnLevelUp();
-    }
 
+    }
 
     /// <summary>
-    /// Call this whenever we level Up
+    /// Call this when the player levels up
     /// </summary>
-    public void OnLevelUp() 
-    {// Max 6 lvl's
+    public void OnLevelUp()
+    {
         Time.timeScale = 0f;
-        HashSet<int> usedIndexes = new HashSet<int>();
-        if (button.Count < 2)
+        ClearExistingButtons();
+
+        // Shuffle and take the first N
+        var picks = new List<UpgradeOption>(allUpgrades);
+        for (int i = 0; i < picks.Count; i++)
         {
-            Debug.LogError("Not enough buttons to select 2 unique upgrades.");
-            return;
+            var r = UnityEngine.Random.Range(i, picks.Count);
+            var tmp = picks[i];
+            picks[i] = picks[r];
+            picks[r] = tmp;
         }
-        for (int i = 0; i < 2;) 
-        {
-            int index = Random.Range(0, button.Count);
-            if (!usedIndexes.Contains(index))
-            {
-                usedIndexes.Add(index);
-                InstantiateButton(index);
-                Debug.Log("nomegwebubgew");
-                i++;
-            }
-        }
+
+        for (int i = 0; i < Mathf.Min(choicesPerLevel, picks.Count); i++)
+            SpawnButton(picks[i]);
     }
 
-    private void ZaWarudo()
+    private void SpawnButton(UpgradeOption opt)
     {
+        var btn = Instantiate(buttonPrefab, buttonContainer);
+        btn.GetComponentInChildren<TextMeshProUGUI>().text = $"{opt.displayName} + {opt.increasePercentage}% ";
+        btn.onClick.AddListener(() => ApplyUpgrade(opt));
+        btn.onClick.AddListener(ClearExistingButtons);
+        _spawnedButtons.Add(btn);
+    }
+
+    private void ClearExistingButtons()
+    {
+        foreach (var b in _spawnedButtons)
+            if (b) Destroy(b.gameObject);
+        _spawnedButtons.Clear();
         Time.timeScale = 1f;
     }
 
-    private void InstantiateButton(int index)
+    private void ApplyUpgrade(UpgradeOption opt)
     {
-        Button actionButton = Instantiate(button[index], transform, this.transform);
-        actionButton.onClick.AddListener(_upgradeMethods[index]);
-        actionButton.onClick.AddListener(DestroyExistingButtons);
-        _existingButtons.Add(actionButton);
-    }
-
-    private void DestroyExistingButtons()
-    {
-        foreach (Button button in _existingButtons)
-            Destroy(button.gameObject);
-        _existingButtons.Clear();
-    }
-
-    public void Upgrade0()
-    {//Increase of firerate
-        float recoilSpeed = _playerStats.GetFireRate();
-        _playerStats.IncreaseMaxHealth(20);
-        Debug.Log($"Recoilspeed was {recoilSpeed}, now it is {_playerStats.GetFireRate()}");
-        ZaWarudo();
-    }
-
-    public void Upgrade1()
-    {//Increase the damage of the bullets
-        float damage = _playerStats.GetBulletDamage();
-        _playerStats.IncreaseDamage(10);
-        Debug.Log($"Damage was {damage}, now it is {_playerStats.GetBulletDamage()}");
-        ZaWarudo();
+        switch (opt.type)
+        {
+            case UpgradeType.BulletSpeed:
+                _playerStats.IncreaseBulletSpeed(opt.increasePercentage);
+                break;
+            case UpgradeType.RecoilSpeed:
+                _playerStats.IncreaseRecoilSpeed(opt.increasePercentage);
+                break;
+            case UpgradeType.Damage:
+                _playerStats.IncreaseDamage(opt.increasePercentage);
+                break;
+            case UpgradeType.MaxHealth:
+                _playerStats.IncreaseMaxHealth(opt.increasePercentage);
+                break;
+            case UpgradeType.Defense:
+                _playerStats.IncreaseDefense(opt.increasePercentage);
+                break;
+        }
     }
 }
