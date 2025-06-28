@@ -61,11 +61,7 @@ public class PlayerHealth_SYS : MonoBehaviour
         {
             _currentHealth = 0;
              gameObject.SetActive(false);
-            if (scenemanagement != null)
-            {
-                scenemanagement.LoadScene(3); // <== LOADS END SCENE HERE
-                //SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
-            }
+            GameManager.instance.PlayerDied();
 
         }
         else

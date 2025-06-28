@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class UpgradeSystem : MonoBehaviour
 {
     [Header("===== References =====")]
+    [SerializeField] private List<Sprite> allUpgradeBtnSprites;
     [SerializeField] private List<Button> button = new List<Button>();
     private UnityAction[] _upgradeMethods;
 
