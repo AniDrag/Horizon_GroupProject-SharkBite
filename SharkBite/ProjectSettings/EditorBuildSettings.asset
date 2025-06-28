@@ -12,11 +12,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Alexander.unity
     guid: 9f58b88ee22c6824aae1998ee87c7fa5
   - enabled: 0
+    path: Assets/Scenes/Nik.unity
+    guid: 722942856dcddde4f8fd42501efa005b
+  - enabled: 0
+    path: Assets/Scenes/TestmainMenu.unity
+    guid: e424af2f37273344d8eef048c5e93d48
+  - enabled: 0
+    path: Assets/Scenes/FinalScenes/IntroScene.unity
+    guid: 0f35f9dab6a9a9e43b34977ddb88043e
+  - enabled: 0
     path: Assets/Scenes/FinalScenes/DON'T TOUCH ME.unity
     guid: 07dae63112995e54c9d39118336af02c
   - enabled: 0
-    path: Assets/Scenes/Nik.unity
-    guid: 722942856dcddde4f8fd42501efa005b
+    path: Assets/Scenes/FinalScenes/EndScene.unity
+    guid: 16d204e56fd7fad4fb06f152762c444a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: ec0b5d50206d2014b8488da607d40d5d, type: 3}
   m_UseUCBPForAssetBundles: 0
