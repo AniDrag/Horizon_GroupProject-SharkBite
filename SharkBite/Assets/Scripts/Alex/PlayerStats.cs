@@ -7,11 +7,11 @@ public class PlayerStats
     private const int DEFAULT_MAX_HEALTH = 100;
     private const int DEFAULT_DEFENSE = 3;
     private const int DEFAULT_LEVEL = 0;
-    private const int DEFAULT_MAX_XP = 10;
+    private const int DEFAULT_MAX_XP = 5;
     private const int DEFAULT_BULLET_DAMAGE = 50;
     private const float DEFAULT_BULLET_SPEED = 5f;
-    private const float DEFAULT_FIRE_RATE = 1f;
-    private const float DEFAULT_MOVEMENT_SPEED = 10f;
+    private const float DEFAULT_FIRE_RATE = 0.5f;
+    private const float DEFAULT_MOVEMENT_SPEED = 6f;
     #endregion
 
     #region === Variables (Runtime modifiable) ===

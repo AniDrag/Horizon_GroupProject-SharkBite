@@ -463,6 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0652af4aef15840b5764317f144ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xpModifier: 5
   upgradeSystem: {fileID: 6674809217737148800}
   levelUpText: {fileID: 8515961581825313080}
 --- !u!114 &1931784602516532871
