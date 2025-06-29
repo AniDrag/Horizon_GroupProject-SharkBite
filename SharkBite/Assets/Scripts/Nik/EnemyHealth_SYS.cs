@@ -5,8 +5,9 @@ public class EnemyHealth_SYS : DamageShader, IPooledObject
 
     private int _currentEnemyHealth = 100;
     private int _defese;
-    private EnemyCore _enemyCore;
+    private EnemyCore _enemyCore; 
     public int GetEnemyCurrentHealth() => _currentEnemyHealth;
+    [SerializeField] bool isBoss;
 
     // list of modifiers and make a class for what specific action it should do.
     private void Start()
@@ -45,6 +46,11 @@ public class EnemyHealth_SYS : DamageShader, IPooledObject
         {
             Spawner_var2.instance._enemiesOnScreen.Remove(gameObject);
         } // Delete game object
+
+        if (isBoss)
+        {
+            return;
+        }
 
         gameObject.SetActive(false);
     }

@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 
     [Header("===== Details =====")]
     public GameObject DethPanel;
+    public Transform Player;
+    public Camera renderCamera;
     public Vector3 _playerPos;
     public Vector2Int _displayResolution;
     public Vector2Int _displaySystemResolution;
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+       // Player = objectByTag
         DethPanel.SetActive(false);
         Screen.autorotateToLandscapeLeft = false;
         Screen.autorotateToLandscapeRight = false;
