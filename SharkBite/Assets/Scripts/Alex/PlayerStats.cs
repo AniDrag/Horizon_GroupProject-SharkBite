@@ -121,5 +121,10 @@ public class PlayerStats
     {
         IncreaseInt(ref defense, increasePercentage);
     }
+
+    public void IncreasePlayerSpeed(float increasePercentage)
+    {
+        IncreaseFloat(ref movementSpeed, increasePercentage);
+    }
     #endregion
 }

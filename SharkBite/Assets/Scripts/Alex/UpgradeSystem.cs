@@ -15,6 +15,7 @@ public enum UpgradeType
     Damage,
     MaxHealth,
     Defense,
+    PlayerSpeed
 }
 
 [Serializable]
@@ -230,6 +231,9 @@ public class UpgradeSystem : MonoBehaviour
                 break;
             case UpgradeType.Defense:
                 _playerStats.IncreaseDefense(opt.increasePercentage);
+                break;
+            case UpgradeType.PlayerSpeed:
+                _playerStats.IncreasePlayerSpeed(opt.increasePercentage);
                 break;
         }
         _basicLevels[opt.type]++;
