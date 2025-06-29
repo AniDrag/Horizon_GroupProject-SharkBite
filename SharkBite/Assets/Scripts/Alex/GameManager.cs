@@ -5,7 +5,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance { get; private set; }
 
-    [Header ("===== Details =====")]
+    [Header("===== Details =====")]
+    public GameObject DethPanel;
     public Vector3 _playerPos;
     public Vector2Int _displayResolution;
     public Vector2Int _displaySystemResolution;
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        DethPanel.SetActive(false);
         Screen.autorotateToLandscapeLeft = false;
         Screen.autorotateToLandscapeRight = false;
         Screen.autorotateToPortrait = false;
@@ -39,9 +41,9 @@ public class GameManager : MonoBehaviour
         Debug.Log(_displaySystemResolution.ToString());
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void PlayerDied()
     {
-        
+        DethPanel.gameObject.SetActive(true);
     }
 }

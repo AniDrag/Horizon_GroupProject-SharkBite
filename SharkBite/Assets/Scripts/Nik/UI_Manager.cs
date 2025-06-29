@@ -4,8 +4,6 @@ using UnityEngine.SceneManagement;
 public class UI_Manager : MonoBehaviour
 {
     public static UI_Manager instance;
-    
-    public GameObject EndPanel;
 
     private void Awake()
     {
@@ -16,26 +14,26 @@ public class UI_Manager : MonoBehaviour
 
         instance = this;
     }
-    public void LoadScene(int sceneNumber)
+    public void UI_SelectScene(int sceneNumber)
     {
         SceneManager.LoadScene(sceneNumber);
     }
 
-    public void LoadMainMenu()
+    public void UI_LoadMainMenu()
     {
         SceneManager.LoadSceneAsync(0);
     }
 
-    public void RestartScene()
+    public void UI_RestartScene()
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(sceneIndex);
     }
-    public void LoadEndScene()
+    public void UI_EndScene()
     {
                 SceneManager.LoadSceneAsync(3);
     }
-    public void QuitGame()
+    public void UI_QuitGame()
     {
 
         Application.Quit();//
