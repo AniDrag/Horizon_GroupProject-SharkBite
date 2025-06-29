@@ -33,21 +33,35 @@ public class DamageShader : MonoBehaviour
 
     public IEnumerator DamageAnimation()
     {
+        float halfTime = timeForRed / 2f;
         float startTime = Time.time;
-        float endTime = startTime + timeForRed;
 
-
-        while (Time.time < endTime)
+        // 0 to redAmount
+        while (Time.time < startTime + halfTime)
         {
-            float value = Mathf.PingPong(Time.time / (timeForRed / 2f), 1f);
-            float t = Mathf.Lerp(0, redAmount, value);
-
-            sr.GetPropertyBlock(block);
-            block.SetFloat("_Factor", t);
-            sr.SetPropertyBlock(block);
-
+            float t = (Time.time - startTime) / halfTime;
+            float value = Mathf.Lerp(0, redAmount, t);
+            ApplyFactor(value);
             yield return null;
         }
-        block.SetFloat("_Factor", 0);
+
+        // redAmount to 0
+        float midTime = Time.time;
+        while (Time.time < midTime + halfTime)
+        {
+            float t = (Time.time - midTime) / halfTime;
+            float value = Mathf.Lerp(redAmount, 0, t);
+            ApplyFactor(value);
+            yield return null;
+        }
+        ApplyFactor(0);
+
+    }
+
+    private void ApplyFactor(float factor)
+    {
+        sr.GetPropertyBlock(block);
+        block.SetFloat("_Factor", factor);
+        sr.SetPropertyBlock(block);
     }
 }

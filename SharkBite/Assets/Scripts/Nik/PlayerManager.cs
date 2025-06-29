@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerHealth_SYS))]
 public class PlayerManager : MonoBehaviour
 {
+    [SerializeField]
+    [Range(1, 100)] int xpModifier;
     public static PlayerManager instance;
     public PlayerStats playerStats;
     public UpgradeSystem upgradeSystem;
@@ -47,7 +49,7 @@ public class PlayerManager : MonoBehaviour
     void LevelUP()
     {
         level++;
-        xpToLevelUp = (int)(xpToLevelUp * 1.2f);
+        xpToLevelUp = (int)(xpToLevelUp + xpModifier);
         if (level < 6)
         {
             upgradeSystem.OnLevelUp();

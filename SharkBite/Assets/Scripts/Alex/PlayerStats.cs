@@ -7,11 +7,11 @@ public class PlayerStats
     private const int DEFAULT_MAX_HEALTH = 100;
     private const int DEFAULT_DEFENSE = 3;
     private const int DEFAULT_LEVEL = 0;
-    private const int DEFAULT_MAX_XP = 10;
+    private const int DEFAULT_MAX_XP = 5;
     private const int DEFAULT_BULLET_DAMAGE = 50;
     private const float DEFAULT_BULLET_SPEED = 5f;
-    private const float DEFAULT_FIRE_RATE = 1f;
-    private const float DEFAULT_MOVEMENT_SPEED = 10f;
+    private const float DEFAULT_FIRE_RATE = 0.5f;
+    private const float DEFAULT_MOVEMENT_SPEED = 6f;
     #endregion
 
     #region === Variables (Runtime modifiable) ===
@@ -58,45 +58,73 @@ public class PlayerStats
 
     #endregion
 
+    #region === Helper Functions ===
+    /// <summary>
+    /// Increase a float stat by a percentage of itself, then fire OnStatsChanged if >0.
+    /// </summary>
+    private void IncreaseFloat(ref float stat, float percent)
+    {
+        if (percent <= 0f) return;
+        stat += stat * (percent / 100f);
+        OnStatsChanged?.Invoke();
+    }
+
+    /// <summary>
+    /// Decrease a float stat by a percentage of itself, with an optional minimum clamp.
+    /// </summary>
+    private void DecreaseFloat(ref float stat, float percent, float minValue = 0f)
+    {
+        if (percent <= 0f) return;
+        stat -= stat * (percent / 100f);
+        stat = Mathf.Max(stat, minValue);
+        OnStatsChanged?.Invoke();
+    }
+
+    /// <summary>
+    /// Increase an integer stat by a percentage of itself, rounding at least +1.
+    /// </summary>
+    private void IncreaseInt(ref int stat, float percent)
+    {
+        if (percent <= 0f) return;
+        int delta = Mathf.Max(1, Mathf.FloorToInt(stat * (percent / 100f)));
+        stat += delta;
+        OnStatsChanged?.Invoke();
+    }
+
+#endregion
+
     #region === Modifiers ===
+
+    // === Public API ===
+
     public void IncreaseBulletSpeed(float increasePercentage)
     {
-        if (increasePercentage > 0)
-        {
-            bulletSpeed += bulletSpeed / increasePercentage;
-            OnStatsChanged?.Invoke();  // Trigger the event when the stat is modified
-        }
+        IncreaseFloat(ref bulletSpeed, increasePercentage);
     }
 
     public void IncreaseRecoilSpeed(float increasePercentage)
     {
-        if (increasePercentage > 0)
-        {
-            if (fireRate > 0.005)
-                fireRate -= fireRate / increasePercentage;
-            OnStatsChanged?.Invoke();  // Trigger the event when the stat is modified
-        }
+        DecreaseFloat(ref fireRate, increasePercentage, minValue: 0.005f);
     }
 
     public void IncreaseDamage(float increasePercentage)
     {
-        if (increasePercentage > 0)
-        {
-            bulletDamage += Mathf.Max(1, (int)(bulletDamage / increasePercentage));
-            OnStatsChanged?.Invoke();  // Trigger the event when the stat is modified
-        }
+        IncreaseInt(ref bulletDamage, increasePercentage);
     }
 
     public void IncreaseMaxHealth(float increasePercentage)
     {
-        maxHealth += (int)(maxHealth / increasePercentage);
-        OnStatsChanged?.Invoke();  // Trigger the event when the stat is modified
+        IncreaseInt(ref maxHealth, increasePercentage);
     }
 
     public void IncreaseDefense(float increasePercentage)
     {
-        defense += (int)(defense / increasePercentage);
-        OnStatsChanged?.Invoke();  // Trigger the event when the stat is modified
+        IncreaseInt(ref defense, increasePercentage);
+    }
+
+    public void IncreasePlayerSpeed(float increasePercentage)
+    {
+        IncreaseFloat(ref movementSpeed, increasePercentage);
     }
     #endregion
 }
