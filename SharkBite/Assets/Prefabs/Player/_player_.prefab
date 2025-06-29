@@ -909,9 +909,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464c16757467eb349b0a4ae08d975606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button:
-  - {fileID: 6613698922942443876, guid: 16b3d1ec5934064479e125883ebad910, type: 3}
-  - {fileID: 1706748943488061882, guid: 35ae71d7c4dd9a84a82d6a1b23f18ead, type: 3}
+  basicUpgrades:
+  - displayName: Recoil
+    type: 1
+    increasePercentage: 12
+  - displayName: Speed
+    type: 0
+    increasePercentage: 124
+  - displayName: Damage
+    type: 2
+    increasePercentage: 999
+  maxBasicLevel: 3
+  bigUpgrades:
+  - displayName: Platoon
+    conditions:
+    - type: 1
+      requiredLevel: 1
+    - type: 2
+      requiredLevel: 2
+    onUnlocked:
+      m_PersistentCalls:
+        m_Calls: []
+    id: Platoon1
+  buttonPrefab: {fileID: 6613698922942443876, guid: 16b3d1ec5934064479e125883ebad910, type: 3}
+  buttonContainer: {fileID: 2573234787354976436}
+  choicesPerLevel: 2
+  baseBonusPercent: 5
 --- !u!1 &5392429781903475433
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1144,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 991
+    m_Bits: 735
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: a76c78ac809d8304b8e01511e4b3fcd1, type: 2}
   m_TargetDisplay: 0
