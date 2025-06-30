@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 501149508131817812}
   - component: {fileID: 1545366990509667921}
   - component: {fileID: 3541772132382972964}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: crab_big_arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 5864192796379115192}
   - component: {fileID: 8165354024243218925}
   - component: {fileID: 9191348022271994419}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tank_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,6 +286,7 @@ MonoBehaviour:
   redAmount: 0.4
   speedMultiplier: 1
   timeForRed: 1
+  isBoss: 0
 --- !u!114 &5864192796379115192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +352,7 @@ GameObject:
   - component: {fileID: 6869441135406906915}
   - component: {fileID: 3134933945702894294}
   - component: {fileID: 1553444290860353198}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: crab_big_claw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +462,7 @@ GameObject:
   - component: {fileID: 4659542731649591007}
   - component: {fileID: 8513069037001083844}
   - component: {fileID: 5350958736557488087}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: crab_big_body_props
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +571,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5945709111207644670}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -603,7 +604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8457880926433801355}
   - component: {fileID: 6590758161057571905}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CrabBigProps(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

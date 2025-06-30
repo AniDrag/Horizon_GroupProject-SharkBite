@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.Analytics;
 using static Unity.Collections.AllocatorManager;
+using System.Numerics;
 
 public class Bomb : MonoBehaviour
 {
@@ -18,26 +19,37 @@ public class Bomb : MonoBehaviour
 
 
     bool _triggered;
-    Material currentMat;
-    MeshRenderer mr;
-    MaterialPropertyBlock block;
+    Material _radiusMat;
+    MeshRenderer _radiusMr;
+    MaterialPropertyBlock _radiusBlock;
+
+    MeshRenderer _mr;
+    MaterialPropertyBlock _block;
+
+
 
     private void Awake()
     {
         if (sharedMat != null)
         {
-            mr = GetComponent<MeshRenderer>();
-            if (mr == null)
+            _mr = GetComponent<MeshRenderer>();
+            if (_mr == null)
             {
                 Debug.LogWarning("I don't have a MeshRenderer");
                 return;
             }
-            block = new MaterialPropertyBlock();
-            Texture baseTex = mr.sharedMaterial.GetTexture("_BaseMap");
-            block.SetTexture("_MyTexture", baseTex);
+            _block = new MaterialPropertyBlock();
+            Texture baseTex = _mr.sharedMaterial.GetTexture("_BaseMap");
+            _block.SetTexture("_MyTexture", baseTex);
 
-            mr.sharedMaterial = sharedMat;
-            mr.SetPropertyBlock(block);
+            _mr.sharedMaterial = sharedMat;
+            _mr.SetPropertyBlock(_block);
+
+            _radiusMr = transform.GetChild(0).GetComponent<MeshRenderer>();
+            _radiusBlock = new MaterialPropertyBlock();
+            _radiusMr.sharedMaterial = _radiusMr.material;
+            _radiusMr.SetPropertyBlock(_radiusBlock);
+
         }
         else
             Debug.LogWarning("I don't have reference to the shader material");
@@ -116,8 +128,14 @@ public class Bomb : MonoBehaviour
 
     private void ApplyFactor(float factor)
     {
-        mr.GetPropertyBlock(block);
-        block.SetFloat("_Factor", factor);
-        mr.SetPropertyBlock(block);
+        _mr.GetPropertyBlock(_block);
+        _block.SetFloat("_Factor", factor);
+        _mr.SetPropertyBlock(_block);
+
+        _radiusMr.GetPropertyBlock(_radiusBlock);
+        _radiusBlock.SetFloat("_Alpha", factor);
+        _radiusMr.SetPropertyBlock(_radiusBlock);
     }
+
+
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6440696573207665113}
   - component: {fileID: 4106101097136600633}
   - component: {fileID: 866789783804654719}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: piranha_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 1505716336262943016}
   - component: {fileID: 6065392902348420025}
   - component: {fileID: 5221230059172900068}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: piranha_openmouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 371781761121598018}
   - component: {fileID: 8594969229906883777}
   - component: {fileID: 4594844038545103582}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Warrior_10
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -275,6 +275,7 @@ MonoBehaviour:
   redAmount: 0.4
   speedMultiplier: 1
   timeForRed: 1
+  isBoss: 0
 --- !u!114 &371781761121598018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,7 +339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5528523280542333506}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4197411215445798818}
   - component: {fileID: 4150377473193333939}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Piranha(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5580955132287909081}
   - component: {fileID: 3733412899039245025}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: piranha_uppermouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}

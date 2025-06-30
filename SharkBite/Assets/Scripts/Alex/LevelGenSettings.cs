@@ -30,7 +30,7 @@ public class ObstacleDetails
     [MinMaxSlider(1, 100)] public Vector2Int amountChance;
 
     [Tooltip("How high should I spawn, if my scale is 1?")]
-    public int yOffset;
+    public float yOffset;
 
     [Tooltip("How strong should I go up, when I'm bigger?")]
     [Min(0)] public float yToScale;

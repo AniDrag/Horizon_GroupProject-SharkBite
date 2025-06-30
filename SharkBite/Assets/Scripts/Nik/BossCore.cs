@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,22 +7,28 @@ public class BossCore : EnemyCore
     public enum BossPhase { Idle, ChargeAttack, Summon }
     private BossPhase currentPhase = BossPhase.Idle;
 
+    [Header("Attack Settings")]
+    [SerializeField] private int chargeWeight = 10;
+    [SerializeField] private int summonWeight = 3;
+
     [SerializeField]private Animator animator;
     private Transform player;
-    private float timer;
     private float baseAttackSpeed;
     EnemyHealth_SYS enemyhealth;
     int health;
     int health_75;
     int health_50;
     int health_25;
-    bool attacking;
 
     [Header("Phase Timings")]
     [SerializeField][Range(1, 20)] int spawnAliesCout;
     [SerializeField] private List<EnemyPrefab> spawnableEnemies;
-    [SerializeField] private List<Animation> allBossAnims;
-    private void Start()
+
+
+    private Coroutine attackRoutine;
+    private bool isDead;
+
+    private void Awake()
     {
         player = GameManager.instance.Player;
         enemyhealth = GetComponent<EnemyHealth_SYS>();
@@ -31,97 +38,133 @@ public class BossCore : EnemyCore
         health_25 = health / 4;
         baseAttackSpeed = GetAttackRatePerSecond();
     }
-    void Update()
+    private void OnEnable()
     {
-        timer += Time.deltaTime;
-        health = enemyhealth.GetEnemyCurrentHealth();
-        if (health == health_75 || health == health_50 || health == health_25) Enrage();
-        else if (health <= 0)
-        {
-            animator.SetBool("Death", true);
-        }
-
-        if (timer > baseAttackSpeed && !attacking) return;
-        #region My lazy as calculation
-        float totalWeight = 10 + 3;
-        float rand = Random.Range(0f, totalWeight);
-        if (rand < 10)
-            currentPhase =BossPhase.ChargeAttack;
-        else
-            currentPhase = BossPhase.Summon;
-        timer = 0;
-        #endregion
-
-        switch (currentPhase)
-        {
-            case BossPhase.ChargeAttack:
-                Charge();                
-                break;
-            case BossPhase.Summon:
-                Summon();
-                break;
-        }
-    } 
-
-    void Charge()
-    {
-        attacking = true;
-
-        animator.SetBool("Charging", true);
-        #region Another lazy ass calculation
-        Vector3 direction = (player.position - transform.position).normalized;
-        float distance = Vector3.Distance(transform.position, player.position);
-        Vector3 targetPos = transform.position + direction * (distance + 5f);
-        float stopDistance = Vector3.Distance(transform.position, targetPos);
-        #endregion
-        // Optional: animation trigger
-
-        float duration = 0.5f;
-        float t = 0f;
-        Vector3 start = transform.position;
-
-        while (3 < stopDistance)
-        {
-            t += Time.deltaTime;
-            transform.position = Vector3.Lerp(start, targetPos, t / duration);
-            //yield return null;
-        }
-        animator?.SetBool("Charging", false);
-        timer = 0;
-        attacking = false;
+        // Kick off the repeating attack loop
+        isDead = false;
+        attackRoutine = StartCoroutine(AttackLoop());
     }
 
-    void Summon()
+    private void OnDisable()
     {
-        attacking = true;
+        if (attackRoutine != null)
+            StopCoroutine(attackRoutine);
+    }
+
+    private IEnumerator AttackLoop()
+    {
+        while (!isDead)
+        {
+            yield return new WaitForSeconds(baseAttackSpeed);
+
+            var phase = PickPhase();
+            switch (phase)
+            {
+                case BossPhase.ChargeAttack:
+                    StartCoroutine(Charge());
+                    break;
+                case BossPhase.Summon:
+                    StartCoroutine(Summon());
+                    break;
+            }
+        }
+    }
+
+
+    private void Update()
+    {
+        CheckHealth();
+    }
+
+    /// <summary>
+    /// Just dash past the player. 10 units
+    /// </summary>
+    private IEnumerator Charge()
+    {
+        animator.SetBool("Charging", true);
+
+        Vector3 playerPos = player.position;
+        playerPos.y = transform.position.y;
+
+        Vector3 direction = (playerPos - transform.position).normalized;
+
+        float distance = Vector3.Distance(transform.position, player.position);
+        Vector3 targetPos = transform.position + direction * (distance + 15f);
+
+        float elapsed = 0f, duration = GetMovementSpeed() / 5;
+        Vector3 start = transform.position;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            transform.position = Vector3.Lerp(start, targetPos, t);
+            yield return null;
+        }
+
+        animator.SetBool("Charging", false);
+    }
+
+    IEnumerator Summon()
+    {
         currentPhase = BossPhase.Summon;
         for (int i = 0; i < spawnAliesCout; i++)
         {
             EnemyPrefab enemyToSpawn = spawnableEnemies[Random.Range(0, spawnableEnemies.Count - 1)];
-            Vector3 playerPos = player.position;
 
-            float angle = Random.Range(0, Mathf.PI * 2);
+            float angle = Random.Range(0, Mathf.PI * Random.Range(2,3));
 
             Vector3 rndPos = new Vector3(
-                playerPos.x + 10 * Mathf.Cos(angle),
+                transform.position.x + Random.Range(10,30) * Mathf.Cos(angle),
                 0,
-                playerPos.z + 10 * Mathf.Sin(angle)
+                transform.position.z + Random.Range(10, 30) * Mathf.Sin(angle)
             );
 
-            Pooler.instance.SpawnFromPool(enemyToSpawn.enemyName, rndPos, Quaternion.identity);
+            GameObject enemy = Pooler.instance.SpawnFromPool(enemyToSpawn.enemyName, rndPos, Quaternion.identity);
+            Spawner_var2.instance._enemiesOnScreen.Add(enemy); // ISSUE
+            Debug.Log("spawning");
+            yield return null;
         }
-        Invoke(nameof(ResetSummon), 2);
-    }
-    void ResetSummon()
-    {
-        timer = 0;
-        attacking = false;
     }
     public void Enrage()
     {
         baseAttackSpeed *= 0.5f;
         
-        SetMovementSpeed( GetMovementSpeed()*1.2f);
+        SetMovementSpeed( GetMovementSpeed()/1.2f);
     }
+
+    private void CheckHealth()
+    {
+        health = enemyhealth.GetEnemyCurrentHealth();
+
+        if (isDead) return;
+
+        // Death
+        if (health <= 0)
+        {
+            Die();
+            return;
+        }
+        if (health == health_75 || health == health_50 || health == health_25) Enrage();
+
+    }
+
+    private void Die()
+    {
+        isDead = true;
+        animator.SetBool("Death", true);
+        Debug.Log($"Boss died at health {health}");
+    }
+
+    private BossPhase PickPhase()
+    {
+        float total = chargeWeight + summonWeight;
+        float rand = Random.Range(0f, total);
+        return rand < chargeWeight
+            ? BossPhase.ChargeAttack
+            : BossPhase.Summon;
+    }
+
+
 
 }
