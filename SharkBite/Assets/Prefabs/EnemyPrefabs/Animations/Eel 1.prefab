@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3578869253081721563}
   - component: {fileID: 7920272630393625579}
-  - component: {fileID: 7567417628570498844}
   m_Layer: 0
   m_Name: eel_body
   m_TagString: Untagged
@@ -26,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122603842322846169}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000029802319, y: -0, z: 0.08119595, w: 0.99669814}
-  m_LocalPosition: {x: -0.5506705, y: -1.7207953, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.38141993, y: -0.03107234, z: 0.07501528, w: 0.920829}
+  m_LocalPosition: {x: -0.033275127, y: 0.11145894, z: -0.1986489}
+  m_LocalScale: {x: 0.5, y: 0.50000006, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4536971687370629900}
-  m_Father: {fileID: 2149241863942631154}
+  m_Father: {fileID: 5539940094580023701}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.323}
 --- !u!212 &7920272630393625579
 SpriteRenderer:
@@ -89,28 +88,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &7567417628570498844
-Animator:
-  serializedVersion: 7
+--- !u!1 &3836630159435260630
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1122603842322846169}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d8dc28e47a220894c8bb374f37e951c3, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5539940094580023701}
+  m_Layer: 0
+  m_Name: Eel_wholebody
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5539940094580023701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3836630159435260630}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.38268343, y: -0, z: -0, w: 0.92387956}
+  m_LocalPosition: {x: -0.48412037, y: -1.5974904, z: 0.43855858}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3578869253081721563}
+  m_Father: {fileID: 2149241863942631154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6706445460741529548
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +130,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4536971687370629900}
   - component: {fileID: 523139396532537009}
-  - component: {fileID: 2294232350622102391}
   - component: {fileID: 1107206340212222448}
   m_Layer: 0
   m_Name: eel_tail
@@ -138,8 +146,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6706445460741529548}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000029000729, y: 0.0000000068655557, z: 0.15059717, w: 0.9885952}
-  m_LocalPosition: {x: 0.77000993, y: -0.25216013, z: 0}
+  m_LocalRotation: {x: -0.000000059604638, y: 0.00000001117587, z: 0.1505972, w: 0.98859525}
+  m_LocalPosition: {x: 0.7700101, y: -0.25215998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -200,28 +208,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2294232350622102391
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6706445460741529548}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 923a95c4206bfd843a217bbae974de7c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1107206340212222448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +250,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3578869253081721563}
+  - {fileID: 5539940094580023701}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

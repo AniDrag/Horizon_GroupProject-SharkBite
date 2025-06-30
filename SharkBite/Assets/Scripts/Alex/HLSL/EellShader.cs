@@ -3,13 +3,14 @@ using UnityEngine;
 public class EellShader : MonoBehaviour
 {
     [Header("Shared Material")]
+    public GameObject eelTail;
     public Material sharedMat;
     SpriteRenderer sr;
     MaterialPropertyBlock block;
-
+    float currentValue = 1f, currentBloom = 50f;
     void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
+        sr = eelTail.GetComponent<SpriteRenderer>();
         block = new MaterialPropertyBlock();
 
         // Make sure the SpriteRenderer is using the sharedMat
@@ -37,7 +38,7 @@ public class EellShader : MonoBehaviour
         sr.SetPropertyBlock(block);
     }
 
-    float currentValue = 1f, currentBloom = 50f;
+
     public void SetValue(float v)
     {
         currentValue = v;
