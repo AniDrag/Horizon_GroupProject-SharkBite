@@ -237,6 +237,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3033148243846168414, guid: e4b466d749848fa428ca92df8642d0fa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4049894655981745095, guid: e4b466d749848fa428ca92df8642d0fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -596,6 +600,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -819,38 +827,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 594023400220818252, guid: 43d46cc2541dc3548a22818bf4e323b0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1068450925}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43d46cc2541dc3548a22818bf4e323b0, type: 3}
---- !u!1 &1068450924 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 594023400220818252, guid: 43d46cc2541dc3548a22818bf4e323b0, type: 3}
-  m_PrefabInstance: {fileID: 1068450923}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1068450925
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068450924}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dd739466df6659c4786dc5f0f888976e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1106089427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +989,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2809346232078666908, guid: e6cbecb5d7fe7aa4a826bf657c6fdc33, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868491273679536555, guid: e6cbecb5d7fe7aa4a826bf657c6fdc33, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1350,38 +1332,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3155971797869263753, guid: d56cb2db777de1940b62cbaa0c6d909e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2000752811}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d56cb2db777de1940b62cbaa0c6d909e, type: 3}
---- !u!1 &2000752810 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3155971797869263753, guid: d56cb2db777de1940b62cbaa0c6d909e, type: 3}
-  m_PrefabInstance: {fileID: 2000752809}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2000752811
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000752810}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6272eb8544528664495829bcac153de3, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
