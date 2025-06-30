@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(PlayerInput))]
 public class Movement : MonoBehaviour
 {
 
@@ -9,11 +10,12 @@ public class Movement : MonoBehaviour
     private CharacterController _characterController;
     private PlayerStats playerStats;
     private PlayerInput _playerInput;
-
+    private Animator _animator;
 
     // ========= Vectors =========
     private Vector3 _lastKnownDirection;
 
+    
 
     public virtual void Start()
     {
@@ -21,7 +23,7 @@ public class Movement : MonoBehaviour
         _characterController = GetComponent<CharacterController>();        
         _playerInput = GetComponent<PlayerInput>();
         _lastKnownDirection = transform.forward;
-       
+        _animator = transform.GetChild(1).GetComponent<Animator>();
 
     }
 
@@ -34,6 +36,12 @@ public class Movement : MonoBehaviour
         {
             _lastKnownDirection = _3dMoveDirection;
         }
+        #region Animation logic
+        bool isRunning = _moveDirection != Vector2.zero;
+        _animator.SetBool("isRunning", isRunning);
+        _animator.SetFloat("AxisX", _moveDirection.x);
+        _animator.SetFloat("AxisZ", _moveDirection.y);
+        #endregion
 
         _characterController.Move(_3dMoveDirection * playerStats.GetMovementSpeed()*2 * Time.deltaTime);
 
