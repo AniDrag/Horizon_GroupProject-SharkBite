@@ -7,7 +7,7 @@ public class EellShader : MonoBehaviour
     public Material sharedMat;
     SpriteRenderer sr;
     MaterialPropertyBlock block;
-    float currentValue = 1f, currentBloom = 50f;
+    public float currentValue = 1f, currentBloom = 50f;
     void Awake()
     {
         sr = eelTail.GetComponent<SpriteRenderer>();
@@ -26,6 +26,11 @@ public class EellShader : MonoBehaviour
     {
         SetValue(0);
         SetBloom(1);
+    }
+
+    private void Update()
+    {
+        ApplyProperties();
     }
 
 
