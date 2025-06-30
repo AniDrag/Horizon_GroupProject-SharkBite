@@ -124,6 +124,7 @@ MonoBehaviour:
   redAmount: 0.4
   speedMultiplier: 1
   timeForRed: 1
+  isBoss: 0
 --- !u!114 &5657216862078642881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +190,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7676768951809899229}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -337,7 +338,9 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7399455683595837119, guid: 01222b293ee255f45911c55e54bb0d64, type: 3}
+    - {fileID: 2209441161773014095, guid: 01222b293ee255f45911c55e54bb0d64, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
