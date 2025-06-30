@@ -464,6 +464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0652af4aef15840b5764317f144ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xpModifier: 1
   upgradeSystem: {fileID: 6674809217737148800}
   levelUpText: {fileID: 8515961581825313080}
 --- !u!114 &1931784602516532871
@@ -909,9 +910,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464c16757467eb349b0a4ae08d975606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button:
-  - {fileID: 6613698922942443876, guid: 16b3d1ec5934064479e125883ebad910, type: 3}
-  - {fileID: 1706748943488061882, guid: 35ae71d7c4dd9a84a82d6a1b23f18ead, type: 3}
+  basicUpgrades: []
+  maxBasicLevel: 3
+  bigUpgrades: []
+  buttonPrefab: {fileID: 0}
+  buttonContainer: {fileID: 0}
+  choicesPerLevel: 2
+  baseBonusPercent: 5
 --- !u!1 &5392429781903475433
 GameObject:
   m_ObjectHideFlags: 0
