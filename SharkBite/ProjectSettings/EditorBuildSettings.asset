@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Alexander.unity
-    guid: 9f58b88ee22c6824aae1998ee87c7fa5
-  - enabled: 0
-    path: Assets/Scenes/Nik.unity
-    guid: 722942856dcddde4f8fd42501efa005b
-  - enabled: 0
     path: Assets/Scenes/TestmainMenu.unity
     guid: e424af2f37273344d8eef048c5e93d48
+  - enabled: 1
+    path: Assets/Scenes/Nik.unity
+    guid: 722942856dcddde4f8fd42501efa005b
+  - enabled: 1
+    path: Assets/Scenes/Alexander.unity
+    guid: 9f58b88ee22c6824aae1998ee87c7fa5
   - enabled: 0
     path: Assets/Scenes/FinalScenes/IntroScene.unity
     guid: 0f35f9dab6a9a9e43b34977ddb88043e
