@@ -105,6 +105,8 @@ public class Bomb : MonoBehaviour
 
         // final state: fully blown (solid red)
         ApplyFactor(1);
+        Manager_Sound audio = Manager_Sound.instance;
+        audio.PlaySFX(audio.barrelExplosion);
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, bombRadius, mask);
         foreach (Collider col in hitColliders)

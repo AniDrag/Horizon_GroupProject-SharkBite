@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private Pooler itemPooler;
+    Manager_Sound _audio;
 
     int _upgradelevel = 0;
     int bulletcount = 1;
@@ -20,6 +21,7 @@ public class Weapon : MonoBehaviour
     {
         _playerInput = GetComponent<PlayerInput>();
         playerStats = PlayerManager.instance.playerStats;
+        _audio = Manager_Sound.instance;
         //itemPooler = Pooler.instance;
 
     }
@@ -64,6 +66,7 @@ public class Weapon : MonoBehaviour
             Rigidbody rb = newBullet.GetComponent<Rigidbody>();
             if (rb != null)
             {
+                _audio.PlaySFX(_audio.playerShootSound);
                 rb.linearVelocity = Vector3.zero;
                 rb.AddForce(orientation.forward * playerStats.GetBulletSpeed() * 200, ForceMode.Force);
             }

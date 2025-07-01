@@ -22,6 +22,8 @@ public class Damage : MonoBehaviour
         }
         Debug.Log("triggererered");
         _triggered = false;
+        Manager_Sound audio = Manager_Sound.instance;
+        audio.PlaySFX(audio.bulletHit);
         this.gameObject.SetActive(false);
     }
 }

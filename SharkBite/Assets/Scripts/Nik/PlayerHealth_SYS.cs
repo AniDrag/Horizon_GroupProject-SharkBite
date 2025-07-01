@@ -16,6 +16,7 @@ public class PlayerHealth_SYS : MonoBehaviour
     private int _maxHealth = 10;
     private int _defense = 4;
     [SerializeField] private PlayerStats _playerStats;
+    Manager_Sound _audio;
 
     public SceneManagement scenemanagement;
 
@@ -26,6 +27,7 @@ public class PlayerHealth_SYS : MonoBehaviour
         _currentHealth = _playerStats.GetMaxHealth();
         //TakeDamage(0);
         _playerStats.OnStatsChanged += UpdateMaxHealth;
+        _audio = Manager_Sound.instance;
     }
 
     public void Update()
@@ -56,12 +58,15 @@ public class PlayerHealth_SYS : MonoBehaviour
             return;
         Debug.Log($"I took damage Player-{damage}");
         int tempHelth = _currentHealth - DamageCalculationWithModifiers(damage);
+        _audio.PlaySFX(_audio.playerDamaged);
 
         if (tempHelth <= 0)
         {
             _currentHealth = 0;
-             gameObject.SetActive(false);
+            _audio.PlaySFX(_audio.playerDethSound);
+
             GameManager.instance.PlayerDied();
+             gameObject.SetActive(false);
 
         }
         else

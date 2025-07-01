@@ -9,6 +9,7 @@ public class CombatScript : MonoBehaviour,IPooledObject
     private float _lastAttackTime = 0;
     Pooler _pooler;
     private EnemyCore _core;
+    Manager_Sound _audio;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,6 +36,7 @@ public class CombatScript : MonoBehaviour,IPooledObject
         {
             Debug.LogError("no Orientation founf");
         }
+        _audio = Manager_Sound.instance;
 
     }
 
@@ -58,6 +60,7 @@ public class CombatScript : MonoBehaviour,IPooledObject
         Rigidbody rb = newBullet.GetComponent<Rigidbody>();
         if (rb != null)
         {
+            _audio.PlaySFX(_audio.eelShootSound);
             //Debug.Log("RB set");
             rb.linearVelocity = Vector3.zero;
             rb.AddForce(orientation.forward * bulletForce * 10, ForceMode.Force);

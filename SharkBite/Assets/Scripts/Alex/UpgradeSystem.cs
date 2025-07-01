@@ -78,6 +78,7 @@ public class UpgradeSystem : MonoBehaviour
     [SerializeField] private float baseBonusPercent = 5f;
 
     private PlayerStats _playerStats;
+    private Manager_Sound _audio;
     private List<Button> _spawnedButtons = new List<Button>();
 
     // tracking
@@ -152,7 +153,7 @@ public class UpgradeSystem : MonoBehaviour
     {
         Time.timeScale = 0f;
 
-
+        _audio?.PlaySFX(_audio.playerLevelUpSound);
         // if a VIP big upgrade is queued, show it instead
         if (_vipQueue.Count > 0)
         {

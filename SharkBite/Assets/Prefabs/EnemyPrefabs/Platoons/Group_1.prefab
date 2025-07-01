@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3014030500594103492}
   - component: {fileID: 5667434409817577166}
   m_Layer: 0
-  m_Name: Grpup_1
+  m_Name: Group_1
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

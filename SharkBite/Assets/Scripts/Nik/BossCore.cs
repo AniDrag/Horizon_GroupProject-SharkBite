@@ -121,7 +121,8 @@ public class BossCore : EnemyCore
             );
 
             GameObject enemy = Pooler.instance.SpawnFromPool(enemyToSpawn.enemyName, rndPos, Quaternion.identity);
-            Spawner_var2.instance._enemiesOnScreen.Add(enemy); // ISSUE
+            enemy.GetComponent<EnemyHealth_SYS>().IsBossSpawn();// will not interact with spawner.
+            //Spawner_var2.instance._enemiesOnScreen.Add(enemy); // ISSUE
             Debug.Log("spawning");
             yield return null;
         }

@@ -47,18 +47,21 @@ MonoBehaviour:
   currentWaveIndex: 0
   waveList:
   - durationOfWave: 30
+    spawnRate: 1
     isRestWave: 0
     isRusherWave: 0
-    chanceSum: 0
+    isBossWave: 0
     possibleEnemiesToSpawn:
     - prefab: {fileID: 11400000, guid: ae79b4805f5cdf847abb17c2ffbf117f, type: 2}
       EnemyName: 
       EnemyImage: {fileID: 0}
       SpawnChance: 100
+    chanceSum: 0
   - durationOfWave: 30
+    spawnRate: 1
     isRestWave: 0
     isRusherWave: 0
-    chanceSum: 0
+    isBossWave: 0
     possibleEnemiesToSpawn:
     - prefab: {fileID: 11400000, guid: ae79b4805f5cdf847abb17c2ffbf117f, type: 2}
       EnemyName: 
@@ -68,10 +71,12 @@ MonoBehaviour:
       EnemyName: 
       EnemyImage: {fileID: 0}
       SpawnChance: 25
+    chanceSum: 0
   - durationOfWave: 30
+    spawnRate: 1
     isRestWave: 0
     isRusherWave: 0
-    chanceSum: 0
+    isBossWave: 0
     possibleEnemiesToSpawn:
     - prefab: {fileID: 11400000, guid: 51ba60e2275db604685878d032c5d80b, type: 2}
       EnemyName: 
@@ -81,10 +86,12 @@ MonoBehaviour:
       EnemyName: 
       EnemyImage: {fileID: 0}
       SpawnChance: 77
+    chanceSum: 0
   - durationOfWave: 20
+    spawnRate: 0.5
     isRestWave: 0
     isRusherWave: 0
-    chanceSum: 0
+    isBossWave: 0
     possibleEnemiesToSpawn:
     - prefab: {fileID: 11400000, guid: 51ba60e2275db604685878d032c5d80b, type: 2}
       EnemyName: 
@@ -94,10 +101,12 @@ MonoBehaviour:
       EnemyName: 
       EnemyImage: {fileID: 0}
       SpawnChance: 50
+    chanceSum: 0
   - durationOfWave: 30
+    spawnRate: 1
     isRestWave: 0
     isRusherWave: 0
-    chanceSum: 0
+    isBossWave: 0
     possibleEnemiesToSpawn:
     - prefab: {fileID: 11400000, guid: 51ba60e2275db604685878d032c5d80b, type: 2}
       EnemyName: 
@@ -111,15 +120,19 @@ MonoBehaviour:
       EnemyName: 
       EnemyImage: {fileID: 0}
       SpawnChance: 50
+    chanceSum: 0
   - durationOfWave: 10
+    spawnRate: 1
     isRestWave: 1
     isRusherWave: 0
-    chanceSum: 0
+    isBossWave: 0
     possibleEnemiesToSpawn: []
+    chanceSum: 0
   - durationOfWave: 30
+    spawnRate: 2
     isRestWave: 0
     isRusherWave: 1
-    chanceSum: 0
+    isBossWave: 0
     possibleEnemiesToSpawn:
     - prefab: {fileID: 11400000, guid: 51ba60e2275db604685878d032c5d80b, type: 2}
       EnemyName: 
@@ -133,10 +146,12 @@ MonoBehaviour:
       EnemyName: 
       EnemyImage: {fileID: 0}
       SpawnChance: 50
+    chanceSum: 0
   - durationOfWave: 30
+    spawnRate: 1
     isRestWave: 0
     isRusherWave: 0
-    chanceSum: 0
+    isBossWave: 0
     possibleEnemiesToSpawn:
     - prefab: {fileID: 11400000, guid: ae79b4805f5cdf847abb17c2ffbf117f, type: 2}
       EnemyName: 
@@ -150,17 +165,20 @@ MonoBehaviour:
       EnemyName: 
       EnemyImage: {fileID: 0}
       SpawnChance: 20
+    chanceSum: 0
   - durationOfWave: 140
+    spawnRate: 1
     isRestWave: 0
     isRusherWave: 0
-    chanceSum: 0
+    isBossWave: 0
     possibleEnemiesToSpawn:
     - prefab: {fileID: 11400000, guid: 6d403dfe2d9a5ab48882acb7470babb6, type: 2}
       EnemyName: 
       EnemyImage: {fileID: 0}
       SpawnChance: 100
-  maxEnemiesToSpawn: 10
-  squadEnemiesToSpawn: 3
+    chanceSum: 0
+  maxEnemiesToSpawn: 100
+  squadEnemiesToSpawn: 5
   spawnInterval: 1
-  enemySpawnRadius: 10
+  enemySpawnRadius: 30
   _enemiesOnScreen: []
