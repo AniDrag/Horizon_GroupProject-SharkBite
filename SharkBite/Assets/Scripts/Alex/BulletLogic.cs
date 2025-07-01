@@ -2,18 +2,20 @@ using UnityEngine;
 
 public class BulletLogic : MonoBehaviour,IPooledObject
 {
-
-    private void Awake()
+    [SerializeField] [Range(1,10)]float time;
+    private void Start()
     {
+        RespawndObject();
     }
     public void RespawndObject()
     {
-        Invoke(nameof(DestroyMe),10);
+        Invoke("DestroyMe", time);
     }
 
     public void DestroyMe()
     {
         //Destroy(this.gameObject, time);
+        Debug.Log("Bullet was invoke destroyed");
         this.gameObject.SetActive(false);
     }
 

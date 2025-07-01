@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
+
     private int _damage = 5;
     bool _triggered;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

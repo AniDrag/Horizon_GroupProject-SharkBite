@@ -53,7 +53,7 @@ public class CombatScript : MonoBehaviour,IPooledObject
     void Shoot()
     {
        
-        GameObject newBullet = _pooler.SpawnFromPool("EnemyBullet", orientation.position + new Vector3(0,.5f,1.5f), Quaternion.identity);
+        GameObject newBullet = _pooler.SpawnFromPool("EnemyBullet", orientation.position + new Vector3(0,.5f,1.5f), orientation.rotation);
         newBullet.GetComponent<EnemyDamage>().SetDamage(_damage);
 
 

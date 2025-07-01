@@ -18,7 +18,14 @@ public class Pooler : MonoBehaviour
     public static Pooler instance;
     private void Awake()
     {
-        instance = this;        
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
+        instance = this;
+        DontDestroyOnLoad(gameObject);  
     }
     #endregion
 

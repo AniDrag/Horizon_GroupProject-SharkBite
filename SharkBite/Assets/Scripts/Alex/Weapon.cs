@@ -53,6 +53,7 @@ public class Weapon : MonoBehaviour
 
     private void Shoot(float cd, Vector3 moveDirection)
     {
+        _audio.PlaySFX(_audio.playerShootSound);
         for (int i = 0; i < bulletcount; i++)
         {
             float startAngle = -(bulletcount - 1) * angleStep / 2f;
@@ -64,10 +65,9 @@ public class Weapon : MonoBehaviour
 
             Rigidbody rb = newBullet.GetComponent<Rigidbody>();
             if (rb != null)
-            {
-                _audio.PlaySFX(_audio.playerShootSound);
+            {                
                 rb.linearVelocity = Vector3.zero;
-                rb.AddForce(newBullet.transform.forward * playerStats.GetBulletSpeed() * 200, ForceMode.Force);
+                rb.AddForce(newBullet.transform.forward * playerStats.GetBulletSpeed() * 300, ForceMode.Force);
             }
             //Debug.Log("I shot a bullet");
         }
