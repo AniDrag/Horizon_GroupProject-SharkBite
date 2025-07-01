@@ -544,7 +544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xpModifier: 1
   upgradeSystem: {fileID: 6674809217737148800}
-  levelUpText: {fileID: 0}
+  levelUpText: {fileID: 845732429273166766}
   xpSlider: {fileID: 1877462892372232057}
   xpText: {fileID: 845732429273166766}
   maxScaleChangePerSecond: 0.5
