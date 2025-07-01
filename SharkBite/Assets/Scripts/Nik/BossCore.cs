@@ -23,16 +23,19 @@ public class BossCore : EnemyCore
     [Header("Phase Timings")]
     [SerializeField][Range(1, 20)] int spawnAliesCout;
     [SerializeField] private List<EnemyPrefab> spawnableEnemies;
+    private RectTransform hpSlider;
 
 
     private Coroutine attackRoutine;
     private bool isDead;
-
+    float _maxHealth;
     private void Awake()
     {
+        hpSlider = GameObject.Find("BossHpBar").GetComponent<RectTransform>();
         player = GameManager.instance.Player;
         enemyhealth = GetComponent<EnemyHealth_SYS>();
         health = enemyhealth.GetEnemyCurrentHealth();
+        _maxHealth = health;
         health_75 -= health /4;
         health_50 -= health /2;
         health_25 = health / 4;
@@ -51,6 +54,7 @@ public class BossCore : EnemyCore
         if (attackRoutine != null)
             StopCoroutine(attackRoutine);
     }
+
 
     private IEnumerator AttackLoop()
     {
@@ -75,6 +79,24 @@ public class BossCore : EnemyCore
     private void Update()
     {
         CheckHealth();
+        float targetScale = (float)health / (float)_maxHealth; // Smooth HpBar change
+        Vector3 currentScale = hpSlider.localScale;
+        if (targetScale != currentScale.y)
+        {
+            float maxChangeThisFrame = .5f * Time.deltaTime; // if 100 FPS and maxChangepSec=0.5, this is 0.005
+
+            if (Mathf.Abs(currentScale.y - targetScale) < maxChangeThisFrame)
+            {
+                currentScale.y = targetScale;
+            }
+            else
+            {
+                currentScale.y += Mathf.Sign(targetScale - currentScale.y) * maxChangeThisFrame;
+            }
+
+            hpSlider.localScale = new Vector3(currentScale.x, currentScale.y, currentScale.z); // End of smooth HpBar change
+            Debug.Log("Damage changing");
+        }
     }
 
     /// <summary>

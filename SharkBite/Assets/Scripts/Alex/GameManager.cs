@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
     }
 
 
+
+
     public void PlayerDied()
     {
         DethPanel.SetActive(true);

@@ -15,6 +15,11 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] TMP_Text levelUpText;
     //private List<> modifiers = new List<>();
 
+    [Header("===== Xp Refrences =====")]
+    [SerializeField] private RectTransform xpSlider;
+    [SerializeField] private TMP_Text xpText;
+    [SerializeField] private float maxScaleChangePerSecond = 0.5f;
+
     // ========= Ints =========
     private int level = 0;
     private int xpToLevelUp;    
@@ -30,6 +35,28 @@ public class PlayerManager : MonoBehaviour
             instance = this;
         playerStats = new PlayerStats();
         xpToLevelUp = playerStats.GetMaxXP();
+    }
+
+    public void Update()
+    {
+        float targetScale = (float)_currentXP / (float)xpToLevelUp; // Smooth HpBar change
+        Vector3 currentScale = xpSlider.localScale;
+        xpText.text = level.ToString();
+        if (targetScale != currentScale.y)
+        {
+            float maxChangeThisFrame = maxScaleChangePerSecond * Time.deltaTime; // if 100 FPS and maxChangepSec=0.5, this is 0.005
+
+            if (Mathf.Abs(currentScale.y - targetScale) < maxChangeThisFrame)
+            {
+                currentScale.y = targetScale;
+            }
+            else
+            {
+                currentScale.y += Mathf.Sign(targetScale - currentScale.y) * maxChangeThisFrame;
+            }
+
+            xpSlider.localScale = new Vector3(currentScale.x, currentScale.y, currentScale.z); // End of smooth HpBar change
+        }
     }
 
     public void AddXP(int xp)
