@@ -33,22 +33,22 @@ public class PlayerHealth_SYS : MonoBehaviour
     public void Update()
     {
         float targetScale = (float)_currentHealth / (float)_playerStats.GetMaxHealth(); // Smooth HpBar change
-        float currentScale = hpSlider.localScale.y;
+        Vector3 currentScale = hpSlider.localScale;
         healthText.text = _currentHealth.ToString();
-        if (targetScale != currentScale)
+        if (targetScale != currentScale.y)
         {
             float maxChangeThisFrame = maxScaleChangePerSecond * Time.deltaTime; // if 100 FPS and maxChangepSec=0.5, this is 0.005
 
-            if (Mathf.Abs(currentScale - targetScale) < maxChangeThisFrame)
+            if (Mathf.Abs(currentScale.y - targetScale) < maxChangeThisFrame)
             {
-                currentScale = targetScale;
+                currentScale.y = targetScale;
             }
             else
             {
-                currentScale += Mathf.Sign(targetScale - currentScale) * maxChangeThisFrame;
+                currentScale.y += Mathf.Sign(targetScale - currentScale.y) * maxChangeThisFrame;
             }
 
-            hpSlider.localScale = new Vector3(1, currentScale, 1); // End of smooth HpBar change
+            hpSlider.localScale = new Vector3(currentScale.x, currentScale.y, currentScale.z); // End of smooth HpBar change
         }
     }
 

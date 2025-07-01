@@ -49,6 +49,7 @@ public class Bomb : MonoBehaviour
             _radiusBlock = new MaterialPropertyBlock();
             _radiusMr.sharedMaterial = _radiusMr.material;
             _radiusMr.SetPropertyBlock(_radiusBlock);
+            ApplyFactor(0);
 
         }
         else

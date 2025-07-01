@@ -172,8 +172,8 @@ MonoBehaviour:
     isRusherWave: 0
     isBossWave: 0
     possibleEnemiesToSpawn:
-    - prefab: {fileID: 11400000, guid: 6d403dfe2d9a5ab48882acb7470babb6, type: 2}
-      EnemyName: 
+    - prefab: {fileID: 11400000, guid: c5523a0c0343228469651688c19f9eff, type: 2}
+      EnemyName: Boss
       EnemyImage: {fileID: 0}
       SpawnChance: 100
     chanceSum: 0
