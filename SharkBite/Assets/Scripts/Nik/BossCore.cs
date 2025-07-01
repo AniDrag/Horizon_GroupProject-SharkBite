@@ -31,8 +31,8 @@ public class BossCore : EnemyCore
     float _maxHealth;
     private void Awake()
     {
-        hpSlider = GameObject.Find("BossHpBar").GetComponent<RectTransform>();
-        hpSlider.gameObject.SetActive(false);
+
+
         player = GameManager.instance.Player;
         enemyhealth = GetComponent<EnemyHealth_SYS>();
         health = enemyhealth.GetEnemyCurrentHealth();
@@ -41,11 +41,14 @@ public class BossCore : EnemyCore
         health_50 -= health /2;
         health_25 = health / 4;
         baseAttackSpeed = GetAttackRatePerSecond();
+
+
+        hpSlider = transform.Find("Canvas/BossHealth/Boarder/HpBackground/BossHpBar").GetComponent<RectTransform>();
+
     }
     private void OnEnable()
     {
         // Kick off the repeating attack loop
-        GameManager.instance.BossSpaned(enemyhealth);
         isDead = false;
         attackRoutine = StartCoroutine(AttackLoop());
     }
@@ -131,6 +134,7 @@ public class BossCore : EnemyCore
 
     IEnumerator Summon()
     {
+        animator.SetTrigger("Summon");
         currentPhase = BossPhase.Summon;
         for (int i = 0; i < spawnAliesCout; i++)
         {

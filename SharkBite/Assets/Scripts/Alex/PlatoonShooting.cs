@@ -26,14 +26,15 @@ public class PlatoonShooting : MonoBehaviour
 
     private void Shoot(float cd)
     {
-        GameObject newBullet = _itemPooler.SpawnFromPool("Bullet", transform.position, Quaternion.identity);
+        Vector3 direction = transform.position - GameManager.instance._playerPos;
+        GameObject newBullet = _itemPooler.SpawnFromPool("Bullet", transform.position + direction.normalized, Quaternion.identity);
         newBullet.GetComponent<Damage>().SetDamage(_playerStats.GetBulletDamage());
 
         Rigidbody rb = newBullet.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.linearVelocity = Vector3.zero;
-            Vector3 direction = transform.position - GameManager.instance._playerPos;
+
             rb.AddForce(direction * _playerStats.GetBulletSpeed() * 200, ForceMode.Force);
         }
     }

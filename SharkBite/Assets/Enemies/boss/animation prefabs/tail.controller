@@ -289,9 +289,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Charging
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Death
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7062647310009128285}
   m_Solo: 0

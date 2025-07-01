@@ -711,6 +711,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2868491273679536555, guid: e6cbecb5d7fe7aa4a826bf657c6fdc33, type: 3}
+      propertyPath: DethPanel
+      value: 
+      objectReference: {fileID: 9176055563762608225}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -813,6 +817,11 @@ PrefabInstance:
 --- !u!4 &3982408821912195533 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2224202180043486106, guid: f02d8a53f07e7c249bd4962dc461359d, type: 3}
+  m_PrefabInstance: {fileID: 2997620130840666711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9176055563762608225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6255018620108163638, guid: f02d8a53f07e7c249bd4962dc461359d, type: 3}
   m_PrefabInstance: {fileID: 2997620130840666711}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3418095632843989115
@@ -1124,6 +1133,10 @@ PrefabInstance:
     - target: {fileID: 4530970657323359920, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
       propertyPath: m_Name
       value: SpawningManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
+      propertyPath: waveList.Array.data[8].isBossWave
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8740302135202539654, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
       propertyPath: m_LocalPosition.x

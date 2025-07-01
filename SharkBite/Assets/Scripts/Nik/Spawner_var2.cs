@@ -155,7 +155,7 @@ public class Spawner_var2 : MonoBehaviour
         _isBossWave = wave.isBossWave;
         spawnInterval = wave.spawnRate;
         _spawnCount = _isRusherWave ? squadEnemiesToSpawn : maxEnemiesToSpawn;
-        _spawnCount = _isBossWave ? 1 : maxEnemiesToSpawn; // mybe set to 2 if needed
+        _spawnCount = _isBossWave ? 2 : maxEnemiesToSpawn; // mybe set to 2 if needed
         _updatingWave = false;
     }
 }

@@ -31,6 +31,11 @@ public class DamageShader : MonoBehaviour
             Debug.LogWarning("I don't have reference to the shader material");
     }
 
+    private void OnEnable()
+    {
+        ApplyFactor(0);
+    }
+
     public IEnumerator DamageAnimation()
     {
         float halfTime = timeForRed / 2f;
