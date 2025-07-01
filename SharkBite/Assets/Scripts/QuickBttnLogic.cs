@@ -9,29 +9,29 @@ public class QuickBttnLogic : MonoBehaviour
     }
     public void QBCloseChild()
     {
-        NormalBTNSound();
+        QBNormalBTNSound();
         transform.GetChild(0).gameObject.SetActive(false);
     }
     public void QBCloseGrandChild()
     {
-        NormalBTNSound();
+        QBNormalBTNSound();
         transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
     }
 
     public void QBCloseParent()
     {
-        NormalBTNSound();
+        QBNormalBTNSound();
         transform.parent.gameObject.SetActive(false);
     }
     public void QBCloseGrandParent()
     {
-        NormalBTNSound();
+        QBNormalBTNSound();
         transform.parent.parent.gameObject.SetActive(false);
     }
 
     public void QBDisableTransform()
     {
-        NormalBTNSound();
+        QBNormalBTNSound();
         gameObject.SetActive(false);        
     }
 
@@ -45,7 +45,7 @@ public class QuickBttnLogic : MonoBehaviour
         _target.SetActive(!_target.activeSelf);
 
     }
-    void NormalBTNSound()
+    public void QBNormalBTNSound()
     {
         _audio.StopSFX();
         _audio.PlaySFX(_audio.normalButtonSound);
