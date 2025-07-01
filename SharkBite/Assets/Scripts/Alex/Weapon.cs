@@ -86,4 +86,9 @@ public class Weapon : MonoBehaviour
             bulletcount = 5;
         }
     }
+
+    public void TripleShot()
+    {
+        bulletcount = 3;
+    }
 }

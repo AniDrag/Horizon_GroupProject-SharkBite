@@ -6529,6 +6529,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2185222036849338543, guid: bd4d3ca8170c634468bfba8a784073b8, type: 3}
   m_PrefabInstance: {fileID: 1796695698}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1828558986 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2369525749914507634, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+  m_PrefabInstance: {fileID: 1896895509}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c55f573674e8142994ae2e130bc525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1841413599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6906,9 +6917,37 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: basicUpgrades.Array.data[0].displayName
+      value: Fire rate
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: basicUpgrades.Array.data[1].displayName
+      value: Movement speed
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: bigUpgrades.Array.data[1].onUnlocked.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
       propertyPath: bigUpgrades.Array.data[0].onUnlocked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1481191534}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: bigUpgrades.Array.data[1].onUnlocked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1828558986}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: bigUpgrades.Array.data[1].onUnlocked.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TripleShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: bigUpgrades.Array.data[1].onUnlocked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Weapon, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: bigUpgrades.Array.data[1].onUnlocked.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5580982836738406077, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
