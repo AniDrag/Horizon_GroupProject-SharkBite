@@ -29938,13 +29938,69 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -176.52222
       objectReference: {fileID: 0}
+    - target: {fileID: 8243446558147604781, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243446558147604781, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243446558147604781, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6416244881747161118}
+    - target: {fileID: 8243446558147604781, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243446558147604781, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QBCloseParent
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243446558147604781, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuickBttnLogic, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243446558147604781, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481335485665455209, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481335485665455209, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8481335485665455209, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2103032714}
     - target: {fileID: 8481335485665455209, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 6416244881747161116}
+    - target: {fileID: 8481335485665455209, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481335485665455209, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: QBDisableTransform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481335485665455209, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: QuickBttnLogic, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481335485665455209, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 0
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8481335485665455209, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8848710754517972271, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
       propertyPath: m_Pivot.x
@@ -30044,8 +30100,48 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3448472731796894113, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
       insertIndex: 4
       addedObject: {fileID: 226281764}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 705159997234321081, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6416244881747161116}
+    - targetCorrespondingSourceObject: {fileID: 6212635803412980136, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6416244881747161118}
   m_SourcePrefab: {fileID: 100100000, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+--- !u!1 &6416244881747161115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 705159997234321081, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+  m_PrefabInstance: {fileID: 6416244881747161114}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6416244881747161116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6416244881747161115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ecdd80914a6696498074b63091e7ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &6416244881747161117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6212635803412980136, guid: eec4f7ad24e0dd0498e6d743da5369a2, type: 3}
+  m_PrefabInstance: {fileID: 6416244881747161114}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6416244881747161118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6416244881747161117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ecdd80914a6696498074b63091e7ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6645823804721068641 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4411809663228576204, guid: 271defac690d0724180260df7ec0df0e, type: 3}

@@ -360,10 +360,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -357.0000915527344,
-            "y": 249.0000457763672,
-            "width": 208.00003051757813,
-            "height": 326.0
+            "x": -374.9999694824219,
+            "y": 200.0,
+            "width": 207.99996948242188,
+            "height": 325.99993896484377
         }
     },
     "m_Slots": [
@@ -703,8 +703,8 @@
     },
     "m_AllowMaterialOverride": false,
     "m_SurfaceType": 0,
-    "m_ZTestMode": 8,
-    "m_ZWriteControl": 1,
+    "m_ZTestMode": 2,
+    "m_ZWriteControl": 0,
     "m_AlphaMode": 0,
     "m_RenderFace": 2,
     "m_AlphaClip": false,
