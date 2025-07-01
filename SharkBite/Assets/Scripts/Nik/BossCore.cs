@@ -35,7 +35,7 @@ public class BossCore : EnemyCore
         player = GameManager.instance.Player;
         enemyhealth = GetComponent<EnemyHealth_SYS>();
         health = enemyhealth.GetEnemyCurrentHealth();
-        _maxHealth = health;
+        _maxHealth = GetHealth();
         health_75 -= health /4;
         health_50 -= health /2;
         health_25 = health / 4;
