@@ -351,8 +351,8 @@ MonoBehaviour:
   damage: 56
   attackRatePerSecond: 5
   movemantSpeed: 5
-  chargeWeight: 3
-  summonWeight: 10
+  chargeWeight: 10
+  summonWeight: 3
   animator: {fileID: 7945721907970944589}
   spawnAliesCout: 20
   spawnableEnemies:
@@ -614,7 +614,7 @@ Transform:
   m_GameObject: {fileID: 7838192232207538422}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4045934, y: -0.08326047, z: 0}
+  m_LocalPosition: {x: -0.4045934, y: 6.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -716,7 +716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6529119332131238149, guid: 91a52ddb77661ba49aa1dcd624dae417, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6529119332131238149, guid: 91a52ddb77661ba49aa1dcd624dae417, type: 3}
       propertyPath: m_LocalPosition.z

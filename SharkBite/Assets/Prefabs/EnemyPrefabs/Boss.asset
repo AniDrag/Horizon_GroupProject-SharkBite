@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Boss
   m_EditorClassIdentifier: 
   enemyName: Boss
-  prefab: {fileID: 2332646081081847981, guid: 47ef1658428d72b46941d33355a60060, type: 3}
+  prefab: {fileID: 5553525426327666784, guid: ecc810424ddaaef4298c911902d601fe, type: 3}
   previewImage: {fileID: 0}

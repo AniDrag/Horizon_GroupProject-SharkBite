@@ -2062,6 +2062,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2185222036849338543, guid: bd4d3ca8170c634468bfba8a784073b8, type: 3}
   m_PrefabInstance: {fileID: 473656800}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &499025604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9176055563762608225, guid: 30c23b6c4af92ae4885c3786687d488e, type: 3}
+  m_PrefabInstance: {fileID: 1422817846}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &519159590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5165,7 +5170,7 @@ PrefabInstance:
     - target: {fileID: 3569873590428608427, guid: 30c23b6c4af92ae4885c3786687d488e, type: 3}
       propertyPath: DethPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 499025604}
     - target: {fileID: 3569873590428608427, guid: 30c23b6c4af92ae4885c3786687d488e, type: 3}
       propertyPath: bossHealthBar
       value: 
@@ -5174,9 +5179,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Managers
       objectReference: {fileID: 0}
-    - target: {fileID: 4666187593897377944, guid: 30c23b6c4af92ae4885c3786687d488e, type: 3}
-      propertyPath: poolDatas.Array.data[10].prefab
-      value: 
+    - target: {fileID: 6023469075155804933, guid: 30c23b6c4af92ae4885c3786687d488e, type: 3}
+      propertyPath: waveList.Array.data[8].isBossWave
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7857128157804115142, guid: 30c23b6c4af92ae4885c3786687d488e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6724,6 +6729,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1040284128565967732, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1606243608770956689, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
       propertyPath: m_Name
       value: _player_
@@ -6781,7 +6790,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5714951378971193259, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}

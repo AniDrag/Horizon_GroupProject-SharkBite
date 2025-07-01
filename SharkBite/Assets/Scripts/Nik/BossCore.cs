@@ -32,6 +32,7 @@ public class BossCore : EnemyCore
     private void Awake()
     {
         hpSlider = GameObject.Find("BossHpBar").GetComponent<RectTransform>();
+        hpSlider.gameObject.SetActive(false);
         player = GameManager.instance.Player;
         enemyhealth = GetComponent<EnemyHealth_SYS>();
         health = enemyhealth.GetEnemyCurrentHealth();

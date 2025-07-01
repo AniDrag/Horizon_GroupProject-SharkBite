@@ -44,15 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19f10d17e25ff54b9aaa7a8a3e3547e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xBoundaries: {x: -100, y: 100}
-  zBoundaries: {x: -100, y: 100}
+  xBoundaries: {x: -140, y: 140}
+  zBoundaries: {x: -120, y: 140}
   obstacleList:
-  - prefab: {fileID: 0}
-    volume: {x: 1, y: 1}
-    scale: {x: 0.60267556, y: 5.767893}
+  - prefab: {fileID: 5243902083199053749, guid: cd5b654c54ec6b84cadb77ac53efb756, type: 3}
+    volume: {x: 10, y: 10}
+    scale: {x: 1, y: 1}
     spawnChance: 10
-    groupChance: 24.6
+    groupChance: 0
     groupAmount: {x: 4, y: 13}
     amountChance: {x: 3, y: 23}
-    yOffset: 1
+    yOffset: 0
     yToScale: 0.5

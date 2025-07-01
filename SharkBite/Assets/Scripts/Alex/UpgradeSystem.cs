@@ -93,8 +93,8 @@ public class UpgradeSystem : MonoBehaviour
 
     private void Start()
     {
-        if (choicesPerLevel < basicUpgrades.Count)
-            Debug.LogWarning("Choices per level are more than the upgrades list");
+        if (choicesPerLevel > basicUpgrades.Count)
+            Debug.LogWarning($"Choices per level {choicesPerLevel} are more than the upgrades list {basicUpgrades.Count}");
 
         _playerStats = PlayerManager.instance.playerStats;
         PlayerManager.instance.SetUpgradeRef(this);
@@ -164,6 +164,7 @@ public class UpgradeSystem : MonoBehaviour
 
         // Shuffle and take the first N
         var available = basicUpgrades.Where(u => _basicLevels[u.type] < maxBasicLevel).ToList();
+
         for (int i = 0; i < available.Count; i++)
         {
             var r = UnityEngine.Random.Range(i, available.Count);
@@ -266,6 +267,7 @@ public class UpgradeSystem : MonoBehaviour
         _playerStats.IncreaseRecoilSpeed(baseBonusPercent);
         _playerStats.IncreaseMaxHealth(baseBonusPercent);
         _playerStats.IncreaseDefense(baseBonusPercent);
+        Time.timeScale = 1f;
     }
 
 }
