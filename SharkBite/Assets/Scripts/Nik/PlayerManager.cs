@@ -77,17 +77,17 @@ public class PlayerManager : MonoBehaviour
     {
         level++;
         xpToLevelUp = (int)(xpToLevelUp + xpModifier);
-        if (level < 6)
-        {
+        //if (level < 6)
+        //{
             upgradeSystem.OnLevelUp();
             levelUpText.text = level.ToString();
             Debug.Log($"player leveld up!! current level = {level}");
-        }
-        else
-        {
-            Debug.Log($"Players level is maxed out! Level = {level}");
-            levelUpText.text = $"Max level: {level}";
-        }
+        //}
+        //else
+        //{
+        //    Debug.Log($"Players level is maxed out! Level = {level}");
+        //    levelUpText.text = $"Max level: {level}";
+        //}
     }
 
     
