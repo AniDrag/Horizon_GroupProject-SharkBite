@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2044114263544225449}
   - component: {fileID: 7868039564666095092}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: right forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 4287472863612597432}
   - component: {fileID: 7960071086919389766}
   - component: {fileID: 631686143902016039}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -181,8 +181,6 @@ MonoBehaviour:
   animator: {fileID: 5196707857926123704}
   spawnAliesCout: 20
   spawnableEnemies:
-  - {fileID: 11400000, guid: 9f25100630232944e9c07fbec3696a34, type: 2}
-  - {fileID: 11400000, guid: 90d78c81d985be445aa63a06d12eaae1, type: 2}
   - {fileID: 11400000, guid: fe183e95098ac5941864c01f91e507a3, type: 2}
 --- !u!114 &7960071086919389766
 MonoBehaviour:
@@ -228,7 +226,7 @@ GameObject:
   - component: {fileID: 3693149554133085798}
   - component: {fileID: 5065039468125720901}
   - component: {fileID: 5196707857926123704}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8448125560850208239}
   - component: {fileID: 6603725898860933887}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: right upper arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +423,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 692838080682088531}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7869645434870688612}
   - component: {fileID: 6909049609682672771}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: right hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1994980641076548783}
   - component: {fileID: 7263753116705664490}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: upper body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9185495817567502911}
   - component: {fileID: 5470919057364386097}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: left arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,6 +720,10 @@ PrefabInstance:
     - target: {fileID: 1692419529572377785, guid: 91a52ddb77661ba49aa1dcd624dae417, type: 3}
       propertyPath: m_Name
       value: EnemyMeleWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692419529572377785, guid: 91a52ddb77661ba49aa1dcd624dae417, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6529119332131238149, guid: 91a52ddb77661ba49aa1dcd624dae417, type: 3}
       propertyPath: m_LocalPosition.x

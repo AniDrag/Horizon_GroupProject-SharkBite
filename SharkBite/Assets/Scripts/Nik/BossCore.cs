@@ -41,6 +41,7 @@ public class BossCore : EnemyCore
     private void OnEnable()
     {
         // Kick off the repeating attack loop
+        GameManager.instance.BossSpaned(enemyhealth);
         isDead = false;
         attackRoutine = StartCoroutine(AttackLoop());
     }

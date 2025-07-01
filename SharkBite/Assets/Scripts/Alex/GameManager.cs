@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
 
     [Header("===== Details =====")]
+    public GameObject bossHealthBar;
     public GameObject DethPanel;
     public Transform Player;
     public Camera renderCamera;
@@ -47,6 +48,12 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDied()
     {
-        DethPanel.gameObject.SetActive(true);
+        DethPanel.SetActive(true);
+    }
+
+    public void BossSpaned(EnemyHealth_SYS health)
+    {
+        bossHealthBar.SetActive(true);
+        //bossHealthBar.GetComponent<BossHealth>.AsignHelthSys(health);
     }
 }

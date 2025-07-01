@@ -43,25 +43,23 @@ public class EnemyHealth_SYS : DamageShader, IPooledObject
     }
 
     void OnDeath()
-    {        
+    {
         Pooler.instance.SpawnFromPool("XP", transform.position + Vector3.up * 1, Quaternion.identity);
         _audio.PlaySFX(_audio.enemyDethSound);
 
-        if (!bossSpawn)
+        if (Spawner_var2.instance._enemiesOnScreen.Contains(gameObject))
         {
-            if (Spawner_var2.instance._enemiesOnScreen.Contains(gameObject))
-            {
-                Spawner_var2.instance._enemiesOnScreen.Remove(gameObject);
-            } // Delete game object
+            Spawner_var2.instance._enemiesOnScreen.Remove(gameObject);
+        } // Delete game object
 
-            if (isBoss)
-            {
-                return;
-            }
+        if (isBoss)
+        {
+            return;
         }
 
-        //Pooler.instance.ReturnToPool("XP", gameObject);
+        gameObject.SetActive(false);
     }
+    
 
     int DamageCalculationWithModifiers(int damage)
     {

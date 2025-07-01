@@ -22,7 +22,7 @@ public class Weapon : MonoBehaviour
         _playerInput = GetComponent<PlayerInput>();
         playerStats = PlayerManager.instance.playerStats;
         _audio = Manager_Sound.instance;
-        //itemPooler = Pooler.instance;
+        itemPooler = Pooler.instance;
 
     }
 

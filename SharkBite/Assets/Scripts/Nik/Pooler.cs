@@ -60,6 +60,11 @@ public class Pooler : MonoBehaviour
         }
         GameObject spawnable = _poolerDictionary[ID].Dequeue();
 
+        if (spawnable.activeSelf)
+        {
+            Debug.Log("possibly reached max count of eemies that can be on screen");
+            return null;
+        }
         spawnable.SetActive(true);
         spawnable.transform.position = position;
         spawnable.transform.rotation = rotation;
