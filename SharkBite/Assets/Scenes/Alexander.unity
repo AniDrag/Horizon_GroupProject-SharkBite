@@ -6872,6 +6872,10 @@ PrefabInstance:
       propertyPath: itemPooler
       value: 
       objectReference: {fileID: 179284884}
+    - target: {fileID: 2573234787354976436, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -360
+      objectReference: {fileID: 0}
     - target: {fileID: 2755119708091113177, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6917,13 +6921,61 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: buttonSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: buttonSprites.Array.data[0].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: buttonSprites.Array.data[1].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: buttonSprites.Array.data[2].type
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: buttonSprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: aca368ab3217cc64eb118a60c04b5328, type: 3}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: buttonSprites.Array.data[1].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5707aaa5b6d49c442bd778548dc475b9, type: 3}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: buttonSprites.Array.data[2].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cc0069932514c634fbaf8d2b9a03b070, type: 3}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
       propertyPath: basicUpgrades.Array.data[0].displayName
       value: Fire rate
       objectReference: {fileID: 0}
     - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
       propertyPath: basicUpgrades.Array.data[1].displayName
-      value: Movement speed
+      value: Speed
       objectReference: {fileID: 0}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: bigUpgrades.Array.data[0].spriteToDisplay
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b70f30b63d89814cba6ff52dd1c33aa, type: 3}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: bigUpgrades.Array.data[1].spriteToDisplay
+      value: 
+      objectReference: {fileID: 21300000, guid: d2f7299dcc6f0d14584cbbd05ccd9908, type: 3}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: basicUpgrades.Array.data[0].spriteToDisplay
+      value: 
+      objectReference: {fileID: 21300000, guid: aca368ab3217cc64eb118a60c04b5328, type: 3}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: basicUpgrades.Array.data[1].spriteToDisplay
+      value: 
+      objectReference: {fileID: 21300000, guid: cc0069932514c634fbaf8d2b9a03b070, type: 3}
+    - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: basicUpgrades.Array.data[2].spriteToDisplay
+      value: 
+      objectReference: {fileID: 21300000, guid: 5707aaa5b6d49c442bd778548dc475b9, type: 3}
     - target: {fileID: 6674809217737148800, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
       propertyPath: bigUpgrades.Array.data[1].onUnlocked.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -6953,6 +7005,7 @@ PrefabInstance:
     - {fileID: 5580982836738406077, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
     - {fileID: 4537166748019095756, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
     - {fileID: 3514880106460781327, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+    - {fileID: 3674208633800626591, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7248906802589139958, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
       insertIndex: -1

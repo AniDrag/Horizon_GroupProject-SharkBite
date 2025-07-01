@@ -11,7 +11,7 @@ using static System.Net.Mime.MediaTypeNames;
 public enum UpgradeType
 {
     BulletSpeed,
-    RecoilSpeed,
+    Firerate,
     Damage,
     MaxHealth,
     Defense,
@@ -29,6 +29,9 @@ public class UpgradeOption
 
     [Tooltip("How much to increase in percentage")]
     public float increasePercentage;
+
+    [Tooltip("What is my sprite")]
+    public Sprite spriteToDisplay;
 }
 
 [Serializable]
@@ -41,6 +44,13 @@ public struct UpgradeCondition
     [Tooltip("What level")]
     public int requiredLevel;
 }
+
+//[Serializable]
+//public struct ButtonSprites
+//{
+//    public UpgradeType type;
+//    public Sprite sprite;
+//}
 
 [Serializable]
 public class BigUpgrade
@@ -55,6 +65,9 @@ public class BigUpgrade
 
     [Tooltip("This shouldn't repeat with other big upgrade id's")]
     public string id;
+
+    [Tooltip("What is my sprite")]
+    public Sprite spriteToDisplay;
 }
 
 public class UpgradeSystem : MonoBehaviour
@@ -76,6 +89,10 @@ public class UpgradeSystem : MonoBehaviour
     [SerializeField] private int choicesPerLevel = 2;
     [Tooltip("Percentage bonus to apply once all upgrades are done")]
     [SerializeField] private float baseBonusPercent = 5f;
+
+    //[Header("========== Button sprites ==========")]
+    //[SerializeField] private List<ButtonSprites> buttonSprites = new List<ButtonSprites>(); // Don't use this, use the dictionary
+    //private Dictionary<UpgradeType, Sprite> _buttonSprites; // Used for faster search
 
     private PlayerStats _playerStats;
     private Manager_Sound _audio;
@@ -143,6 +160,8 @@ public class UpgradeSystem : MonoBehaviour
         //   FireRate  => { 3 => [platoon] }
         // }
 
+        //_buttonSprites = buttonSprites.ToDictionary(bs => bs.type, bs => bs.sprite);
+
         OnLevelUp();
     }
 
@@ -188,6 +207,7 @@ public class UpgradeSystem : MonoBehaviour
         btn.GetComponentInChildren<TextMeshProUGUI>().text = $"{opt.displayName} + {opt.increasePercentage}% ";
         btn.onClick.AddListener(() => ApplyUpgrade(opt));
         btn.onClick.AddListener(ClearExistingButtons);
+        btn.GetComponent<UnityEngine.UI.Image>().sprite = opt.spriteToDisplay;
         _spawnedButtons.Add(btn);
     }
 
@@ -203,9 +223,9 @@ public class UpgradeSystem : MonoBehaviour
     {
         var btn = Instantiate(buttonPrefab, buttonContainer);
         var label = btn.GetComponentInChildren<TextMeshProUGUI>().text = big.displayName;
-
         btn.onClick.AddListener(() => ApplyBig(big));
         btn.onClick.AddListener(ClearExistingButtons);
+        btn.GetComponent<UnityEngine.UI.Image>().sprite = big.spriteToDisplay;
         _spawnedButtons.Add(btn);
     }
     private void ApplyBig(BigUpgrade big)
@@ -222,7 +242,7 @@ public class UpgradeSystem : MonoBehaviour
             case UpgradeType.BulletSpeed:
                 _playerStats.IncreaseBulletSpeed(opt.increasePercentage);
                 break;
-            case UpgradeType.RecoilSpeed:
+            case UpgradeType.Firerate:
                 _playerStats.IncreaseRecoilSpeed(opt.increasePercentage);
                 break;
             case UpgradeType.Damage:

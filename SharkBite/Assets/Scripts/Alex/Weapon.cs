@@ -47,7 +47,6 @@ public class Weapon : MonoBehaviour
         {
             _timeReset = 0;
 
-            UpgradeShootLevel();
             Shoot(playerStats.GetFireRate(), orientation.position);
         }
     }
@@ -60,7 +59,7 @@ public class Weapon : MonoBehaviour
             float currentAngle = startAngle + i * angleStep;
             Quaternion bulletRotation = Quaternion.Euler(0, currentAngle, 0) * orientation.rotation;
 
-            GameObject newBullet = itemPooler.SpawnFromPool("Bullet", orientation.position + orientation.forward * 1.5f, Quaternion.identity);
+            GameObject newBullet = itemPooler.SpawnFromPool("Bullet", orientation.position + orientation.forward * 1.5f, bulletRotation);
             newBullet.GetComponent<Damage>().SetDamage(playerStats.GetBulletDamage());
 
             Rigidbody rb = newBullet.GetComponent<Rigidbody>();
@@ -68,22 +67,9 @@ public class Weapon : MonoBehaviour
             {
                 _audio.PlaySFX(_audio.playerShootSound);
                 rb.linearVelocity = Vector3.zero;
-                rb.AddForce(orientation.forward * playerStats.GetBulletSpeed() * 200, ForceMode.Force);
+                rb.AddForce(newBullet.transform.forward * playerStats.GetBulletSpeed() * 200, ForceMode.Force);
             }
             //Debug.Log("I shot a bullet");
-        }
-    }
-
-    public void UpgradeShootLevel()
-    {
-        _upgradelevel = playerStats.GetCurrentLevel();
-        if(_upgradelevel >=3)
-        {
-            bulletcount = 3;
-        }
-        else if (_upgradelevel >=5)
-        {
-            bulletcount = 5;
         }
     }
 
