@@ -17,6 +17,9 @@ public class EnemyDamage : MonoBehaviour
         
         if (playerHealth != null && !_triggered)
         {
+
+            Manager_Sound audio = Manager_Sound.instance;
+            audio.PlaySFX(audio.bulletHit);
             _triggered = true;
             playerHealth.TakeDamage(_damage);
             Debug.Log($"Damage delt {_damage} to target");

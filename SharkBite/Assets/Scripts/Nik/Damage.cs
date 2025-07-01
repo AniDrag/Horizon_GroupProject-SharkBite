@@ -16,14 +16,15 @@ public class Damage : MonoBehaviour
         EnemyHealth_SYS enemyhealth = other.gameObject.GetComponent<EnemyHealth_SYS>();
         if (enemyhealth !=null&& !_triggered)
         {
+
+            Manager_Sound audio = Manager_Sound.instance;
+            audio.PlaySFX(audio.bulletHit);
             _triggered = true;
             enemyhealth.TakeDamage(_damage);
             //Debug.Log($"Damage delt {_damage} to target");
         }
         Debug.Log("triggererered");
         _triggered = false;
-        Manager_Sound audio = Manager_Sound.instance;
-        audio.PlaySFX(audio.bulletHit);
         this.gameObject.SetActive(false);
     }
 }
