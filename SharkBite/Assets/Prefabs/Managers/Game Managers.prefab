@@ -879,7 +879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6238125238586667060, guid: f02d8a53f07e7c249bd4962dc461359d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: QBDisableTransform
+      value: QBCloseGrandParent
       objectReference: {fileID: 0}
     - target: {fileID: 6238125238586667060, guid: f02d8a53f07e7c249bd4962dc461359d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName

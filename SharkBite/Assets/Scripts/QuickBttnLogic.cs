@@ -12,11 +12,21 @@ public class QuickBttnLogic : MonoBehaviour
         NormalBTNSound();
         transform.GetChild(0).gameObject.SetActive(false);
     }
+    public void QBCloseGrandChild()
+    {
+        NormalBTNSound();
+        transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+    }
 
     public void QBCloseParent()
     {
         NormalBTNSound();
         transform.parent.gameObject.SetActive(false);
+    }
+    public void QBCloseGrandParent()
+    {
+        NormalBTNSound();
+        transform.parent.parent.gameObject.SetActive(false);
     }
 
     public void QBDisableTransform()
