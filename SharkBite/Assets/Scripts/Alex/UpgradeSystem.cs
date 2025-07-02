@@ -5,7 +5,6 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
-using static System.Net.Mime.MediaTypeNames;
 
 [Serializable]
 public enum UpgradeType
@@ -32,6 +31,9 @@ public class UpgradeOption
 
     [Tooltip("What is my sprite")]
     public Sprite spriteToDisplay;
+
+    [Tooltip("What is my sprite")]
+    public Sprite upgradeSpriteToDisplay;
 }
 
 [Serializable]
@@ -68,7 +70,12 @@ public class BigUpgrade
 
     [Tooltip("What is my sprite")]
     public Sprite spriteToDisplay;
+
+    [Tooltip("What is my sprite")]
+    public Sprite upgradeSpriteToDisplay;
 }
+
+
 
 public class UpgradeSystem : MonoBehaviour
 {
@@ -84,7 +91,10 @@ public class UpgradeSystem : MonoBehaviour
 
     [Header("========== UI ==========")]
     [SerializeField] private Button buttonPrefab;
+    [SerializeField] private GameObject upgradeVisualPrefab;
     [SerializeField] private Transform buttonContainer;
+    [SerializeField] private Transform BasicUpgradeContainer;
+    [SerializeField] private Transform UberUpgradeContainer;
     [Tooltip("How many choices to show on each level up")]
     [SerializeField] private int choicesPerLevel = 2;
     [Tooltip("Percentage bonus to apply once all upgrades are done")]
@@ -107,6 +117,11 @@ public class UpgradeSystem : MonoBehaviour
     // inverted index: maps a (type, level) -> list of big upgrades that depend on it
     private Dictionary<UpgradeType, Dictionary<int, List<BigUpgrade>>> _conditionMap;
 
+    /// <summary>
+    /// I did this shit sorry
+    /// </summary>
+    private Dictionary<UpgradeType, (Image icon, TMP_Text counter)> _upgradeVisuals;
+    private Dictionary<string, (Image icon, TextMeshProUGUI counter)> _bigUpgradeVisuals;
 
     private void Start()
     {
@@ -118,7 +133,8 @@ public class UpgradeSystem : MonoBehaviour
         //Set basic levels for tracking
         _basicLevels = basicUpgrades.ToDictionary(u => u.type, u => 0);
 
-
+        _upgradeVisuals = new Dictionary<UpgradeType, (Image icon, TMP_Text counter)>();
+        _bigUpgradeVisuals = new Dictionary<string, (Image icon, TextMeshProUGUI counter)>();
         // FOR NICK
         // build inverted index for fast lookups
         // Example data:
@@ -233,6 +249,18 @@ public class UpgradeSystem : MonoBehaviour
         if (_unlockedBig.Contains(big.id)) return;
         _unlockedBig.Add(big.id);
         big.onUnlocked.Invoke(); // Invoke Unity event
+
+        if (!_bigUpgradeVisuals.ContainsKey(big.id))
+        {
+            var go = Instantiate(upgradeVisualPrefab, UberUpgradeContainer);
+            var img = go.GetComponentInChildren<Image>();
+            var txt = go.GetComponentInChildren<TextMeshProUGUI>();
+
+            img.sprite = big.upgradeSpriteToDisplay;
+            txt.text = "";
+
+            _bigUpgradeVisuals.Add(big.id, (img, txt));
+        }
     }
 
     private void ApplyUpgrade(UpgradeOption opt)
@@ -276,6 +304,22 @@ public class UpgradeSystem : MonoBehaviour
                     _queuedBig.Add(big.id);
                 }
             }
+        }
+        if (!_upgradeVisuals.ContainsKey(opt.type))
+        {
+            var go = Instantiate(upgradeVisualPrefab, BasicUpgradeContainer);
+            var img = go.GetComponentInChildren<Image>();
+            var txt = go.GetComponentInChildren<TextMeshProUGUI>();
+
+            img.sprite = opt.upgradeSpriteToDisplay;
+            txt.text = "";
+
+            _upgradeVisuals.Add(opt.type, (img, txt));
+        }
+        else
+        {
+            var (img, txt) = _upgradeVisuals[opt.type];
+            txt.text = $"{_basicLevels[opt.type]}x";
         }
     }
 

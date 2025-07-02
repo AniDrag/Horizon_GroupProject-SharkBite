@@ -5,6 +5,7 @@ public class Spawner_var2 : MonoBehaviour
 {
     public static Spawner_var2 instance;
 
+    [SerializeField] private GameObject BossPrefab;
     [SerializeField] private int currentWaveIndex = 0;
 
     [Header("========= Wave runner Logic =========")]
@@ -86,19 +87,27 @@ public class Spawner_var2 : MonoBehaviour
             0,
             playerPos.z + enemySpawnRadius * Mathf.Sin(angle)
         );
-
-        GameObject enemyPrefab = GetEnemyInGroup(currentWaveIndex,rndPos);
-        if (enemyPrefab == null)
+        GameObject enemyPrefab;
+        if (!_isBossWave)
         {
-            Debug.LogWarning("No enemy prefab found for this wave.");
-            return;
+            enemyPrefab = GetEnemyInGroup(currentWaveIndex, rndPos);
+            if (enemyPrefab == null)
+            {
+                Debug.LogWarning("No enemy prefab found for this wave.");
+                return;
+            }
+
+            if (_isRusherWave)
+            {
+                Vector3 direction = (playerPos - rndPos).normalized;
+                if (direction != Vector3.zero)
+                    enemyPrefab.transform.rotation = Quaternion.LookRotation(direction);
+            }
         }
-
-        if (_isRusherWave)
+        else
         {
-            Vector3 direction = (playerPos - rndPos).normalized;
-            if (direction != Vector3.zero)
-                enemyPrefab.transform.rotation = Quaternion.LookRotation(direction);
+            enemyPrefab = Instantiate(BossPrefab, transform);
+            enemyPrefab.transform.position = rndPos;
         }
 
         _enemiesOnScreen.Add(enemyPrefab);
@@ -155,7 +164,7 @@ public class Spawner_var2 : MonoBehaviour
         _isBossWave = wave.isBossWave;
         spawnInterval = wave.spawnRate;
         _spawnCount = _isRusherWave ? squadEnemiesToSpawn : maxEnemiesToSpawn;
-        _spawnCount = _isBossWave ? 2 : maxEnemiesToSpawn; // mybe set to 2 if needed
+        _spawnCount = _isBossWave ? 1 : maxEnemiesToSpawn; // mybe set to 2 if needed
         _updatingWave = false;
     }
 }

@@ -433,8 +433,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 9195540571439951474}
   - {fileID: 525510725856625526}
+  - {fileID: 9195540571439951474}
   - {fileID: 6769652250755380140}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -494,8 +494,6 @@ MonoBehaviour:
   spawnAliesCout: 20
   spawnableEnemies:
   - {fileID: 11400000, guid: 9f25100630232944e9c07fbec3696a34, type: 2}
-  - {fileID: 11400000, guid: 90d78c81d985be445aa63a06d12eaae1, type: 2}
-  - {fileID: 11400000, guid: fe183e95098ac5941864c01f91e507a3, type: 2}
 --- !u!65 &6172489521721127208
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -515,8 +513,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 12.08, z: 4}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 4, y: 4, z: 4}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &6562751106266680546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,12 +1161,16 @@ PrefabInstance:
       value: EnemyMeleWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 6529119332131238149, guid: 91a52ddb77661ba49aa1dcd624dae417, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529119332131238149, guid: 91a52ddb77661ba49aa1dcd624dae417, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6529119332131238149, guid: 91a52ddb77661ba49aa1dcd624dae417, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6529119332131238149, guid: 91a52ddb77661ba49aa1dcd624dae417, type: 3}
       propertyPath: m_LocalPosition.z
