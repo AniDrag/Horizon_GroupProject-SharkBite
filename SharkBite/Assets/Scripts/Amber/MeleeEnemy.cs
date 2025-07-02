@@ -7,6 +7,7 @@ public class MeleeEnemy : MonoBehaviour
     private float _lastAttackTime;
     public bool isCrab;
     Manager_Sound _audio;
+    public Animator _animation;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private EnemyCore _data;
     void Start()
@@ -17,14 +18,17 @@ public class MeleeEnemy : MonoBehaviour
         Collider col = gameObject.GetComponent<Collider>();
         col.isTrigger = true;
         _audio = Manager_Sound.instance;
-       
+        _animation = _data.GetAnimator();
+
     }
 
     private void OnTriggerStay(Collider other)
-    { 
-        if(other.CompareTag("Player"))
+    {
+        Debug.Log("trigger 1");
+        if (other.CompareTag("Player"))
         {
-            Attack(other.gameObject);            
+            Debug.Log("triggger 2");
+            Attack(other.gameObject);
         }
 
     }
@@ -32,7 +36,8 @@ public class MeleeEnemy : MonoBehaviour
     void Attack(GameObject other ) {
 
         if (Time.time >= _lastAttackTime + _fireRate)
-        {
+        {           
+            _animation.SetTrigger("isAttacking");
             Debug.Log("Playr attacked by mele");
             _lastAttackTime = Time.time;
             other.GetComponent<PlayerHealth_SYS>().TakeDamage(_damage);

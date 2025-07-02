@@ -153,6 +153,7 @@ MonoBehaviour:
   _meleRange: 2
   _rangedUnitRange: 10
   orientation: {fileID: 0}
+  plazer: {fileID: 0}
 --- !u!1 &1598941898803739907
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,15 +334,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3943011473613836313, guid: 861e286a8278cc046a33a3a0ca275f74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.863922
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3943011473613836313, guid: 861e286a8278cc046a33a3a0ca275f74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.184653
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3943011473613836313, guid: 861e286a8278cc046a33a3a0ca275f74, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.2130432
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3943011473613836313, guid: 861e286a8278cc046a33a3a0ca275f74, type: 3}
       propertyPath: m_LocalRotation.w
@@ -384,9 +385,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 179037547393654062, guid: 861e286a8278cc046a33a3a0ca275f74, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6807159700219996458}
-    - targetCorrespondingSourceObject: {fileID: 179037547393654062, guid: 861e286a8278cc046a33a3a0ca275f74, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8882379866482733687}
   m_SourcePrefab: {fileID: 100100000, guid: 861e286a8278cc046a33a3a0ca275f74, type: 3}
 --- !u!4 &5358055286236470054 stripped
@@ -399,18 +397,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 179037547393654062, guid: 861e286a8278cc046a33a3a0ca275f74, type: 3}
   m_PrefabInstance: {fileID: 8999255207280741183}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6807159700219996458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9124248165394322961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e4342143196f83439e47c39fc4f588e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &8882379866482733687
 Animator:
   serializedVersion: 7

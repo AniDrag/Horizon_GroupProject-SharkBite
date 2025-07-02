@@ -96,7 +96,7 @@ GameObject:
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2897919099987936483
 Transform:
   m_ObjectHideFlags: 0
@@ -153,6 +153,7 @@ MonoBehaviour:
   damage: 10
   attackRatePerSecond: 1
   movemantSpeed: 3
+  animation: {fileID: 0}
 --- !u!114 &7574917186240069874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +185,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _meleRange: 1.18
   _rangedUnitRange: 10
-  orientation: {fileID: 0}
+  orientation: {fileID: 2897919099987936483}
+  _animator: {fileID: 0}
+  plazer: {fileID: 0}
 --- !u!1 &7676768951809899229
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCrab: 0
+  _animation: {fileID: 0}
   _data: {fileID: 0}
 --- !u!1001 &2245572673507110339
 PrefabInstance:
@@ -395,7 +399,7 @@ PrefabInstance:
       addedObject: {fileID: 9168650108560371469}
     - targetCorrespondingSourceObject: {fileID: 1663945167857079951, guid: 01222b293ee255f45911c55e54bb0d64, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1394900789710903123}
+      addedObject: {fileID: 6266558792077024679}
   m_SourcePrefab: {fileID: 100100000, guid: 01222b293ee255f45911c55e54bb0d64, type: 3}
 --- !u!1 &594023400220818252 stripped
 GameObject:
@@ -414,7 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4342143196f83439e47c39fc4f588e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1394900789710903123
+--- !u!95 &6266558792077024679
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -424,7 +428,7 @@ Animator:
   m_GameObject: {fileID: 594023400220818252}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dd739466df6659c4786dc5f0f888976e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6455a6245706b3347af302efc18f29c6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
