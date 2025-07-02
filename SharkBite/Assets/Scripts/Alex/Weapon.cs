@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour
     float angleStep = 10f; // degrees between bullets
 
     private float _timeReset;
+    private Animator _animation;
     Vector3 _saveShoodDirection;
     void Start()
     {
@@ -23,6 +24,7 @@ public class Weapon : MonoBehaviour
         playerStats = PlayerManager.instance.playerStats;
         _audio = Manager_Sound.instance;
         itemPooler = Pooler.instance;
+        _animation = GetComponent<Animator>();
 
     }
 

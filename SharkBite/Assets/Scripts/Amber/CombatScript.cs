@@ -10,10 +10,14 @@ public class CombatScript : MonoBehaviour,IPooledObject
     Pooler _pooler;
     private EnemyCore _core;
     Manager_Sound _audio;
+    private Animator _animation;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+          
         RespawndObject();
+        _animation = transform.GetChild(1).GetChild(0).GetComponent<Animator>();
+        //_animation = GetComponent<Animator>();
     }
     public void RespawndObject()
     {
@@ -52,7 +56,8 @@ public class CombatScript : MonoBehaviour,IPooledObject
     }
     void Shoot()
     {
-       
+        _audio.PlaySFX(_audio.eelShootSound);
+        _animation.SetTrigger("isAttacking");
         GameObject newBullet = _pooler.SpawnFromPool("EnemyBullet", orientation.position + new Vector3(0,.5f,1.5f), orientation.rotation);
         newBullet.GetComponent<EnemyDamage>().SetDamage(_damage);
 
@@ -60,7 +65,7 @@ public class CombatScript : MonoBehaviour,IPooledObject
         Rigidbody rb = newBullet.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            _audio.PlaySFX(_audio.eelShootSound);
+          
             //Debug.Log("RB set");
             rb.linearVelocity = Vector3.zero;
             rb.AddForce(orientation.forward * bulletForce * 10, ForceMode.Force);

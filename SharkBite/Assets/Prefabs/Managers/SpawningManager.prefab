@@ -93,11 +93,11 @@ MonoBehaviour:
     isRusherWave: 0
     isBossWave: 0
     possibleEnemiesToSpawn:
-    - prefab: {fileID: 11400000, guid: 51ba60e2275db604685878d032c5d80b, type: 2}
+    - prefab: {fileID: 11400000, guid: fe183e95098ac5941864c01f91e507a3, type: 2}
       EnemyName: 
       EnemyImage: {fileID: 0}
       SpawnChance: 50
-    - prefab: {fileID: 11400000, guid: ae79b4805f5cdf847abb17c2ffbf117f, type: 2}
+    - prefab: {fileID: 11400000, guid: 90d78c81d985be445aa63a06d12eaae1, type: 2}
       EnemyName: 
       EnemyImage: {fileID: 0}
       SpawnChance: 50
@@ -146,22 +146,30 @@ MonoBehaviour:
       EnemyName: 
       EnemyImage: {fileID: 0}
       SpawnChance: 50
+    - prefab: {fileID: 11400000, guid: 2572305bb2f00da4587c430a12920b89, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 50
     chanceSum: 0
   - durationOfWave: 30
-    spawnRate: 1
+    spawnRate: 0.5
     isRestWave: 0
     isRusherWave: 0
     isBossWave: 0
     possibleEnemiesToSpawn:
-    - prefab: {fileID: 11400000, guid: ae79b4805f5cdf847abb17c2ffbf117f, type: 2}
+    - prefab: {fileID: 11400000, guid: 90d78c81d985be445aa63a06d12eaae1, type: 2}
       EnemyName: 
       EnemyImage: {fileID: 0}
       SpawnChance: 50
-    - prefab: {fileID: 11400000, guid: 51ba60e2275db604685878d032c5d80b, type: 2}
+    - prefab: {fileID: 11400000, guid: fe183e95098ac5941864c01f91e507a3, type: 2}
       EnemyName: 
       EnemyImage: {fileID: 0}
       SpawnChance: 30
-    - prefab: {fileID: 11400000, guid: 1cc65a4e948f56744b07b6d228a530be, type: 2}
+    - prefab: {fileID: 11400000, guid: 9f25100630232944e9c07fbec3696a34, type: 2}
+      EnemyName: 
+      EnemyImage: {fileID: 0}
+      SpawnChance: 20
+    - prefab: {fileID: 11400000, guid: 2572305bb2f00da4587c430a12920b89, type: 2}
       EnemyName: 
       EnemyImage: {fileID: 0}
       SpawnChance: 20
@@ -170,14 +178,14 @@ MonoBehaviour:
     spawnRate: 1
     isRestWave: 0
     isRusherWave: 0
-    isBossWave: 0
+    isBossWave: 1
     possibleEnemiesToSpawn:
     - prefab: {fileID: 11400000, guid: c5523a0c0343228469651688c19f9eff, type: 2}
       EnemyName: Boss
       EnemyImage: {fileID: 0}
       SpawnChance: 100
     chanceSum: 0
-  maxEnemiesToSpawn: 100
+  maxEnemiesToSpawn: 300
   squadEnemiesToSpawn: 5
   spawnInterval: 1
   enemySpawnRadius: 30
