@@ -11,7 +11,6 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Pooler itemPooler;
     Manager_Sound _audio;
 
-    int _upgradelevel = 0;
     int bulletcount = 1;
     float angleStep = 10f; // degrees between bullets
 

@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour, IPooledObject
     private EnemyCore _core;
     private int _direction;
     public Animator _animator;
-    [SerializeField] Transform plazer;// delet this
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,8 +28,7 @@ public class EnemyMovement : MonoBehaviour, IPooledObject
         _animator = _core.GetAnimator();
        // _animator = transform.GetChild(1).GetChild(0).GetComponent<Animator>();
         _direction = Random.value < 0.5f ? -1 : 1;
-        // _gm = GameObject.Find("GameManager").GetComponent<GameManager>(); Uncoment me
-
+        _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         orientation = _core.GetMyOrientation();
         _speed = _core.GetMovementSpeed();
         _isRanged = _core.GetEnemyType();
@@ -58,8 +57,8 @@ public class EnemyMovement : MonoBehaviour, IPooledObject
     {
 
 
-        orientation.LookAt(new Vector3(/*_gm._playerPos.x*/plazer.position.x, orientation.position.y, plazer.position.z)); //_gm._playerPos.z));
-        distance = Vector3.Distance(transform.position, /*_gm._playerPos*/ plazer.position);
+        orientation.LookAt(new Vector3(_gm._playerPos.x, orientation.position.y, _gm._playerPos.z));
+        distance = Vector3.Distance(transform.position, _gm._playerPos);
         Mathf.Abs(distance);
         if ((_curentRange - 0.1f) < distance && distance < (_curentRange + 0.1f))// player is within a range smaller than distance
         {
