@@ -7,6 +7,7 @@ public class EellShader : MonoBehaviour
     public Material sharedMat;
     SpriteRenderer sr;
     MaterialPropertyBlock block;
+    public CombatScript combatScript;
     public float currentValue = 1f, currentBloom = 50f;
     void Awake()
     {
@@ -53,5 +54,10 @@ public class EellShader : MonoBehaviour
     {
         currentBloom = b;
         ApplyProperties();
+    }
+
+    public void ShootBullet()
+    {
+        combatScript.Shoot();
     }
 }

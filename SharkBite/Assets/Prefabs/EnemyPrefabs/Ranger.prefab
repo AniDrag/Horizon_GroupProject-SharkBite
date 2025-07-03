@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4342143196f83439e47c39fc4f588e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 50
 --- !u!1 &2648511464716707098
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +188,6 @@ MonoBehaviour:
   _rangedUnitRange: 10
   orientation: {fileID: 2897919099987936483}
   _animator: {fileID: 3701256205464247361}
-  plazer: {fileID: 0}
 --- !u!114 &8531349145447062056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,36 +282,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6956320596130664961, guid: 3d2cf86cc413acd459e7afc477ef3cf6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3701256205464247361}
-    - targetCorrespondingSourceObject: {fileID: 3836630159435260630, guid: 3d2cf86cc413acd459e7afc477ef3cf6, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 6956320596130664961, guid: 3d2cf86cc413acd459e7afc477ef3cf6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4535699457138356110}
+      addedObject: {fileID: 1656018865693562170}
   m_SourcePrefab: {fileID: 100100000, guid: 3d2cf86cc413acd459e7afc477ef3cf6, type: 3}
 --- !u!4 &225625811760674733 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2149241863942631154, guid: 3d2cf86cc413acd459e7afc477ef3cf6, type: 3}
   m_PrefabInstance: {fileID: 2229899107417561439}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3155971797869263753 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3836630159435260630, guid: 3d2cf86cc413acd459e7afc477ef3cf6, type: 3}
-  m_PrefabInstance: {fileID: 2229899107417561439}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4535699457138356110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3155971797869263753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de2c139b08cc9b445b344c9c7706d905, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eelTail: {fileID: 4890950913274021523}
-  sharedMat: {fileID: 2100000, guid: 4c9e3b73657f0124292053b1a64c0825, type: 2}
-  currentValue: 1
-  currentBloom: 50
 --- !u!1 &4890950913274021523 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6706445460741529548, guid: 3d2cf86cc413acd459e7afc477ef3cf6, type: 3}
@@ -344,3 +323,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1656018865693562170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9114126578720148318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2c139b08cc9b445b344c9c7706d905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eelTail: {fileID: 4890950913274021523}
+  sharedMat: {fileID: 2100000, guid: 4c9e3b73657f0124292053b1a64c0825, type: 2}
+  combatScript: {fileID: 8531349145447062056}
+  currentValue: 1
+  currentBloom: 50

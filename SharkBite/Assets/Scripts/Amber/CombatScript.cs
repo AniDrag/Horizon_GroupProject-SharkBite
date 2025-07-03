@@ -51,13 +51,13 @@ public class CombatScript : MonoBehaviour,IPooledObject
         if (_lastAttackTime >= _fireRate)
         {
             _lastAttackTime = 0;
-            Shoot();
+            _animation.SetTrigger("isAttacking");
         }
     }
-    void Shoot()
+    public void Shoot()
     {
         _audio.PlaySFX(_audio.eelShootSound);
-        _animation.SetTrigger("isAttacking");
+
         GameObject newBullet = _pooler.SpawnFromPool("EnemyBullet", orientation.position + new Vector3(0,.5f,1.5f), orientation.rotation);
         newBullet.GetComponent<EnemyDamage>().SetDamage(_damage);
 
