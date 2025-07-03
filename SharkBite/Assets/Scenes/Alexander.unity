@@ -5053,10 +5053,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Managers
       objectReference: {fileID: 0}
-    - target: {fileID: 4202289301422484773, guid: 30c23b6c4af92ae4885c3786687d488e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7857128157804115142, guid: 30c23b6c4af92ae4885c3786687d488e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.7140158
@@ -6654,14 +6650,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6574203304782199223, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 192
+    - target: {fileID: 3988633651021212267, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 32c1d75fabdbe8d43acd7d57e12f4864, type: 3}
+    - target: {fileID: 6616903541890567306, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: m_Type
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8362447967811631517, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 192
-      objectReference: {fileID: 0}
+    - target: {fileID: 6616903541890567306, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e8eb6c4af9b71c1409c5994eb1bd6ed0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

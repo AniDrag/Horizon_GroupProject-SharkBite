@@ -392,7 +392,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 192
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -415,7 +415,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   m_LayerOverridePriority: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
@@ -1290,17 +1290,17 @@ MonoBehaviour:
   - displayName: Fire rate
     type: 1
     increasePercentage: 10
-    spriteToDisplay: {fileID: 21300000, guid: aca368ab3217cc64eb118a60c04b5328, type: 3}
+    spriteToDisplay: {fileID: 21300000, guid: fad56d8f8a7868b4bb43d7ac3db6e552, type: 3}
     upgradeSpriteToDisplay: {fileID: 0}
   - displayName: Speed
     type: 5
     increasePercentage: 10
-    spriteToDisplay: {fileID: 21300000, guid: cc0069932514c634fbaf8d2b9a03b070, type: 3}
+    spriteToDisplay: {fileID: 21300000, guid: 9830114c3857d3a4ba0e84158f0e59fb, type: 3}
     upgradeSpriteToDisplay: {fileID: 0}
   - displayName: Damage
     type: 2
     increasePercentage: 10
-    spriteToDisplay: {fileID: 21300000, guid: 5707aaa5b6d49c442bd778548dc475b9, type: 3}
+    spriteToDisplay: {fileID: 21300000, guid: e4a7cd480fa44b444a77a7cbb16506f5, type: 3}
     upgradeSpriteToDisplay: {fileID: 0}
   maxBasicLevel: 3
   bigUpgrades:
@@ -1326,7 +1326,7 @@ MonoBehaviour:
             m_BoolArgument: 1
           m_CallState: 2
     id: Platoon
-    spriteToDisplay: {fileID: 21300000, guid: 5b70f30b63d89814cba6ff52dd1c33aa, type: 3}
+    spriteToDisplay: {fileID: 21300000, guid: 9e001efb277d15a41b24783e64171c8e, type: 3}
     upgradeSpriteToDisplay: {fileID: 0}
   - displayName: Split Shooter
     conditions:
@@ -1350,7 +1350,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     id: Split Shooter
-    spriteToDisplay: {fileID: 21300000, guid: d2f7299dcc6f0d14584cbbd05ccd9908, type: 3}
+    spriteToDisplay: {fileID: 21300000, guid: 303e90accbbb27e4f9143fe75ffea5cb, type: 3}
     upgradeSpriteToDisplay: {fileID: 0}
   buttonPrefab: {fileID: 6613698922942443876, guid: 16b3d1ec5934064479e125883ebad910, type: 3}
   upgradeVisualPrefab: {fileID: 0}
