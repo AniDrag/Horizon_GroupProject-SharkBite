@@ -28,7 +28,8 @@ public class EnemyMovement : MonoBehaviour, IPooledObject
         _animator = _core.GetAnimator();
        // _animator = transform.GetChild(1).GetChild(0).GetComponent<Animator>();
         _direction = Random.value < 0.5f ? -1 : 1;
-        _gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _gm = GameManager.instance;
+
         orientation = _core.GetMyOrientation();
         _speed = _core.GetMovementSpeed();
         _isRanged = _core.GetEnemyType();

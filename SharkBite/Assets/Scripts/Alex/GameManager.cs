@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance { get; private set; }
+
+    
 
     [Header("===== Details =====")]
     public GameObject DethPanel;
@@ -42,6 +45,10 @@ public class GameManager : MonoBehaviour
         _displayResolution = new Vector2Int(Screen.currentResolution.width, Screen.currentResolution.height);
         Debug.Log(_displayResolution.ToString());
         Debug.Log(_displaySystemResolution.ToString());
+
+        Manager_Sound.instance.PlayMusic(Manager_Sound.instance.normalCombatMusic);
+        
+           
     }
 
 
@@ -52,10 +59,9 @@ public class GameManager : MonoBehaviour
         DethPanel.SetActive(true);
     }
 
-    //public void BossSpawned(EnemyHealth_SYS health)
-    //{
-    //    bossHealthBar.SetActive(true);
-    //    Debug.Log("Fuck this shit I'm out tururu");
-    //    //bossHealthBar.GetComponent<BossHealth>.AsignHelthSys(health);
-    //}
+    public void BossSpawned(EnemyHealth_SYS health)
+    {
+        Manager_Sound.instance.TransitionMusic(Manager_Sound.instance.bossMusic);
+        //bossHealthBar.GetComponent<BossHealth>.AsignHelthSys(health);
+    }
 }

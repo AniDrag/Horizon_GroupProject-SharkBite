@@ -145,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 5553525426327666784, guid: ecc810424ddaaef4298c911902d601fe, type: 3}
     - target: {fileID: 6023469075155804933, guid: 30c23b6c4af92ae4885c3786687d488e, type: 3}
       propertyPath: waveList.Array.data[0].isBossWave
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7857128157804115142, guid: 30c23b6c4af92ae4885c3786687d488e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -784,6 +784,10 @@ PrefabInstance:
     - target: {fileID: 3162846296923491067, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547647524967067984, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.009765625
       objectReference: {fileID: 0}
     - target: {fileID: 5123484661231518028, guid: dfed5ac8b1532c641b3c15ea75902152, type: 3}
       propertyPath: m_AnchorMax.y

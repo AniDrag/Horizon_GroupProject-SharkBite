@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class Manager_Sound : MonoBehaviour
 {
     public static Manager_Sound instance;
-
+    public UnityEvent Play;
     [Header("========= Button Sounds =========")]
     public AudioClip normalButtonSound;
     public AudioClip checkMarkBTNSound;
@@ -50,7 +51,9 @@ public class Manager_Sound : MonoBehaviour
         // Grab the two AudioSources from children
         _audioSFX = transform.GetChild(0).GetComponent<AudioSource>();
         _audioMusic = transform.GetChild(1).GetComponent<AudioSource>();
-    }
+
+        Play?.Invoke();
+}
     #endregion
 
     // ─────────────────────────────────────────────────────────────────────────────
@@ -144,6 +147,11 @@ public class Manager_Sound : MonoBehaviour
         }
 
         _audioMusic.volume = startVol;                   // restore original volume
+    }
+
+    public void PlayMainMenu()
+    {
+        PlayMusic(mainMenuMusic);
     }
     #endregion
 }
