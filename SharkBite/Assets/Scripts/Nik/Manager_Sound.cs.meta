@@ -6,14 +6,16 @@ MonoImporter:
   defaultReferences:
   - normalButtonSound: {fileID: 8300000, guid: 8df4f3d12d650ac4c8dc87683963b824, type: 3}
   - checkMarkBTNSound: {fileID: 8300000, guid: 122bc4ecb02aeef44b95187090b1f0da, type: 3}
-  - bossMusic: {instanceID: 0}
-  - mainMenuMusic: {instanceID: 0}
-  - normalCombatMusic: {instanceID: 0}
+  - bossMusic: {fileID: 8300000, guid: 4f2420f827793fa4bbbb882214914a2b, type: 3}
+  - mainMenuMusic: {fileID: 8300000, guid: 04beb3c5c1bd6494fa4a2cc63a77f564, type: 3}
+  - normalCombatMusic: {fileID: 8300000, guid: 3081e1f643027184ebf7256d53f31357, type: 3}
   - piranahSound: {instanceID: 0}
   - eelSound: {instanceID: 0}
   - eelShootSound: {fileID: 8300000, guid: edb546a7f655b034aa4fcdc3893f38aa, type: 3}
   - crabSound: {instanceID: 0}
+  - enemyDamaged: {instanceID: 0}
   - enemyDethSound: {fileID: 8300000, guid: 2a6de264c2518354fb813a37518c5916, type: 3}
+  - playerDamaged: {instanceID: 0}
   - playerDethSound: {instanceID: 0}
   - playerShootSound: {fileID: 8300000, guid: 66d573fe4fd03ed43aa0631978944d58, type: 3}
   - playerLevelUpSound: {instanceID: 0}

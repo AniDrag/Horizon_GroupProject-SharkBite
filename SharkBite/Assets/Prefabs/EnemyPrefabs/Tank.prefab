@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4342143196f83439e47c39fc4f588e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 50
 --- !u!1 &1374787047932222435
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,6 +122,7 @@ MonoBehaviour:
   damage: 5
   attackRatePerSecond: 2
   movemantSpeed: 2
+  animation: {fileID: 0}
 --- !u!114 &9024936115184479571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,8 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _meleRange: 2
   _rangedUnitRange: 10
-  orientation: {fileID: 0}
-  plazer: {fileID: 0}
+  orientation: {fileID: 7396017659950762257}
+  _animator: {fileID: 8882379866482733687}
 --- !u!1 &1598941898803739907
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,6 +277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085d09fce0badaf4cadad1a67f413718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCrab: 0
+  _animation: {fileID: 8882379866482733687}
   _data: {fileID: 0}
 --- !u!1 &8807649222982326763
 GameObject:

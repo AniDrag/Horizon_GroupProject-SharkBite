@@ -14,8 +14,6 @@ public class Movement : MonoBehaviour
     // ========= Vectors =========
     private Vector3 _lastKnownDirection;
 
-    
-
     public virtual void Start()
     {
         playerStats = GetComponent<PlayerManager>().playerStats;
@@ -43,6 +41,7 @@ public class Movement : MonoBehaviour
         #endregion
 
         _characterController.Move(_3dMoveDirection * playerStats.GetMovementSpeed()*2 * Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, 1, transform.position.z);
 
         GameManager.instance._playerPos = transform.position;
     }
