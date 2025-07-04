@@ -600,7 +600,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -21, y: -494}
+  m_AnchoredPosition: {x: -21, y: -436}
   m_SizeDelta: {x: 485.7369, y: 173.502}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &72582915
@@ -11559,7 +11559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 940, y: 539}
+  m_AnchoredPosition: {x: 940, y: 669}
   m_SizeDelta: {x: 1396.2467, y: 722.6667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &334928571
@@ -27480,10 +27480,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pooler
       objectReference: {fileID: 0}
-    - target: {fileID: 9101944873554288121, guid: e971c84b80776174dbdda68474c64d6e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28749,7 +28745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.263, y: -494}
+  m_AnchoredPosition: {x: -10.263, y: -456}
   m_SizeDelta: {x: 1735.6155, y: 75.0178}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1798827577
