@@ -135,24 +135,29 @@ public class BossCore : EnemyCore
     IEnumerator Summon()
     {
         animator.SetTrigger("Summon");
-        currentPhase = BossPhase.Summon;
-        for (int i = 0; i < spawnAliesCout; i++)
+        yield return new WaitForSeconds(1);
+        if (spawnableEnemies.Count <= 0) yield return null;
+        else
         {
-            EnemyPrefab enemyToSpawn = spawnableEnemies[Random.Range(0, spawnableEnemies.Count - 1)];
+            currentPhase = BossPhase.Summon;
+            for (int i = 0; i < spawnAliesCout; i++)
+            {
+                EnemyPrefab enemyToSpawn = spawnableEnemies[Random.Range(0, spawnableEnemies.Count - 1)];
 
-            float angle = Random.Range(0, Mathf.PI * Random.Range(2,3));
+                float angle = Random.Range(0, Mathf.PI * Random.Range(2, 3));
 
-            Vector3 rndPos = new Vector3(
-                transform.position.x + Random.Range(10,30) * Mathf.Cos(angle),
-                0,
-                transform.position.z + Random.Range(10, 30) * Mathf.Sin(angle)
-            );
+                Vector3 rndPos = new Vector3(
+                    transform.position.x + Random.Range(10, 30) * Mathf.Cos(angle),
+                    0,
+                    transform.position.z + Random.Range(10, 30) * Mathf.Sin(angle)
+                );
 
-            GameObject enemy = Pooler.instance.SpawnFromPool(enemyToSpawn.enemyName, rndPos, Quaternion.identity);
-            enemy.GetComponent<EnemyHealth_SYS>().IsBossSpawn();// will not interact with spawner.
-            //Spawner_var2.instance._enemiesOnScreen.Add(enemy); // ISSUE
-            Debug.Log("spawning");
-            yield return null;
+                GameObject enemy = Pooler.instance.SpawnFromPool(enemyToSpawn.enemyName, rndPos, Quaternion.identity);
+                enemy.GetComponent<EnemyHealth_SYS>().IsBossSpawn();// will not interact with spawner.
+                                                                    //Spawner_var2.instance._enemiesOnScreen.Add(enemy); // ISSUE
+                Debug.Log("spawning");
+                yield return null;
+            }
         }
     }
     public void Enrage()
@@ -171,18 +176,20 @@ public class BossCore : EnemyCore
         // Death
         if (health <= 0)
         {
-            Die();
+           StartCoroutine(Die());
             return;
         }
         if (health == health_75 || health == health_50 || health == health_25) Enrage();
 
     }
 
-    private void Die()
+    IEnumerator Die()
     {
         isDead = true;
         animator.SetBool("Death", true);
         Debug.Log($"Boss died at health {health}");
+        yield return new WaitForSeconds(3);
+        GameManager.instance.ObBossDeth();
     }
 
     private BossPhase PickPhase()

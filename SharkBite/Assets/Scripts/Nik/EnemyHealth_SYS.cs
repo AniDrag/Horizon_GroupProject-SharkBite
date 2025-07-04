@@ -29,6 +29,7 @@ public class EnemyHealth_SYS : DamageShader, IPooledObject
         if (damage < 0) return;
         Debug.Log($"I took damage Enemy-{damage}");
         int tempHelth = _currentEnemyHealth - DamageCalculationWithModifiers(damage);
+        Debug.Log($"Actual damage I took --> Enemy-{DamageCalculationWithModifiers(damage)}");
         _audio?.PlaySFX(_audio.enemyDamaged);
         if (tempHelth <= 0)
         {

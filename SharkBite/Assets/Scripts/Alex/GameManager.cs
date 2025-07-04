@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -63,5 +64,9 @@ public class GameManager : MonoBehaviour
     {
         Manager_Sound.instance.TransitionMusic(Manager_Sound.instance.bossMusic);
         //bossHealthBar.GetComponent<BossHealth>.AsignHelthSys(health);
+    }
+    public void ObBossDeth()
+    {
+        SceneManager.LoadSceneAsync(2);
     }
 }

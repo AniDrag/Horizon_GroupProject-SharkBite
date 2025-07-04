@@ -24,7 +24,7 @@ public class Damage : MonoBehaviour
             enemyhealth.TakeDamage(_damage);
             //Debug.Log($"Damage delt {_damage} to target");
         }
-        Debug.Log("triggererered");
+        //Debug.Log("triggererered");
         _triggered = false;
         this.gameObject.SetActive(false);
     }

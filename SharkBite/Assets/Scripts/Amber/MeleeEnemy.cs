@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MeleeEnemy : MonoBehaviour
 {
-    private float _fireRate;
-    private int _damage;
+    private float _fireRate = 1;
+    private int _damage = 10;
     private float _lastAttackTime;
     public bool isCrab;
     Manager_Sound _audio;
@@ -24,10 +24,10 @@ public class MeleeEnemy : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("trigger 1");
+        //Debug.Log("trigger 1");
         if (other.CompareTag("Player"))
         {
-            Debug.Log("triggger 2");
+            //Debug.Log("triggger 2");
             Attack(other.gameObject);
         }
 
@@ -38,7 +38,7 @@ public class MeleeEnemy : MonoBehaviour
         if (Time.time >= _lastAttackTime + _fireRate)
         {           
             _animation.SetTrigger("isAttacking");
-            Debug.Log("Playr attacked by mele");
+           // Debug.Log("Playr attacked by mele");
             _lastAttackTime = Time.time;
             other.GetComponent<PlayerHealth_SYS>().TakeDamage(_damage);
             _audio.PlaySFX(isCrab? _audio.crabSound : _audio.piranahSound);

@@ -1015,11 +1015,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8047408318964850915, guid: e971c84b80776174dbdda68474c64d6e, type: 3}
       propertyPath: poolDatas.Array.data[1].size
-      value: 100
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 8047408318964850915, guid: e971c84b80776174dbdda68474c64d6e, type: 3}
       propertyPath: poolDatas.Array.data[2].size
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8047408318964850915, guid: e971c84b80776174dbdda68474c64d6e, type: 3}
       propertyPath: poolDatas.Array.data[3].size
@@ -1231,8 +1231,44 @@ PrefabInstance:
       value: SpawningManager
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
+      propertyPath: BossPrefab
+      value: 
+      objectReference: {fileID: 5553525426327666784, guid: ecc810424ddaaef4298c911902d601fe, type: 3}
+    - target: {fileID: 7632952447089487324, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
+      propertyPath: enemySpawnRadius
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
+      propertyPath: waveList.Array.data[1].spawnRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
+      propertyPath: waveList.Array.data[2].spawnRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
+      propertyPath: waveList.Array.data[3].spawnRate
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
+      propertyPath: waveList.Array.data[4].spawnRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
+      propertyPath: waveList.Array.data[6].spawnRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
+      propertyPath: waveList.Array.data[7].spawnRate
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
       propertyPath: waveList.Array.data[8].isBossWave
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632952447089487324, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
+      propertyPath: waveList.Array.data[8].possibleEnemiesToSpawn.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8740302135202539654, guid: ccab9eece52e78a44b57e076f172ec58, type: 3}
       propertyPath: m_LocalPosition.x
