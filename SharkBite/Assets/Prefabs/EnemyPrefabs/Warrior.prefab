@@ -77,6 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4342143196f83439e47c39fc4f588e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 50
 --- !u!1 &5835845769745244597
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,11 +184,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8504e6667bdf4ac428da026210bbb55d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meleRange: 1.18
+  _meleRange: 4
   _rangedUnitRange: 10
   orientation: {fileID: 2897919099987936483}
   _animator: {fileID: 0}
-  plazer: {fileID: 0}
 --- !u!1 &7676768951809899229
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4342143196f83439e47c39fc4f588e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 50
 --- !u!95 &6266558792077024679
 Animator:
   serializedVersion: 7

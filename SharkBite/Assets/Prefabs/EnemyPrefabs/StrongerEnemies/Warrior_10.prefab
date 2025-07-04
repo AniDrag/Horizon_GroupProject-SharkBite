@@ -288,9 +288,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8504e6667bdf4ac428da026210bbb55d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meleRange: 2
+  _meleRange: 5
   _rangedUnitRange: 10
   orientation: {fileID: 0}
+  _animator: {fileID: 0}
 --- !u!114 &8594969229906883777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +310,7 @@ MonoBehaviour:
   damage: 10
   attackRatePerSecond: 1
   movemantSpeed: 4
+  animation: {fileID: 0}
 --- !u!65 &4594844038545103582
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -407,6 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4342143196f83439e47c39fc4f588e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 50
 --- !u!1 &7484540103120564264
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,4 +619,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCrab: 0
+  _animation: {fileID: 0}
   _data: {fileID: 0}
