@@ -32,8 +32,8 @@ public class Manager_Sound : MonoBehaviour
     public AudioClip bulletHit;
     public AudioClip barrelExplosion;
 
-    AudioSource _audioSFX;
-    AudioSource _audioMusic;
+    public AudioSource _audioSFX;
+    public AudioSource _audioMusic;
 
     #region ───────── Singleton ─────────
     private void Awake()
@@ -44,6 +44,7 @@ public class Manager_Sound : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        DontDestroyOnLoad(gameObject);
 
         instance = this;
         //DontDestroyOnLoad(gameObject);

@@ -54,7 +54,7 @@ public class Weapon : MonoBehaviour
 
     private void Shoot(float cd, Vector3 moveDirection)
     {
-        _audio.PlaySFX(_audio.playerShootSound);
+        _audio.PlaySFX(_audio.playerShootSound, 0.1f);
         for (int i = 0; i < bulletcount; i++)
         {
             float startAngle = -(bulletcount - 1) * angleStep / 2f;

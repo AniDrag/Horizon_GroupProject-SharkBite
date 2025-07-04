@@ -46,9 +46,8 @@ public class GameManager : MonoBehaviour
         Debug.Log(_displayResolution.ToString());
         Debug.Log(_displaySystemResolution.ToString());
 
-        Manager_Sound.instance.PlayMusic(Manager_Sound.instance.normalCombatMusic);
-        
-           
+        Manager_Sound.instance.TransitionMusic(Manager_Sound.instance.normalCombatMusic);
+
     }
 
 
@@ -66,6 +65,7 @@ public class GameManager : MonoBehaviour
     }
     public void ObBossDeth()
     {
+        Manager_Sound.instance.TransitionMusic(Manager_Sound.instance.mainMenuMusic);
         SceneManager.LoadSceneAsync(2);
     }
 }

@@ -9,7 +9,7 @@ public class LoadScreenTHing : MonoBehaviour
 {
     public Slider LoadingBarSlider;
     [SerializeField] private float loadingSpeed = 1f;
-    public UnityEvent onLoadingComplete;
+    public GameObject button;
 
     float fillSpeed;
     private bool loadingDone = false;
@@ -17,6 +17,7 @@ public class LoadScreenTHing : MonoBehaviour
     {
         LoadingBarSlider.value = 0;
         fillSpeed = LoadingBarSlider.maxValue / loadingSpeed;
+        button.SetActive(false);
     }
 
     void Update()
@@ -31,7 +32,7 @@ public class LoadScreenTHing : MonoBehaviour
         {
             LoadingBarSlider.value = LoadingBarSlider.maxValue;
             loadingDone = true;
-            onLoadingComplete?.Invoke();
+            button.SetActive(true);
         }
     }
 }

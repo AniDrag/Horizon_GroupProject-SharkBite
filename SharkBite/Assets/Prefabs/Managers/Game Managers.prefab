@@ -1064,7 +1064,7 @@ PrefabInstance:
     - target: {fileID: 8047408318964850915, guid: e971c84b80776174dbdda68474c64d6e, type: 3}
       propertyPath: poolDatas.Array.data[4].prefab
       value: 
-      objectReference: {fileID: 5835845769745244597, guid: d56cb2db777de1940b62cbaa0c6d909e, type: 3}
+      objectReference: {fileID: 4080172859643653030, guid: 670205bd1b4968946a3b7600e94b78b8, type: 3}
     - target: {fileID: 8047408318964850915, guid: e971c84b80776174dbdda68474c64d6e, type: 3}
       propertyPath: poolDatas.Array.data[5].prefab
       value: 
@@ -1198,9 +1198,9 @@ MonoBehaviour:
       m_Calls: []
   normalButtonSound: {fileID: 8300000, guid: 8df4f3d12d650ac4c8dc87683963b824, type: 3}
   checkMarkBTNSound: {fileID: 8300000, guid: 122bc4ecb02aeef44b95187090b1f0da, type: 3}
-  bossMusic: {fileID: 0}
-  mainMenuMusic: {fileID: 0}
-  normalCombatMusic: {fileID: 0}
+  bossMusic: {fileID: 8300000, guid: 4f2420f827793fa4bbbb882214914a2b, type: 3}
+  mainMenuMusic: {fileID: 8300000, guid: 3081e1f643027184ebf7256d53f31357, type: 3}
+  normalCombatMusic: {fileID: 8300000, guid: 04beb3c5c1bd6494fa4a2cc63a77f564, type: 3}
   piranahSound: {fileID: 0}
   eelSound: {fileID: 0}
   eelShootSound: {fileID: 8300000, guid: edb546a7f655b034aa4fcdc3893f38aa, type: 3}
@@ -1213,6 +1213,8 @@ MonoBehaviour:
   playerLevelUpSound: {fileID: 0}
   bulletHit: {fileID: 8300000, guid: b9533a61a8d8f314baf119c8d447acd1, type: 3}
   barrelExplosion: {fileID: 8300000, guid: 8598fbaa9bee7c745a31fbefd372de19, type: 3}
+  _audioSFX: {fileID: 0}
+  _audioMusic: {fileID: 0}
 --- !u!4 &6840319063330523556 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8009473881597417414, guid: baf4451462395ac419df5f4ac5357b2a, type: 3}

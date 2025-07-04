@@ -19,7 +19,7 @@ public class Damage : MonoBehaviour
         {
 
             Manager_Sound audio = Manager_Sound.instance;
-            audio.PlaySFX(audio.bulletHit);
+            audio.PlaySFX(audio.bulletHit, 0.2f);
             _triggered = true;
             enemyhealth.TakeDamage(_damage);
             //Debug.Log($"Damage delt {_damage} to target");
