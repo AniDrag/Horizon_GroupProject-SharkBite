@@ -27,7 +27,7 @@ public class EnemyCore : MonoBehaviour
     public float GetMovementSpeed() => movemantSpeed;
     public bool GetEnemyType() => enemyType == EnemyType.Ranged;
     public Transform GetMyOrientation() => transform.GetChild(0);
-    public Animator GetAnimator() =>  transform.GetChild(1).GetChild(0).GetComponent<Animator>();
+    public Animator GetAnimator() => transform.GetChild(1).GetChild(0).GetComponent<Animator>();
 
 
     public int SetHealth(int newValue) => maxHealth = newValue;

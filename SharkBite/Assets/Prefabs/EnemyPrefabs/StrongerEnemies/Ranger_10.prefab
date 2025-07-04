@@ -101,7 +101,7 @@ MonoBehaviour:
   _meleRange: 2
   _rangedUnitRange: 10
   orientation: {fileID: 0}
-  _animator: {fileID: 0}
+  _animator: {fileID: 1512798174968978537}
 --- !u!114 &275262453783651177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 0}
   bulletForce: 200
+  _animation: {fileID: 1512798174968978537}
 --- !u!1001 &5933449074741935548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -240,6 +241,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7582070888887578821, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
+      propertyPath: sharedMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c9e3b73657f0124292053b1a64c0825, type: 2}
+    - target: {fileID: 7582070888887578821, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
+      propertyPath: combatScript
+      value: 
+      objectReference: {fileID: -2276747778755794879}
     m_RemovedComponents:
     - {fileID: 286740089695692757, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
     m_RemovedGameObjects: []
@@ -248,13 +257,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4108862267423491883, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1326655965196116907}
-    - targetCorrespondingSourceObject: {fileID: 4108862267423491883, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1124228370496215053}
   m_SourcePrefab: {fileID: 100100000, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
---- !u!1 &191697075922470912 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5836334192963351996, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
+--- !u!95 &1512798174968978537 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5091690549333615061, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
   m_PrefabInstance: {fileID: 5933449074741935548}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &4871383548415329624 stripped
@@ -280,20 +286,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: 50
---- !u!114 &1124228370496215053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7733318316669041303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de2c139b08cc9b445b344c9c7706d905, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eelTail: {fileID: 191697075922470912}
-  sharedMat: {fileID: 2100000, guid: 4c9e3b73657f0124292053b1a64c0825, type: 2}
-  combatScript: {fileID: -2276747778755794879}
-  currentValue: 1
-  currentBloom: 50

@@ -122,7 +122,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1505716336262943016}
   - component: {fileID: 6065392902348420025}
-  - component: {fileID: 5221230059172900068}
   m_Layer: 7
   m_Name: piranha_openmouth
   m_TagString: Untagged
@@ -200,28 +199,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5221230059172900068
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2335657195308321554}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ff9377892e8e4c1468a65265f44e2340, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3823470387351330284
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,10 +265,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8504e6667bdf4ac428da026210bbb55d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meleRange: 5
+  _meleRange: 3.5
   _rangedUnitRange: 10
   orientation: {fileID: 0}
-  _animator: {fileID: 0}
+  _animator: {fileID: 866789783804654719}
 --- !u!114 &8594969229906883777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,8 +504,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 3, y: 2, z: 4}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5, y: 3.3333335, z: 6.666667}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5528523280542333506}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -907,11 +907,46 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1.25
+  - time: 1.1
+    functionName: SetValue
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1833333
+    functionName: SetValue
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.2
     functionName: SetBloom
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 1
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.35
+    functionName: SetBloom
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 25
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.4166666
+    functionName: SetBloom
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 10
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.4833333
+    functionName: SetBloom
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 30
     intParameter: 0
     messageOptions: 0
   - time: 1.5
@@ -921,8 +956,22 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.5333333
+  - time: 1.55
     functionName: SetBloom
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.6
+    functionName: SetValue
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.65
+    functionName: SetValue
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

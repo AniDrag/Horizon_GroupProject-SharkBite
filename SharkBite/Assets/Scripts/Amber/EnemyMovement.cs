@@ -25,7 +25,7 @@ public class EnemyMovement : MonoBehaviour, IPooledObject
     public void RespawndObject()
     {
         _core = GetComponent<EnemyCore>();
-        _animator = _core.GetAnimator();
+        //_animator = _core.GetAnimator();
        // _animator = transform.GetChild(1).GetChild(0).GetComponent<Animator>();
         _direction = Random.value < 0.5f ? -1 : 1;
         _gm = GameManager.instance;

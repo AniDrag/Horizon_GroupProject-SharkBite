@@ -187,7 +187,7 @@ MonoBehaviour:
   _meleRange: 2
   _rangedUnitRange: 10
   orientation: {fileID: 2897919099987936483}
-  _animator: {fileID: 3701256205464247361}
+  _animator: {fileID: 6366789149062330506}
 --- !u!114 &8531349145447062056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 0}
   bulletForce: 200
+  _animation: {fileID: 6366789149062330506}
 --- !u!1001 &2229899107417561439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -274,70 +275,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eel
       objectReference: {fileID: 0}
+    - target: {fileID: 7582070888887578821, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
+      propertyPath: sharedMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c9e3b73657f0124292053b1a64c0825, type: 2}
+    - target: {fileID: 7582070888887578821, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
+      propertyPath: combatScript
+      value: 
+      objectReference: {fileID: 8531349145447062056}
     m_RemovedComponents:
     - {fileID: 1107206340212222448, guid: 3d2cf86cc413acd459e7afc477ef3cf6, type: 3}
     - {fileID: 286740089695692757, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4108862267423491883, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3701256205464247361}
-    - targetCorrespondingSourceObject: {fileID: 4108862267423491883, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1656018865693562170}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
 --- !u!4 &1098676635964744123 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1282815575586158820, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
   m_PrefabInstance: {fileID: 2229899107417561439}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2879960814416895604 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4108862267423491883, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
-  m_PrefabInstance: {fileID: 2229899107417561439}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &3701256205464247361
+--- !u!95 &6366789149062330506 stripped
 Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2879960814416895604}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d8dc28e47a220894c8bb374f37e951c3, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1656018865693562170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2879960814416895604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de2c139b08cc9b445b344c9c7706d905, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eelTail: {fileID: 5624118983006252259}
-  sharedMat: {fileID: 2100000, guid: 4c9e3b73657f0124292053b1a64c0825, type: 2}
-  combatScript: {fileID: 8531349145447062056}
-  currentValue: 1
-  currentBloom: 50
---- !u!1 &5624118983006252259 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5836334192963351996, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5091690549333615061, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
   m_PrefabInstance: {fileID: 2229899107417561439}
   m_PrefabAsset: {fileID: 0}

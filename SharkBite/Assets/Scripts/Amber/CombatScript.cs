@@ -10,13 +10,13 @@ public class CombatScript : MonoBehaviour,IPooledObject
     Pooler _pooler;
     private EnemyCore _core;
     Manager_Sound _audio;
-    private Animator _animation;
+    [SerializeField] private Animator _animation;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
           
         RespawndObject();
-        _animation = transform.GetChild(1).GetChild(0).GetComponent<Animator>();
+        //_animation = transform.GetChild(1).GetChild(0).GetComponent<Animator>();
         //_animation = GetComponent<Animator>();
     }
     public void RespawndObject()
