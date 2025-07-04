@@ -267,7 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _meleRange: 3.5
   _rangedUnitRange: 10
-  orientation: {fileID: 0}
+  orientation: {fileID: 5528523280542333506}
   _animator: {fileID: 866789783804654719}
 --- !u!114 &8594969229906883777
 MonoBehaviour:
@@ -301,7 +301,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1920
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -572,10 +572,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 1527
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -596,5 +596,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCrab: 0
-  _animation: {fileID: 0}
-  _data: {fileID: 0}
+  _animation: {fileID: 866789783804654719}
+  _data: {fileID: 8594969229906883777}

@@ -125,7 +125,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 1920
@@ -286,10 +286,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 1527
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -310,8 +310,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCrab: 0
-  _animation: {fileID: 0}
-  _data: {fileID: 0}
+  _animation: {fileID: 6266558792077024679}
+  _data: {fileID: 6637961838869667006}
 --- !u!1001 &2245572673507110339
 PrefabInstance:
   m_ObjectHideFlags: 0

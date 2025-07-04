@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2564057526605207874}
   - component: {fileID: 1875573659296144109}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 1920
@@ -211,6 +211,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2564057526605207874}
     m_Modifications:
+    - target: {fileID: 7920272630393625579, guid: 3d2cf86cc413acd459e7afc477ef3cf6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1282815575586158820, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -267,9 +271,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3662964001358765812, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4108862267423491883, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
       propertyPath: m_Name
       value: Eel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4108862267423491883, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836334192963351996, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7582070888887578821, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
       propertyPath: sharedMat
@@ -279,10 +295,6 @@ PrefabInstance:
       propertyPath: combatScript
       value: 
       objectReference: {fileID: 8531349145447062056}
-    - target: {fileID: 7920272630393625579, guid: 3d2cf86cc413acd459e7afc477ef3cf6, type: 3}
-      propertyPath: m_SortingOrder
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1107206340212222448, guid: 3d2cf86cc413acd459e7afc477ef3cf6, type: 3}
     - {fileID: 286740089695692757, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}

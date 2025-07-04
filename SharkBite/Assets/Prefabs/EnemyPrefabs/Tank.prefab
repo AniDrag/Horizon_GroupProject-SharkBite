@@ -93,7 +93,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 1920
@@ -254,10 +254,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 1527
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -277,9 +277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085d09fce0badaf4cadad1a67f413718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCrab: 0
+  isCrab: 1
   _animation: {fileID: 8882379866482733687}
-  _data: {fileID: 0}
+  _data: {fileID: 1923607471119782315}
 --- !u!1 &8807649222982326763
 GameObject:
   m_ObjectHideFlags: 0

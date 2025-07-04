@@ -5,15 +5,19 @@ public class BossSpecificWeapon : MonoBehaviour
     private float _fireRate = 1;// Attack rate
     private int _damage = 100;
     private float _lastAttackTime;
-    EnemyCore _core;
+    BossCore _core;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       // _core = transform.parent.GetComponent<EnemyCore>();
+        _core = transform.parent.GetComponent<BossCore>();
         if (_core != null)
         {
             _damage = _core.GetDamage();
             _fireRate = _core.GetAttackRatePerSecond();
+        }
+        else
+        {
+            Debug.LogError("Null refrence to boss Core!!");
         }
     }
     private void OnTriggerStay(Collider other)

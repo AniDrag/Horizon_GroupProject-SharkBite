@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _meleRange: 2
   _rangedUnitRange: 10
-  orientation: {fileID: 0}
+  orientation: {fileID: 2553347031260277392}
   _animator: {fileID: 1512798174968978537}
 --- !u!114 &275262453783651177
 MonoBehaviour:
@@ -131,10 +131,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1920
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

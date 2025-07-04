@@ -56,7 +56,7 @@ public class Spawner_var2 : MonoBehaviour
     }
     private void Update()
     {
-        if (Time.time >= _lastWaveTime + _waveInterval && !_updatingWave && currentWaveIndex < waveList.Count - 1)
+        if (Time.time >= _lastWaveTime + _waveInterval && !_updatingWave && currentWaveIndex < waveList.Count)
         {
             _updatingWave = true;
             currentWaveIndex += 1;
@@ -68,7 +68,7 @@ public class Spawner_var2 : MonoBehaviour
     {
         if (!_isRestWave && !_updatingWave)
         {
-            if (Time.time >= _lastSpawnTime + spawnInterval && _enemiesOnScreen.Count < _spawnCount && currentWaveIndex < waveList.Count-1)
+            if (Time.time >= _lastSpawnTime + spawnInterval && _enemiesOnScreen.Count < _spawnCount && currentWaveIndex < waveList.Count)
             {
                 _lastSpawnTime = Time.time;
                 SpawnEnemy();
@@ -88,15 +88,16 @@ public class Spawner_var2 : MonoBehaviour
             playerPos.z + enemySpawnRadius * Mathf.Sin(angle)
         );
         GameObject enemyPrefab;
+
         if (!_isBossWave)
         {
             enemyPrefab = GetEnemyInGroup(currentWaveIndex, rndPos);
+
             if (enemyPrefab == null)
             {
                 Debug.LogWarning("No enemy prefab found for this wave.");
                 return;
             }
-
             if (_isRusherWave)
             {
                 Vector3 direction = (playerPos - rndPos).normalized;
@@ -107,9 +108,17 @@ public class Spawner_var2 : MonoBehaviour
         else
         {
             enemyPrefab = Instantiate(BossPrefab, transform);
+            if (enemyPrefab == null)
+            {
+                Debug.LogWarning("No Boss prefab.");
+                return;
+            }
             enemyPrefab.transform.position = rndPos;
         }
-
+        if (enemyPrefab == null)
+        {
+            return;
+        }
         _enemiesOnScreen.Add(enemyPrefab);
 
     }
@@ -136,9 +145,12 @@ public class Spawner_var2 : MonoBehaviour
             if (targetWeight < currentWeight)
             {
                 GameObject obj = _pooler.SpawnFromPool(waveList[waveIndex].possibleEnemiesToSpawn[i].prefab.enemyName, position, Quaternion.identity);
-                if (obj == null)Debug.LogWarning("There is no fucking object found");
+                if (obj == null) {
+                    Debug.LogWarning("There is no fucking object found"); 
+                    return null;
+                }
+            
                 if (!obj.GetComponent<EnemyCore>() || !obj.GetComponent<EnemyHealth_SYS>() || !obj.GetComponent<EnemyMovement>()) Debug.LogWarning("No flipn scrits found.. god damn it");
-
                 return obj;
             }
         }
@@ -163,8 +175,12 @@ public class Spawner_var2 : MonoBehaviour
         _isRusherWave = wave.isRusherWave;
         _isBossWave = wave.isBossWave;
         spawnInterval = wave.spawnRate;
-        _spawnCount = _isRusherWave ? squadEnemiesToSpawn : maxEnemiesToSpawn;
-        _spawnCount = _isBossWave ? 1 : maxEnemiesToSpawn; // mybe set to 2 if needed
+        if(_isBossWave)
+            _spawnCount = 1;
+        else if (_isRusherWave)
+            _spawnCount = squadEnemiesToSpawn;
+        else
+            _spawnCount = maxEnemiesToSpawn;
         _updatingWave = false;
     }
 }

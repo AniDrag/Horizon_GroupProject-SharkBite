@@ -58,10 +58,9 @@ public class GameManager : MonoBehaviour
         DethPanel.SetActive(true);
     }
 
-    public void BossSpawned(EnemyHealth_SYS health)
+    public void BossSpawned()
     {
         Manager_Sound.instance.TransitionMusic(Manager_Sound.instance.bossMusic);
-        //bossHealthBar.GetComponent<BossHealth>.AsignHelthSys(health);
     }
     public void ObBossDeth()
     {

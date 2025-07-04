@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,6 +32,7 @@ public class Pooler : MonoBehaviour
 
     public List<PoolData> poolDatas = new List<PoolData>();
     private Dictionary<string, Queue<GameObject>> _poolerDictionary;
+    private Dictionary<string, PoolData> _poolDataLookup;
 
     /// <summary>
     /// This spawns all objects needed for the game
@@ -38,8 +40,10 @@ public class Pooler : MonoBehaviour
     private void Start()
     {
         _poolerDictionary = new Dictionary<string, Queue<GameObject>>();
+        _poolDataLookup = new Dictionary<string, PoolData>();
 
-        foreach(PoolData pool in poolDatas)
+
+        foreach (PoolData pool in poolDatas)
         {
             Queue<GameObject> objectQueue = new Queue<GameObject>();
             for(int i = 0; i < pool.size; i++)
@@ -49,6 +53,7 @@ public class Pooler : MonoBehaviour
                 objectQueue.Enqueue(obj);
             }
             _poolerDictionary.Add(pool.ID, objectQueue);
+            _poolDataLookup.Add(pool.ID, pool);
         }
     }
 
@@ -69,7 +74,8 @@ public class Pooler : MonoBehaviour
 
         if (spawnable.activeSelf)
         {
-            Debug.Log("possibly reached max count of eemies that can be on screen");
+            Debug.LogWarning($"[Pooler] Max pool size reached for '{ID}'. Queueing background pool extension.");
+            StartCoroutine(ExtendPoolOverFrames(ID, 10, 10)); // spawn 10 objects, 10 frames
             return null;
         }
         spawnable.SetActive(true);
@@ -84,5 +90,29 @@ public class Pooler : MonoBehaviour
 
         _poolerDictionary[ID].Enqueue(spawnable);
         return spawnable;
+    }
+
+    private IEnumerator ExtendPoolOverFrames(string ID, int batchSize, int batches)
+    {
+        if (!_poolDataLookup.ContainsKey(ID))
+        {
+            Debug.LogError("[Pooler] Can't extend pool. ID not found: " + ID);
+            yield break;
+        }
+
+        PoolData pool = _poolDataLookup[ID];
+
+        for (int b = 0; b < batches; b++)
+        {
+            for (int i = 0; i < batchSize; i++)
+            {
+                GameObject obj = Instantiate(pool.prefab, transform);
+                obj.SetActive(false);
+                _poolerDictionary[ID].Enqueue(obj);
+            }
+            yield return new WaitForEndOfFrame();
+        }
+
+        Debug.Log($"[Pooler] Extended pool '{ID}' by {batchSize * batches} objects.");
     }
 }

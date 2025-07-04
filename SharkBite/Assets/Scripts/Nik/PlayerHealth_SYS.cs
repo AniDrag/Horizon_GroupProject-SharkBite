@@ -18,7 +18,6 @@ public class PlayerHealth_SYS : MonoBehaviour
     [SerializeField] private PlayerStats _playerStats;
     Manager_Sound _audio;
 
-    public SceneManagement scenemanagement;
 
 
     public void Start()

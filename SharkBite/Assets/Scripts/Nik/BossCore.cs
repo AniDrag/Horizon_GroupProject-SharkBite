@@ -52,6 +52,7 @@ public class BossCore : EnemyCore
     {
         // Kick off the repeating attack loop
         isDead = false;
+        GameManager.instance.BossSpawned();
         attackRoutine = StartCoroutine(AttackLoop());
     }
 
@@ -117,9 +118,9 @@ public class BossCore : EnemyCore
 
         Vector3 direction = (playerPos - transform.position).normalized;
         if (direction.x < 0)
-            rotateMeshHolder.rotation = Quaternion.Euler(0, 0, 0);
+            rotateMeshHolder.localRotation = Quaternion.Euler(0, 0, 0);
         else
-            rotateMeshHolder.rotation = Quaternion.Euler(0, 180, 0);
+            rotateMeshHolder.localRotation = Quaternion.Euler(0, 180, 0);
 
         float distance = Vector3.Distance(transform.position, player.position);
         Vector3 targetPos = transform.position + direction * (distance + 15f);
@@ -141,7 +142,7 @@ public class BossCore : EnemyCore
     IEnumerator Summon()
     {
         animator.SetTrigger("Summon");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2.9f);
 
         currentPhase = BossPhase.Summon;
         for (int i = 0; i < spawnAliesCout; i++)

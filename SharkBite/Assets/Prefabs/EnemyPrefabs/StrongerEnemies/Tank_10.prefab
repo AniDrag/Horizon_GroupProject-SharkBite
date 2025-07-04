@@ -209,10 +209,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 1527
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -232,7 +232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085d09fce0badaf4cadad1a67f413718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data: {fileID: 0}
+  isCrab: 1
+  _animation: {fileID: 5350958736557488087}
+  _data: {fileID: 8165354024243218925}
 --- !u!1 &3552774489592900928
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +303,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _meleRange: 2
   _rangedUnitRange: 10
-  orientation: {fileID: 0}
+  orientation: {fileID: 5945709111207644670}
+  _animator: {fileID: 5350958736557488087}
 --- !u!114 &8165354024243218925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +323,7 @@ MonoBehaviour:
   damage: 5
   attackRatePerSecond: 2
   movemantSpeed: 3
+  animation: {fileID: 0}
 --- !u!65 &9191348022271994419
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -330,10 +334,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1408
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -639,3 +643,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4342143196f83439e47c39fc4f588e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotation: 50
