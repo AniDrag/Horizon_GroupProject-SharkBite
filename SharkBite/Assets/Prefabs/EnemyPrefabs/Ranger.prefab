@@ -128,7 +128,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1920
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c9354d79e5ba1458b3e8d4a3564cdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orientation: {fileID: 0}
+  orientation: {fileID: 4696877564053826480}
   bulletForce: 200
   _animation: {fileID: 6366789149062330506}
 --- !u!1001 &2229899107417561439
@@ -211,10 +211,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2564057526605207874}
     m_Modifications:
-    - target: {fileID: 7920272630393625579, guid: 3d2cf86cc413acd459e7afc477ef3cf6, type: 3}
-      propertyPath: m_SortingOrder
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 1282815575586158820, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -283,6 +279,10 @@ PrefabInstance:
       propertyPath: combatScript
       value: 
       objectReference: {fileID: 8531349145447062056}
+    - target: {fileID: 7920272630393625579, guid: 3d2cf86cc413acd459e7afc477ef3cf6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1107206340212222448, guid: 3d2cf86cc413acd459e7afc477ef3cf6, type: 3}
     - {fileID: 286740089695692757, guid: 54d92dce31633084baf3c5427e66c9e6, type: 3}

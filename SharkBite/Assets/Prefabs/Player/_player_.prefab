@@ -520,6 +520,7 @@ MonoBehaviour:
   orientation: {fileID: 4134298224538032283}
   _playerInput: {fileID: 5035826586059530451}
   itemPooler: {fileID: 0}
+  _animation: {fileID: 2276636210463000125}
 --- !u!95 &673033412403380136
 Animator:
   serializedVersion: 7
@@ -3535,6 +3536,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1838404722628664384}
   m_SourcePrefab: {fileID: 100100000, guid: 83cef0de336d2ba4d8a26dd4332eb1a1, type: 3}
+--- !u!95 &2276636210463000125 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5111432060530797857, guid: 83cef0de336d2ba4d8a26dd4332eb1a1, type: 3}
+  m_PrefabInstance: {fileID: 6446701598407879452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4426023116785733433 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7213408025462514725, guid: 83cef0de336d2ba4d8a26dd4332eb1a1, type: 3}
