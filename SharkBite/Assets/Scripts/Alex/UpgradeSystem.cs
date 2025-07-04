@@ -178,7 +178,6 @@ public class UpgradeSystem : MonoBehaviour
 
         //_buttonSprites = buttonSprites.ToDictionary(bs => bs.type, bs => bs.sprite);
 
-        OnLevelUp();
     }
 
     /// <summary>

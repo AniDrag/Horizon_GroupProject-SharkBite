@@ -887,6 +887,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13303edb140a3c143838bd973d982386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  causticsMat: {fileID: 2100000, guid: 3891930ba623bd24ebbb4dbb48e41e30, type: 2}
+  loadingScreen: {fileID: 7162255350937785001, guid: f86fb3c3fb2c2604293112c9405979aa, type: 3}
 --- !u!1 &5985320530642690751
 GameObject:
   m_ObjectHideFlags: 0
