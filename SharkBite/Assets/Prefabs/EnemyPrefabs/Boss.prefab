@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3962394141758869925}
   - component: {fileID: 735101620826795344}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: right forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6172667481342753434}
   - component: {fileID: 4789700650069244827}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: left arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7861746470104368362}
   - component: {fileID: 7875829185226033329}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: upper body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 7200289517500753425}
   - component: {fileID: 8342010876087900226}
   - component: {fileID: 2470409234764032810}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: AttackTriggerBox
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 7330901557971289202}
   - component: {fileID: 7544918854260623316}
   - component: {fileID: 2785166887272839477}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 2264802450597253160}
   - component: {fileID: 7787723343042478303}
   - component: {fileID: 6172489521721127208}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -636,7 +636,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2354963193656094884}
   - component: {fileID: 8048864457309272668}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: right hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -723,7 +723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3824748761091100897}
   - component: {fileID: 3800266506392865555}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: right upper arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -810,7 +810,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 525510725856625526}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -842,7 +842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1977718316896572175}
   - component: {fileID: 5064916745348940681}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: BossMeshHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -889,7 +889,7 @@ GameObject:
   - component: {fileID: 6769652250755380140}
   - component: {fileID: 143013675646078351}
   - component: {fileID: 7945721907970944589}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1001,7 +1001,7 @@ GameObject:
   - component: {fileID: 8799066258387090822}
   - component: {fileID: 7618018358933122414}
   - component: {fileID: 9124254264653904689}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1101,11 +1101,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 456838506393696868, guid: 2273e69ccfa40b44db4e59889cd120d8, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 580670160723039774, guid: 2273e69ccfa40b44db4e59889cd120d8, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3315470896274521464, guid: 2273e69ccfa40b44db4e59889cd120d8, type: 3}
       propertyPath: m_Color.b
@@ -1125,11 +1125,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4317126492601381379, guid: 2273e69ccfa40b44db4e59889cd120d8, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4328854423032057969, guid: 2273e69ccfa40b44db4e59889cd120d8, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4328854423032057969, guid: 2273e69ccfa40b44db4e59889cd120d8, type: 3}
       propertyPath: m_IsActive
@@ -1169,7 +1169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6057957256062921844, guid: 2273e69ccfa40b44db4e59889cd120d8, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6226255649402016316, guid: 2273e69ccfa40b44db4e59889cd120d8, type: 3}
       propertyPath: m_Pivot.x
@@ -1289,7 +1289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8864967107266475729, guid: 2273e69ccfa40b44db4e59889cd120d8, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8864967107266475729, guid: 2273e69ccfa40b44db4e59889cd120d8, type: 3}
       propertyPath: m_IsActive
