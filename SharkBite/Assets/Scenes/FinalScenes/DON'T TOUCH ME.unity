@@ -546,7 +546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7632952447089487324, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: waveList.Array.data[0].isBossWave
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8740302135202539654, guid: 481ce202be9ef0e4b829ca2df467a2e2, type: 3}
       propertyPath: m_LocalPosition.x
