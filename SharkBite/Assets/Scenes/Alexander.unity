@@ -5045,6 +5045,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2249277520894505926, guid: 30c23b6c4af92ae4885c3786687d488e, type: 3}
+      propertyPath: bossMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f2420f827793fa4bbbb882214914a2b, type: 3}
+    - target: {fileID: 2249277520894505926, guid: 30c23b6c4af92ae4885c3786687d488e, type: 3}
+      propertyPath: mainMenuMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 3081e1f643027184ebf7256d53f31357, type: 3}
+    - target: {fileID: 2249277520894505926, guid: 30c23b6c4af92ae4885c3786687d488e, type: 3}
+      propertyPath: normalCombatMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 04beb3c5c1bd6494fa4a2cc63a77f564, type: 3}
     - target: {fileID: 3569873590428608427, guid: 30c23b6c4af92ae4885c3786687d488e, type: 3}
       propertyPath: Player
       value: 
