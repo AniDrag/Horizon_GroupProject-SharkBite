@@ -136,29 +136,27 @@ public class BossCore : EnemyCore
     {
         animator.SetTrigger("Summon");
         yield return new WaitForSeconds(1);
-        if (spawnableEnemies.Count <= 0) yield return null;
-        else
+
+        currentPhase = BossPhase.Summon;
+        for (int i = 0; i < spawnAliesCout; i++)
         {
-            currentPhase = BossPhase.Summon;
-            for (int i = 0; i < spawnAliesCout; i++)
-            {
-                EnemyPrefab enemyToSpawn = spawnableEnemies[Random.Range(0, spawnableEnemies.Count - 1)];
+            EnemyPrefab enemyToSpawn = spawnableEnemies[Random.Range(0, spawnableEnemies.Count - 1)];
 
-                float angle = Random.Range(0, Mathf.PI * Random.Range(2, 3));
+            float angle = Random.Range(0, Mathf.PI * Random.Range(2, 3));
 
-                Vector3 rndPos = new Vector3(
-                    transform.position.x + Random.Range(10, 30) * Mathf.Cos(angle),
-                    0,
-                    transform.position.z + Random.Range(10, 30) * Mathf.Sin(angle)
-                );
+            Vector3 rndPos = new Vector3(
+                transform.position.x + Random.Range(10, 30) * Mathf.Cos(angle),
+                0,
+                transform.position.z + Random.Range(10, 30) * Mathf.Sin(angle)
+            );
 
-                GameObject enemy = Pooler.instance.SpawnFromPool(enemyToSpawn.enemyName, rndPos, Quaternion.identity);
-                enemy.GetComponent<EnemyHealth_SYS>().IsBossSpawn();// will not interact with spawner.
-                                                                    //Spawner_var2.instance._enemiesOnScreen.Add(enemy); // ISSUE
-                Debug.Log("spawning");
-                yield return null;
-            }
+            GameObject enemy = Pooler.instance.SpawnFromPool(enemyToSpawn.enemyName, rndPos, Quaternion.identity);
+            enemy.GetComponent<EnemyHealth_SYS>().IsBossSpawn();// will not interact with spawner.
+                                                                //Spawner_var2.instance._enemiesOnScreen.Add(enemy); // ISSUE
+            Debug.Log("spawning");
+            yield return null;
         }
+        
     }
     public void Enrage()
     {
