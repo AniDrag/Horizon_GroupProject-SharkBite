@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7833386250027480753
 Transform:
   m_ObjectHideFlags: 0
@@ -47,16 +47,16 @@ MonoBehaviour:
   poolDatas:
   - ID: XP
     prefab: {fileID: 7017670253318641998, guid: 682e149732ca6a34ab4bc893e760d0e3, type: 3}
-    size: 20
+    size: 200
   - ID: Tank
     prefab: {fileID: 1374787047932222435, guid: 8830b266651253b49860de2d4f731e88, type: 3}
-    size: 10
+    size: 100
   - ID: Warrior
     prefab: {fileID: 5835845769745244597, guid: 43d46cc2541dc3548a22818bf4e323b0, type: 3}
-    size: 10
+    size: 100
   - ID: Ranger
     prefab: {fileID: 5835845769745244597, guid: d56cb2db777de1940b62cbaa0c6d909e, type: 3}
-    size: 10
+    size: 100
   - ID: Bullet
     prefab: {fileID: 8342531266508567538, guid: 92027befcc9cf9040b6bda824499dc76, type: 3}
-    size: 100
+    size: 500
