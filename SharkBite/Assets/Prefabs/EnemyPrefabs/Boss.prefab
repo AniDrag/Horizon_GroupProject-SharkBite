@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &384835157393255878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2558508784489146664}
+  - component: {fileID: 203763880458870919}
+  m_Layer: 7
+  m_Name: BigBOiiiii
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2558508784489146664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384835157393255878}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1977718316896572175}
+  m_Father: {fileID: 385937524304309252}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &203763880458870919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384835157393255878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4342143196f83439e47c39fc4f588e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotation: 50
 --- !u!1 &2970557056203661433
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +589,7 @@ Transform:
   m_Children:
   - {fileID: 525510725856625526}
   - {fileID: 9195540571439951474}
-  - {fileID: 1977718316896572175}
+  - {fileID: 2558508784489146664}
   - {fileID: 4651425925647266019}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -605,6 +651,7 @@ MonoBehaviour:
   spawnAliesCout: 20
   spawnableEnemies:
   - {fileID: 11400000, guid: 9f25100630232944e9c07fbec3696a34, type: 2}
+  rotateMeshHolder: {fileID: 1977718316896572175}
 --- !u!65 &6172489521721127208
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -841,7 +888,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1977718316896572175}
-  - component: {fileID: 5064916745348940681}
   m_Layer: 7
   m_Name: BossMeshHolder
   m_TagString: Untagged
@@ -857,27 +903,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7520410137521802376}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.72, y: 0.72, z: 0.72}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6769652250755380140}
-  m_Father: {fileID: 385937524304309252}
+  m_Father: {fileID: 2558508784489146664}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5064916745348940681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7520410137521802376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e4342143196f83439e47c39fc4f588e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotation: 50
 --- !u!1 &7838192232207538422
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,6 +25,8 @@ public class BossCore : EnemyCore
     [SerializeField] private List<EnemyPrefab> spawnableEnemies;
     private RectTransform hpSlider;
 
+    [Header("Rotation")]
+    [SerializeField] private Transform rotateMeshHolder;
 
     private Coroutine attackRoutine;
     private bool isDead;
@@ -114,6 +116,10 @@ public class BossCore : EnemyCore
         playerPos.y = transform.position.y;
 
         Vector3 direction = (playerPos - transform.position).normalized;
+        if (direction.x < 0)
+            rotateMeshHolder.rotation = Quaternion.Euler(0, 0, 0);
+        else
+            rotateMeshHolder.rotation = Quaternion.Euler(0, 180, 0);
 
         float distance = Vector3.Distance(transform.position, player.position);
         Vector3 targetPos = transform.position + direction * (distance + 15f);
